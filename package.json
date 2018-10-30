@@ -1,0 +1,64 @@
+{
+  "name": "tripimagine",
+  "version": "1.0.0",
+  "description": "Luxury Travel Agency",
+  "homepage": "https://www.tripimagine.com/",
+  "main": "app.js",
+  "scripts": {
+    "server-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client",
+    "start": "node app.js",
+    "server": "nodemon app.js",
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "client-install": "npm install --prefix client",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kevinshirley/tripimagine.git"
+  },
+  "keywords": [
+    "luxury travel",
+    "trip",
+    "imagine",
+    "trip imagine",
+    "tour guide",
+    "safari",
+    "cruise",
+    "travel",
+    "agency",
+    "tour",
+    "guide",
+    "guided tour",
+    "cruises"
+  ],
+  "author": "Kevin Shirley",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/kevinshirley/tripimagine/issues"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.18.3",
+    "concurrently": "^3.6.1",
+    "cors": "^2.8.4",
+    "express": "^4.16.3",
+    "gravatar": "^1.6.0",
+    "jsonwebtoken": "^8.3.0",
+    "moment": "^2.22.2",
+    "mongoose": "^5.2.5",
+    "nodemailer": "^4.6.8",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0",
+    "react-swipeable-views": "^0.13.0",
+    "unsplash-js": "^4.8.0",
+    "validator": "^10.4.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
+    "babel-preset-stage-2": "^6.24.1",
+    "babel-register": "^6.26.0",
+    "nodemon": "^1.18.3"
+  }
+}
