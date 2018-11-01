@@ -40,10 +40,7 @@ import ContactSection2 from './components/contact/contact-section-2.js';
 import ContactSection3 from './components/contact/contact-section-3.js';
 import ContactSection4 from './components/contact/contact-section-4.js';
 // about-us
-import AboutUsSection1 from './components/about-us/about-us-section-1.js';
-import AboutUsSection2 from './components/about-us/about-us-section-2.js';
-import AboutUsSection3 from './components/about-us/about-us-section-3.js';
-import AboutUsSection4 from './components/about-us/about-us-section-4.js';
+import AboutUs from './components/about-us/about-us.js';
 // atlas
 import AtlasSection1 from './components/atlas/atlas-section-1.js';
 import AtlasSection2 from './components/atlas/atlas-section-2.js';
@@ -112,10 +109,7 @@ class App extends Component {
             <Route exact path="/contact" component={ ContactSection3 } />
             <Route exact path="/contact" component={ ContactSection4 } />
             {/* /about */}
-            <Route exact path="/about" component={ AboutUsSection1 } />
-            <Route exact path="/about" component={ AboutUsSection2 } />
-            <Route exact path="/about" component={ AboutUsSection3 } />
-            <Route exact path="/about" component={ AboutUsSection4 } />
+            <Route exact path="/about" component={ AboutUs } />
             {/* /atlas */}
             <Route exact path="/atlas" component={ AtlasSection1 } />
             <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />
