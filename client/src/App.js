@@ -17,12 +17,7 @@ import PrivateRoute from './components/common/PrivateRoute';
 import Menu from './components/menu.js';
 import Footer from './components/footer.js';
 // home
-import HomeSection1 from './components/home/home-section-1.js';
-import HomeSection2 from './components/home/home-section-2.js';
-import HomeSection3 from './components/home/home-section-3.js';
-import HomeSection4 from './components/home/home-section-4.js';
-import HomeSection5 from './components/home/home-section-5.js';
-import HomeSection6 from './components/home/home-section-6.js';
+import Home from './components/home/home.js';
 // signin
 import SigninSection1 from './components/sign-in/signin-section-1.js';
 import SigninSection2 from './components/sign-in/signin-section-2.js';
@@ -83,12 +78,7 @@ class App extends Component {
           <div className="App">
             <Menu />
             {/* /home */}
-            <Route exact path="/" component={ HomeSection1 } />
-            <Route exact path="/" component={ HomeSection2 } />
-            <Route exact path="/" component={ HomeSection3 } />
-            <Route exact path="/" component={ HomeSection4 } />
-            <Route exact path="/" component={ HomeSection5 } />
-            <Route exact path="/" component={ HomeSection6 } />
+            <Route exact path="/" component={ Home } />
             {/* /signin */}
             <Route exact path="/login" component={ SigninSection1 } />
             <Route exact path="/login" component={ SigninSection2 } />
