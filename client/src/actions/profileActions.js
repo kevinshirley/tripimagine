@@ -1,5 +1,6 @@
 import axios from 'axios';
 import qs from 'qs';
+import isEmpty from '../validation/is-empty';
 
 import { GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE, GET_ERRORS } from './types';
 
@@ -36,10 +37,10 @@ export const createProfile = (profileData, history) => dispatch => {
   }; // 'http://www.tripimagine.com:5000/profile'
 
   axios(options)
-    .then(res => history.push('/dashboard'))
+    .then(res => /*(!isEmpty(res) ? '' : history.push('/dashboard'))*/ console.log(res))
     .catch(err => dispatch({
       type: GET_ERRORS,
-      payload: err.response
+      payload: err.response.data
     }));
 }
 

@@ -63,7 +63,7 @@ class ManageProfileSection2 extends Component {
       'linkedin': this.state.linkedin,
     };
 
-    // this.props.createProfile(profileData, this.props.history);
+    this.props.createProfile(profileData, this.props.history);
     console.log(profileData);
   }
 

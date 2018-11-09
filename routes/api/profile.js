@@ -72,16 +72,15 @@ router.get('/users/all', passport.authenticate('jwt', { session: false }), (req,
 // @route   GET /profile
 // @desc    get current users profile
 // @access  Private
-var corsOptions = {
-  origin: true,
-  credentials: false,
-  methods: ['POST'],
-  allowedHeaders: ['Content-Type', 'Authorization']
-}; /* change origin to 'http://www.tripimagine.com' when prep for production */
+router.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
+  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
+  res.append('Access-Control-Max-Age', 86400);
+  next();
+});
 
-app.options('/', cors(corsOptions));
-// passport.authenticate('jwt', { session: false }),
-router.get('/', cors(corsOptions), (req, res) => {
+router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
   const errors = {};
 
   Profile.findOne({ user: req.user.id })
