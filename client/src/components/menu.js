@@ -148,6 +148,7 @@ class Menu extends Component {
       $('.trip-form').removeClass('trip-form-not-visible').addClass('trip-form-is-visible');
       // display background overlay
       $('.trip-form').css('background', 'rgba(11,11,11,0.5)');
+      // $('.container').css('background', 'rgba(11,11,11,0.5)');
     }
   }
 

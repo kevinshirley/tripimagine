@@ -39,7 +39,7 @@ export const createProfile = (profileData, history) => dispatch => {
     .then(res => history.push('/dashboard'))
     .catch(err => dispatch({
       type: GET_ERRORS,
-      payload: err.response
+      payload: err.response.data
     }));
 }
 
