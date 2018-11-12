@@ -5,7 +5,8 @@ import { withRouter } from 'react-router-dom';
 // import Fade from 'react-reveal/Fade';
 import TextFieldGroup from '../common/textfieldgroup';
 import SelectListGroup from '../common/select-list-group';
-import { createProfile } from '../../actions/profileActions';
+import { Button } from '../common/common-button';
+import { createProfile, getCurrentProfile } from '../../actions/profileActions';
 
 const initialState = {
   displaySocialInputs: false,
@@ -31,15 +32,15 @@ class ManageProfileSection2 extends Component {
     this.onSubmit = this.onSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.getCurrentProfile();
+  }
+
   onSubmit(e) {
     e.preventDefault();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.auth.isAuthenticated) {
-      this.props.history.push('/dashboard');
-    }
-
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
@@ -64,7 +65,6 @@ class ManageProfileSection2 extends Component {
     };
 
     this.props.createProfile(profileData, this.props.history);
-    console.log(profileData);
   }
 
   render() {
@@ -195,7 +195,7 @@ class ManageProfileSection2 extends Component {
               </div>
 
               <div className="button-wrapper">
-                <button onClick={this.onCreateProfile}><div>Save</div><div><i className="fab fa-telegram-plane"></i></div></button>
+                <Button name="Save" icon="send" onClick={this.onCreateProfile} />
               </div>
 
             </div>
@@ -211,6 +211,8 @@ ManageProfileSection2.proptypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
+  createProfile: PropTypes.func.isRequired,
+  getCurrentProfile: PropTypes.func.isRequired
 };
 
 const mapStateToProps = (state) => ({
@@ -219,4 +221,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { createProfile })(withRouter(ManageProfileSection2));
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(ManageProfileSection2));

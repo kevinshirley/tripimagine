@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 import $ from "jquery";
-import { Link } from 'react-router-dom';
+import DashTabContainer0 from './dashboard-tab-containers/dash-tab-container-0';
 import DashTabContainer1 from './dashboard-tab-containers/dash-tab-container-1';
 import DashTabContainer2 from './dashboard-tab-containers/dash-tab-container-2';
 import DashTabContainer3 from './dashboard-tab-containers/dash-tab-container-3';
@@ -65,27 +65,17 @@ class DashboardTabContainers extends Component {
 
   render() {
     let hasProfile = this.props.hasProfile;
+    let name = this.props.name;
     return (
       <div>
         <div id="dash-container_0" className="dash-container">
-          <h5>Hi {this.props.name} ! Choose one of the tab menu to get started.</h5>
-          <br/>
-          <div className="row" style={{ display: hasProfile ? 'none' : 'block' }}>
-            <div className="alert alert-warning" >
-              <p>You have not yet setup your profile, please add some info before you continue.</p>
-              <Link to="/dashboard/manage-profile">Manage Profile</Link>
-            </div>
-          </div>
-          <div className="row">
-            <div className="alert alert-info" >
-              <p>You can manage or build your next trip with any tour activities in a destination of your like. A travel consultant can guide you anytime along the process, if needed.</p>
-              <Link to="/dashboard/trips">My Trips</Link>
-            </div>
-          </div>
+          <Fade bottom>
+            <DashTabContainer0 hasProfile={hasProfile} name={name} />
+          </Fade>
         </div>
         <div id="dash-container_1" className="dash-container">
           <Fade bottom>
-            <DashTabContainer1 hasProfile={this.props.hasProfile} />
+            <DashTabContainer1 hasProfile={this.props.hasProfile} name={name} />
           </Fade>
         </div>
         <div id="dash-container_2" className="dash-container">

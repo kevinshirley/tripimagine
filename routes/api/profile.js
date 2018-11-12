@@ -12,6 +12,15 @@ const validateTripInput = require('../../validation/trip');
 const Profile = require('../../models/Profile');
 const User = require('../../models/User');
 
+// response headers
+router.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
+  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
+  res.append('Access-Control-Max-Age', 86400);
+  next();
+});
+
 // @route   GET /profile/:handle
 // @desc    get profile by handle
 // @access  Private
@@ -72,14 +81,6 @@ router.get('/users/all', passport.authenticate('jwt', { session: false }), (req,
 // @route   GET /profile
 // @desc    get current users profile
 // @access  Private
-router.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);
-  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
-  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
-  res.append('Access-Control-Max-Age', 86400);
-  next();
-});
-
 router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => {
   const errors = {};
 
