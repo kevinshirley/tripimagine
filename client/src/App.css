@@ -64,6 +64,51 @@ a:hover {
   }
 }
 
+/* common */
+/*common-button*/
+#common-button-url a button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: #31708f;
+  transition: .2s;
+  cursor: pointer;
+}
+
+#common-button-url a button:hover {
+  color: #015197;
+}
+
+#common-button-url a button small {
+  margin-top: 5px;
+}
+
+#common-button button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: #31708f;
+  transition: .2s;
+  cursor: pointer;
+  outline: none;
+}
+
+#common-button button:hover {
+  color: #015197;
+}
+
+#common-button button small {
+  margin-top: 5px;
+}
+
 /* header page */
 .header-section {
   width: 100%;
@@ -2315,6 +2360,81 @@ a:hover {
   margin-right: 3%;
   margin-right: 2%;
   width: 75%;
+}
+
+/* dash-container_0 */
+#dash-container_0 div div h5 a {
+  color: #656667;
+  transition: .2s;
+}
+
+#dash-container_0 div div h5 a:hover {
+  color: #015197;
+}
+
+#dash-container_0 div div h5 a small {
+  /* padding: 3% auto; */
+  margin-top: 5px;
+}
+
+#dash-container_0 div div .row .alert {
+  padding-bottom: 25px;
+  padding-bottom: 20px;
+}
+
+#dash-container_0 div div .row .alert a button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: #31708f;
+  transition: .2s;
+  cursor: pointer;
+}
+
+#dash-container_0 div div .row .alert a button small {
+  margin-top: 5px;
+}
+
+#dash-container_0 div div .row .alert a:hover {
+  color: #015197;
+}
+
+/* dash-container_1 */
+#dash-container_1 div div .user-info 
+.user-info-btns {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+#dash-container_1 div div .user-info 
+.user-info-btns a {
+  margin-right: 6%;
+}
+
+#dash-container_1 div div .user-info 
+.user-info-btns a button {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 18px;
+  width: 100%;
+  background: #fff;
+  padding: 4px 10px;
+  border-radius: 3px;
+  color: #31708f;
+  transition: .2s;
+  cursor: pointer;
+}
+
+#dash-container_1 div div .user-info 
+.user-info-btns a button small {
+  /* padding: 3% auto; */
+  margin-top: 5px;
 }
 
 /* create-profile-section-2 */

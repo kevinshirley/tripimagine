@@ -8,7 +8,7 @@ import { GET_ERRORS, SET_CURRENT_USER } from './types';
 export const registerUser = (userData, history) => dispatch => {
   const options = {
     method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
     url: 'http://localhost:5000/users/register'
   }; // 'http://www.tripimagine.com:5000/users/register'
@@ -25,7 +25,7 @@ export const registerUser = (userData, history) => dispatch => {
 export const loginUser = userData => dispatch => {
   const options = {
     method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
     url: 'http://localhost:5000/users/login'
   }; // 'http://www.tripimagine.com:5000/users/login'

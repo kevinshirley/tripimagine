@@ -33,6 +33,8 @@ class DashboardTabsMenu extends Component {
   render() {
     return (
       <div className="list-group">
+        <button className="tab list-group-item list-group-item-action" id="_0" onClick={this.changeTabs}><i className="material-icons">home</i>&nbsp;&nbsp; Home</button>
+
         <button className="tab list-group-item list-group-item-action" id="_1" onClick={this.changeTabs}><i className="far fa-user-circle"></i>&nbsp;&nbsp; Profile</button>
 
         <button className="tab list-group-item list-group-item-action" id="_2" onClick={this.changeTabs}><i className="fas fa-plane"></i>&nbsp;&nbsp; My Trips</button>
