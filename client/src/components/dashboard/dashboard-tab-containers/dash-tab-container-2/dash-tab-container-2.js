@@ -6,6 +6,8 @@ import SwipeableViews from 'react-swipeable-views';
 import AppBar from '@material-ui/core/AppBar';
 import Tabs from '@material-ui/core/Tabs';
 import Tab from '@material-ui/core/Tab';
+import UpcomingTrips from './upcoming-trips';
+import PastTrips from './past-trips';
 
 function TabContainer({ children, dir }) {
   return (
@@ -69,14 +71,10 @@ class DashTabContainer2 extends Component {
           onChangeIndex={this.handleChangeIndex}
         >
           <TabContainer dir={theme.direction}>
-            <h5>You don't have any planned trips yet</h5>
-            <p>Contact a Trip Imagine Consultant now!</p>
-            <button>Plan Your Dream Vacation</button>
+            <UpcomingTrips hasProfile={this.props.hasProfile} />
           </TabContainer>
           <TabContainer dir={theme.direction}>
-            <h5>You don't have no past planned trips yet</h5>
-            <p>Contact a Trip Imagine Consultant now!</p>
-            <button>Plan Your Dream Vacation</button>
+            <PastTrips hasProfile={this.props.hasProfile} />
           </TabContainer>
         </SwipeableViews>
       </div>

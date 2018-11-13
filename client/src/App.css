@@ -2504,6 +2504,46 @@ a:hover {
   width: 490px;
 }
 
+/* upcoming-trips */
+.upcoming-trips .has-profile ul {
+  list-style-type: none;
+  margin-bottom: 40px;
+}
+
+.upcoming-trips .has-profile ul li {
+  margin-bottom: 15px;
+}
+
+/* single-trip-section-2 */
+.single-trip-section-2 {
+  background: #fff;
+  width: 100%;
+}
+
+.single-trip-section-2 .overlay {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-trip-section-2 .overlay ul {
+  list-style-type: none;
+  /* width: 90%; */
+  padding-top: 25px;
+}
+
+.single-trip-section-2 .overlay ul li {
+  margin-bottom: 15px;
+}
+
+.single-trip-section-2 .overlay .single-trip {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 /* Footer */
 .footer {
   background: #fff;

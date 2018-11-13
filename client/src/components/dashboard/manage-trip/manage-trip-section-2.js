@@ -2,11 +2,10 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-// import Fade from 'react-reveal/Fade';
-import TextFieldGroup from '../common/textfieldgroup';
-import SelectListGroup from '../common/select-list-group';
-import { Button } from '../common/common-button';
-import { createProfile, getCurrentProfile } from '../../actions/profileActions';
+import TextFieldGroup from '../../common/textfieldgroup';
+import SelectListGroup from '../../common/select-list-group';
+import { Button } from '../../common/common-button';
+import { createProfile, getCurrentProfile } from '../../../actions/profileActions';
 
 const initialState = {
   displaySocialInputs: false,
@@ -21,7 +20,7 @@ const initialState = {
   errors: {}
 };
 
-class ManageProfileSection2 extends Component {
+class ManageTripSection2 extends Component {
   constructor() {
     super();
 
@@ -207,7 +206,7 @@ class ManageProfileSection2 extends Component {
   }
 }
 
-ManageProfileSection2.proptypes = {
+ManageTripSection2.proptypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
@@ -221,4 +220,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(ManageProfileSection2));
+export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(ManageTripSection2));

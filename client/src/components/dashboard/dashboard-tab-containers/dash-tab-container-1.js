@@ -14,7 +14,6 @@ class DashTabContainer1 extends Component {
     let hasProfile = this.props.hasProfile;
     let name = this.props.name;
     let profile = this.props.profile.profile;
-    console.log(profile);
     return (
       <div className="dash-tab-container-1">
         <span>Profile</span>
@@ -27,12 +26,14 @@ class DashTabContainer1 extends Component {
           </small>
         </div>
 
+        {profile.trip && 
         <div className="trip-details">
           <small>Trips</small>
           <p>Number of Trips: { profile.trip.length } planned</p>
         </div>
+        }
 
-        <div className="profile-details">
+        <div className="profile-details" style={{ display: !hasProfile ? 'none' : 'block' }}>
           <small>Profile</small>
           <p>Gender: { profile.gender }</p>
           <p>Handle: { profile.handle }</p>

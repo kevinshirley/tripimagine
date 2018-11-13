@@ -53,7 +53,11 @@ import ContinentSection1 from './components/atlas/continent/continent-section-1.
 import ContinentSection2 from './components/atlas/continent/continent-section-2.js';
 import ContinentSection3 from './components/atlas/continent/continent-section-3.js';
 // manage-profile
-import ManageProfile from './components/manage-profile/manage-profile';
+import ManageProfile from './components/dashboard/manage-profile/manage-profile';
+// manage-trip
+// import ManageTrip from './components/dashboard/manage-trip/manage-trip';
+// single-trip
+import SingleTrip from './components/dashboard/single-trip/single-trip';
 
 // check for token
 if (localStorage.jwtToken) {
@@ -102,6 +106,10 @@ class App extends Component {
             {/* /manage-profile */}
             <Switch>
               <PrivateRoute exact path="/dashboard/manage-profile" component={ ManageProfile } />
+            </Switch>
+            {/* /single-trip */}
+            <Switch>
+              <PrivateRoute exact path="/dashboard/trip/:id" component={ SingleTrip } />
             </Switch>
             {/* /blog */}
             <Route exact path="/blog" component={ BlogSection1 } />

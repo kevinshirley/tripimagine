@@ -3,7 +3,7 @@ import Fade from 'react-reveal/Fade';
 import $ from "jquery";
 import DashTabContainer0 from './dashboard-tab-containers/dash-tab-container-0';
 import DashTabContainer1 from './dashboard-tab-containers/dash-tab-container-1';
-import DashTabContainer2 from './dashboard-tab-containers/dash-tab-container-2';
+import DashTabContainer2 from './dashboard-tab-containers/dash-tab-container-2/dash-tab-container-2';
 import DashTabContainer3 from './dashboard-tab-containers/dash-tab-container-3';
 import DashTabContainer4 from './dashboard-tab-containers/dash-tab-container-4';
 import DashTabContainer5 from './dashboard-tab-containers/dash-tab-container-5';
@@ -80,7 +80,7 @@ class DashboardTabContainers extends Component {
         </div>
         <div id="dash-container_2" className="dash-container">
           <Fade bottom>
-            <DashTabContainer2 />
+            <DashTabContainer2 hasProfile={this.props.hasProfile} />
           </Fade>
         </div>
         <div id="dash-container_3" className="dash-container">
