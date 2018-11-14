@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import moment from 'moment';
+import AccordionSidePanel from '../../common/side-panel/accordion-side-panel';
 
 class SingleTripSection2 extends Component {
   constructor() {
@@ -22,11 +23,11 @@ class SingleTripSection2 extends Component {
 
                 <div key={i} className="single-trip">
 
-                  <div>
-                    files
+                  <div className="side-panel">
+                    <AccordionSidePanel profile={profile} tripID={tripID} from="single-trip" />
                   </div>
 
-                  <ul>
+                  <ul className="trip-details">
                     <li><b>Status:</b> {trip.status}</li>
                     <li><b>Destination:</b> {trip.destination}</li>
                     <li><b>From:</b> {trip.from}</li>

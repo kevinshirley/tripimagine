@@ -143,6 +143,61 @@ a:hover {
   padding-left: 12%;
 }
 
+/* accordion-side-panel */
+.accordion-side-panel .overlay {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.file-table {
+  width: 100%;
+}
+
+.upload-files-panel {
+  width: 100%;
+  margin-right: -200px;
+}
+
+/* table */
+.table {
+  display: table;
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.table-cell {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.table .table-row .table-head-cell,
+.table .table-row .table-cell {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+.table .table-row:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.table .table-row:nth-child(odd) {
+  background-color: #fff;
+}
+
+/* .table .table-row-container:hover {
+  background-color: #ddd;
+} */
+
+.table .table-head-row {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: rgb(34, 34, 34);
+  color: white;
+}
+/* end common */
+
 /* forms */
 .content .input-wrapper {
   /* border: 1px solid green; */
@@ -197,6 +252,7 @@ a:hover {
 .content .input-wrapper .inner-wrap .input-container select:focus {
   border-bottom: 1.5px solid rgba(134,174,204,1);
 }
+
 /* end general */
 
 /* keyframes */
@@ -2518,10 +2574,13 @@ a:hover {
 .single-trip-section-2 {
   background: #fff;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .single-trip-section-2 .overlay {
-  width: 100%;
+  width: 95%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -2542,6 +2601,17 @@ a:hover {
   display: flex;
   justify-content: space-around;
   align-items: center;
+}
+
+.single-trip-section-2 .overlay .single-trip .side-panel {
+  width: 40%;
+  margin-right: 5%;
+  /* border: 1px solid #000; */
+}
+
+.single-trip-section-2 .overlay .single-trip .trip-details {
+  width: 60%;
+  /* border: 1px solid #000; */
 }
 
 /* Footer */
