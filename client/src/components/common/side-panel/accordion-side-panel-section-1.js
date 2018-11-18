@@ -32,7 +32,7 @@ class AccordionSidePanelSection1 extends Component {
           <ExpansionPanelSummary>
             <h5>Files</h5>
           </ExpansionPanelSummary>
-          <ExpansionPanelDetails>
+          <ExpansionPanelDetails className="files-panel-container">
 
             <FilesPanel />
 

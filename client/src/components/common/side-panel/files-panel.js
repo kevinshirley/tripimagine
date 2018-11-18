@@ -5,7 +5,7 @@ import { Button } from '../common-button';
 class FilesPanel extends Component {
   render() {
     return (
-      <section className="upload-files-panel">
+      <section className="files-panel">
         <div className="overlay">
 
           <Table>
@@ -15,30 +15,32 @@ class FilesPanel extends Component {
               <HeadCell>Date</HeadCell>
               <HeadCell>Option</HeadCell>
             </HeadRow>
-            <Row>
-              <Cell>file1.docx</Cell>
-              <Cell>Itenarary</Cell>
-              <Cell>Yesterday</Cell>
-              <Cell><Button name="Download" icon="get_app" /></Cell>
-            </Row>
-            <Row>
-              <Cell>file2.docx</Cell>
-              <Cell>Finance</Cell>
-              <Cell>Yesterday</Cell>
-              <Cell><Button name="Download" icon="get_app" /></Cell>
-            </Row>
-            <Row>
-              <Cell>file3.docx</Cell>
-              <Cell>Itenarary</Cell>
-              <Cell>2 Days Ago</Cell>
-              <Cell><Button name="Download" icon="get_app" /></Cell>
-            </Row>
-            <Row>
-              <Cell>file4.docx</Cell>
-              <Cell>Itenarary</Cell>
-              <Cell>2 Days Ago</Cell>
-              <Cell><Button name="Download" icon="get_app" /></Cell>
-            </Row>
+            <tbody>
+              <Row>
+                <Cell>file1.docx</Cell>
+                <Cell>Itenarary</Cell>
+                <Cell>Yesterday</Cell>
+                <Cell><Button name="Download" icon="get_app" /></Cell>
+              </Row>
+              <Row>
+                <Cell>file2.docx</Cell>
+                <Cell>Finance</Cell>
+                <Cell>Yesterday</Cell>
+                <Cell><Button name="Download" icon="get_app" /></Cell>
+              </Row>
+              <Row>
+                <Cell>file3.docx</Cell>
+                <Cell>Itenarary</Cell>
+                <Cell>2 Days Ago</Cell>
+                <Cell><Button name="Download" icon="get_app" /></Cell>
+              </Row>
+              <Row>
+                <Cell>file4.docx</Cell>
+                <Cell>Itenarary</Cell>
+                <Cell>2 Days Ago</Cell>
+                <Cell><Button name="Download" icon="get_app" /></Cell>
+              </Row>
+            </tbody>
           </Table>
           
         </div>

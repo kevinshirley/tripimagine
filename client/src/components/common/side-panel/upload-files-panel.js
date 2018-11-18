@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import { Button } from '../common-button';
+import { uploadFIle } from '../../../actions/fileActions';
 
 class UploadFilesPanel extends Component {
   constructor() {
@@ -25,19 +28,27 @@ class UploadFilesPanel extends Component {
     // this.uploadInput.files[0]
     // data.append('file', this.fileRef.current);
     let currentUpload = this.fileRef.current.files[0];
-    console.log(currentUpload);
+    let targetFile = document.getElementById('uploadedFile');
+    let obj = {
+      file: currentUpload,
+      targetFile: targetFile,
+      filename: 'imageUploaded',
+      upload: true
+    };
+    // console.log(currentUpload);
+    this.props.uploadFIle(obj);
   }
 
   render() {
     return (
-      <section className="download-files-panel">
+      <section className="upload-files-panel">
         <div className="overlay">
 
-          <form>
+          <form onSubmit={this.onSubmit}>
             <small>Upload any file needed for your Trip</small>
             <br/>
             <br/>
-            <input name="file" type="file" ref={this.fileRef} />
+            <input id="uploadedFile" name="file" type="file" ref={this.fileRef} />
             <br/>
             <br/>
             <Button name="Upload" icon="cloud_upload" onClick={this.onUpload}  />
@@ -49,4 +60,13 @@ class UploadFilesPanel extends Component {
   }
 }
 
-export default UploadFilesPanel;
+UploadFilesPanel.propTypes = {
+  uploadFIle: PropTypes.func.isRequired,
+  file: PropTypes.object.isRequired
+};
+
+const mapStateToProps = (state) => ({
+  file: state.file
+});
+
+export default connect(mapStateToProps, { uploadFIle })(UploadFilesPanel);

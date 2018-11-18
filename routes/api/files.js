@@ -15,13 +15,15 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post('/', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const isValid = isEmpty(req.body);
+router.post('/upload', passport.authenticate('jwt', { session: false }), (req, res) => {
+  const errors = {};
+  const notValid = isEmpty(req.body);
 
   // check validation
-  if (!isValid) {
-    return res.status(400).json(errors);
-  }
+  // if (notValid) {
+  //   errors.error = 'The object is empty';
+  //   return res.status(400).json(errors);
+  // }
 
   // sample upload code
   // cloudinary.uploader.upload("sample.jpg", {"crop":"limit","tags":"samples","width":3000,"height":2000}, function(result) { console.log(result) });
@@ -29,9 +31,26 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   // sample image manipulation tag
   // cloudinary.image("sample", {"crop":"fill","gravity":"faces","width":300,"height":200,"format":"jpg"});
 
-  cloudinary.config({ 
-    cloud_name: 'tripimagine', 
-    api_key: '874837483274837', 
-    api_secret: 'a676b67565c6767a6767d6767f676fe1' 
-  });
+  // cloudinary.config({ 
+  //   cloud_name: 'tripimagine', 
+  //   api_key: '874837483274837', 
+  //   api_secret: 'a676b67565c6767a6767d6767f676fe1' 
+  // });
+
+  // cloudinary.v2.uploader.upload("my_picture.jpg", 
+  // function(error, result) {console.log(result, error)});
+
+  // let imageFile = req.files;
+
+  // imageFile.mv(`${__dirname}/client/src/assets/${req.body.filename}.png`, function(err) {
+  //   if (err) {
+  //     return res.status(500).send({mvError: err});
+  //   }
+
+  //   res.json({file: `client/src/assets/${req.body.filename}.png`});
+  // });
+
+  return res.json({ file: req.files });
 });
+
+module.exports = router;

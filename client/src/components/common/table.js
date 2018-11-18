@@ -1,29 +1,23 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export const Cell = ({large, small, children, className}) => (
-  <td className={'table-cell' + (className ? ' ' + className : '') + (large ? ' large' : '') + (small ? ' small' : '')}>
-      {children}
-  </td>
-);
-
 export const HeadCell = ({large, small, children, className}) => (
   <th className={'table-head-cell' + (className ? ' ' + className : '') + (large ? ' large' : '') + (small ? ' small' : '')}>
       {children}
   </th>
 );
 
-// export const Header = ({children, className}) => (
-//   <div className={'table-row-head ' + className}>
-//       {children}
-//   </div>
-// );
+export const HeadRow = ({children, className, onClick}) => (
+  <tr onClick={onClick} className={'table-head-row ' + className}>
+      {children}
+  </tr>
+);
 
-// export const Body = ({children, className}) => (
-//   <div className={'table-row-container ' + className}>
-//       {children}
-//   </div>
-// );
+export const Body = ({children, className}) => (
+  <tbody className={'table-body-container ' + className}>
+      {children}
+  </tbody>
+);
 
 export const Row = ({children, className, onClick}) => (
   <tr onClick={onClick} className={'table-row ' + className}>
@@ -31,10 +25,10 @@ export const Row = ({children, className, onClick}) => (
   </tr>
 );
 
-export const HeadRow = ({children, className, onClick}) => (
-  <tr onClick={onClick} className={'table-head-row ' + className}>
+export const Cell = ({large, small, children, className}) => (
+  <td className={'table-cell' + (className ? ' ' + className : '') + (large ? ' large' : '') + (small ? ' small' : '')}>
       {children}
-  </tr>
+  </td>
 );
 
 export const Table = ({children, className}) => (
@@ -55,13 +49,13 @@ Cell.defaultProps = {
   className: ''
 };
 
-// Body.defaultProps = {
-//   className: ''
-// };
+Body.defaultProps = {
+  className: ''
+};
 
-// Header.defaultProps = {
-//   className: ''
-// };
+HeadRow.defaultProps = {
+  className: ''
+};
 
 Table.propTypes = {
   className: PropTypes.string,

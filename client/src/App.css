@@ -2614,6 +2614,32 @@ a:hover {
   /* border: 1px solid #000; */
 }
 
+/* file-table */
+  
+
+.file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
+.MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
+.MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 
+.files-panel-container  {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.file-table .files-panel-container {
+  overflow: auto;
+  white-space: nowrap;
+}
+
+/* file-panel */
+.files-panel {
+  padding-right: 30px;
+}
+
 /* Footer */
 .footer {
   background: #fff;
