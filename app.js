@@ -16,8 +16,8 @@ var files = require('./routes/api/files');
 const app = express();
 
 // Body parser middleware
-app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
 // db config
 const db = require('./config/keys').mongoURI;

@@ -13,8 +13,10 @@ export const uploadFIle = (file) => dispatch => {
   // };
   const options = {
     method: 'POST',
-    headers: { 'content-type': 'application/x-www-form-urlencoded' },
-    data: qs.stringify(file),
+    headers: { 'Content-Type': 'multipart/form-data' },
+    // config: { headers: { 'Content-Type': 'multipart/form-data' } },
+    // data: qs.stringify(file),
+    data: file,
     url: 'http://localhost:5000/files/upload'
   }; // 'http://www.tripimagine.com:5000/files/profile'
 

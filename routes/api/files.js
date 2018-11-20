@@ -3,10 +3,34 @@ const router = express.Router();
 const passport = require('passport');
 const isEmpty = require('../../validation/is-empty');
 var cloudinary = require('cloudinary');
+// const fileUpload = require('express-fileupload');
+const multer = require('multer');
+const path = require('path');
 
-// @route   GET /profile/:handle
-// @desc    get profile by handle
-// @access  Private
+// set storage engine
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, './client/public/uploads');
+  },
+  filename: (req, file, cb) => {
+    cb(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+// init upload
+// const upload = multer({
+//   storage: storage
+// }).fields([{
+//   name: 'file'
+// }, {
+//   name: 'filename'
+// }]);
+// const upload = multer({
+//   storage: storage
+// }).single('avatar');
+const upload = multer({ storage });
+
+// response headers
 router.use((req, res, next) => {
   res.append('Access-Control-Allow-Origin', ['*']);
   res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
@@ -15,9 +39,11 @@ router.use((req, res, next) => {
   next();
 });
 
-router.post('/upload', passport.authenticate('jwt', { session: false }), (req, res) => {
-  const errors = {};
-  const notValid = isEmpty(req.body);
+// router.use(fileUpload());
+
+router.post('/upload', upload.single('avatar'), (req, res) => {
+  // const errors = {};
+  // const notValid = isEmpty(req.body);
 
   // check validation
   // if (notValid) {
@@ -50,7 +76,21 @@ router.post('/upload', passport.authenticate('jwt', { session: false }), (req, r
   //   res.json({file: `client/src/assets/${req.body.filename}.png`});
   // });
 
-  return res.json({ file: req.files });
+  // upload(req, res, (err) => {
+  //   if (err) {
+  //     return res.json({ msg: err });
+  //   } else {
+  //     console.log(req.file);
+  //     return res.json({ msg: 'test' });
+  //   }
+  // });
+
+  console.log(req.file);
+  console.log(req.files);
+  console.log(req.body);
+  res.send();
+
+  // return res.json({ file: req.files, body: req.body });
 });
 
 module.exports = router;
