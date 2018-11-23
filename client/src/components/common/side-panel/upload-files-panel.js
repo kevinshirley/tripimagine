@@ -2,15 +2,26 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from '../common-button';
+import SelectListGroup from '../select-list-group';
 import { uploadFIle } from '../../../actions/fileActions';
+
+const categoryOptions = [
+  { value: 0, label: 'Select a category' },
+  { value: 1, label: 'Itinerary' },
+  { value: 2, label: 'Financial' },
+  { value: 3, label: 'Reservation' },
+  { value: 4, label: 'Booking' },
+  { value: 5, label: 'Other' }
+];
 
 class UploadFilesPanel extends Component {
   constructor() {
     super();
 
     this.state = {
-      avatar: {},
-      filename: ''
+      document: {},
+      category: '0',
+      categoryLabel: ''
     };
 
     this.fileRef = React.createRef();
@@ -18,16 +29,21 @@ class UploadFilesPanel extends Component {
     this.onSubmit = this.onSubmit.bind(this);
     this.onUpload = this.onUpload.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
+    this.onChange = this.onChange.bind(this);
   }
 
   onSubmit(e) {
     e.preventDefault();
   }
 
+  onChange(e) {
+    this.setState({[e.target.name]: e.target.value});
+  }
+
   onInputChange = (e) => {
     switch (e.target.name) {
-      case 'avatar':
-        this.setState({ avatar: e.target.files[0] });
+      case 'document':
+        this.setState({ document: e.target.files[0] });
         break;
       default:
         this.setState({ [e.target.name]: e.target.value });
@@ -37,29 +53,26 @@ class UploadFilesPanel extends Component {
   onUpload(e) {
     e.preventDefault();
 
-    // const data = new FormData();
-    // this.uploadInput.files[0]
-    // data.append('file', this.fileRef.current);
-    // let currentUpload = this.fileRef.current.files[0];
-    // // let targetFile = document.getElementById('file');
-    // let obj = {
-    //   file: currentUpload,
-    //   // targetFile: targetFile.name,
-    //   filename: 'imageUploaded',
-    //   upload: true
-    // };
-
-    const { filename, avatar } = this.state;
     let formData = new FormData();
+    const { document, category } = this.state;
+    const userHandle = this.props.profile.profile.handle;
+    let labelValue = categoryOptions.filter(obj => obj.value === Number(this.state.category));
+    labelValue = labelValue[0].label;
 
-    // formData.append('filename', filename);
-    formData.append('avatar', avatar);
-    console.log(this.state.filename);
-    console.log(this.state.avatar);
-    this.props.uploadFIle(formData);
+    formData.append('document', document);
+    formData.append('handle', userHandle);
+    formData.append('category', category);
+    formData.append('labelValue', labelValue);
+
+    if (this.state.category === "0") {
+      console.log("Error: You need to select a category");
+    } else {
+      this.props.uploadFIle(formData);
+    }
   }
 
   render() {
+    let selectedCategory = categoryOptions.filter(obj => obj.value === Number(this.state.category));
     return (
       <section className="upload-files-panel">
         <div className="overlay">
@@ -68,10 +81,20 @@ class UploadFilesPanel extends Component {
             <small>Upload any file needed for your Trip</small>
             <br/>
             <br/>
-            <input onChange={this.onInputChange} name="avatar" type="file" ref={this.fileRef} />
+            <br/>
+            <input onChange={this.onInputChange} name="document" type="file" ref={this.fileRef} />
             <br/>
             <br/>
-            <input id="uploadedFilename" onChange={this.onInputChange} name="filename" type="text" ref={this.fileRef} />
+            <SelectListGroup 
+              name="category"
+              value={this.state.category}
+              options={categoryOptions}
+              onChange={this.onChange}
+              error=""
+              id="upload-category"
+              htmlFor="upload-category"
+              labelValue={selectedCategory[0].label}
+            />
             <br/>
             <br/>
             <Button name="Upload" icon="cloud_upload" onClick={this.onUpload}  />
@@ -89,7 +112,8 @@ UploadFilesPanel.propTypes = {
 };
 
 const mapStateToProps = (state) => ({
-  file: state.file
+  file: state.file,
+  profile: state.profile
 });
 
 export default connect(mapStateToProps, { uploadFIle })(UploadFilesPanel);
