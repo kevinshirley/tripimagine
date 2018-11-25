@@ -1,9 +1,10 @@
-import { UPLOAD_FILE } from '../actions/types';
+import { UPLOAD_FILE, GET_FILES } from '../actions/types';
 import isEmpty from '../validation/is-empty';
 
 const initialState = {
   uploadStatus: false,
-  file: {}
+  file: {},
+  userFiles: {}
 }
 
 export default function(state = initialState, action) {
@@ -13,6 +14,11 @@ export default function(state = initialState, action) {
         ...state,
         uploadStatus: !isEmpty(action.payload),
         file: action.payload
+      }
+    case GET_FILES: 
+      return {
+        ...state,
+        userFiles: action.payload
       }
     default: 
       return state;

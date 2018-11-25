@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Button } from '../common-button';
 import SelectListGroup from '../select-list-group';
-import { uploadFIle } from '../../../actions/fileActions';
+import { uploadFIle, getFiles } from '../../../actions/fileActions';
 
 const categoryOptions = [
   { value: 0, label: 'Select a category' },
@@ -22,6 +22,7 @@ class UploadFilesPanel extends Component {
       document: {},
       category: '0',
       categoryLabel: '',
+      userFiles: {},
       errors: {}
     };
 
@@ -39,6 +40,10 @@ class UploadFilesPanel extends Component {
   componentWillReceiveProps(nextProps) {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
+    }
+    if (nextProps.userFiles) {
+      this.setState({ userFiles: nextProps.files.userFiles });
+      console.log(this.state.userFiles);
     }
   }
 
@@ -81,6 +86,17 @@ class UploadFilesPanel extends Component {
     // reset value
     this.fileRef.current.value = null;
     this.categoryRef.current.value = Number(0);
+
+    // fetch user files
+    this.props.getFiles(userId);
+    if (this.props.userFiles > 0) {
+      console.log(this.props.userFiles);
+    }
+  }
+
+  componentDidMount() {
+    let userId = this.props.profile.profile.user._id;
+    this.props.getFiles(userId);
   }
 
   render() {
@@ -128,7 +144,10 @@ class UploadFilesPanel extends Component {
 
 UploadFilesPanel.propTypes = {
   uploadFIle: PropTypes.func.isRequired,
-  file: PropTypes.object.isRequired
+  getFiles: PropTypes.func.isRequired,
+  file: PropTypes.object.isRequired,
+  profile: PropTypes.object.isRequired,
+  errors: PropTypes.object.isRequired,
 };
 
 const mapStateToProps = (state) => ({
@@ -137,4 +156,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { uploadFIle })(UploadFilesPanel);
+export default connect(mapStateToProps, { uploadFIle, getFiles })(UploadFilesPanel);

@@ -10,3 +10,4 @@ export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
 // files
 export const UPLOAD_FILE = 'UPLOAD_FILE';
+export const GET_FILES = 'GET_FILES';

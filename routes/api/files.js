@@ -111,7 +111,8 @@ router.post('/upload', (req, res) => {
       cloudinary.v2.uploader.upload(req.file.destination+'/'+req.file.filename, { resource_type: "raw", public_id: req.body.handle+"/"+req.body.labelValue+"/"+req.file.filename }, function(error, result) {
         console.log(result, error);
 
-        let when = moment().startOf('hour').fromNow();
+        // let when = moment().startOf('hour').fromNow();
+        let when = new Date();
 
         // delete uploaded file from local directory
         const directory = 'client/public/uploads/';
@@ -164,12 +165,23 @@ router.post('/upload', (req, res) => {
 
 /**
   * Fetch the files of a user
-  * @route /files/user
+  * @route /files/user/:user_id
   * @param [userId]
   * @return [files]
   */
-router.get('/user', (req, res) => {
+router.get('/user/:user_id', (req, res) => {
+  const errors = {};
 
+  FileModel.find({ user: req.params.user_id })
+    .then(files => {
+      if (!files) {
+        errors.nofiles = 'There is no files for this user';
+        return res.status(404).json(errors);
+      }
+
+      res.json(files);
+    })
+    .catch(err => res.status(404).json(err));
 });
 
 module.exports = router;
