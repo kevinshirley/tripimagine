@@ -154,9 +154,15 @@ a:hover {
   width: 100%;
 }
 
+/* upload-files-panel */
 .upload-files-panel {
   width: 100%;
-  margin-right: -200px;
+}
+
+.upload-files-panel form .uploading-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* table */
@@ -956,7 +962,10 @@ a:hover {
 
 .trip-invalid-feedback {
   color: #c73c25;
-  /* transform: scale(0.7); */
+}
+
+.trip-invalid-feedback {
+  color: green;
 }
 
 /* signin-section-2 */

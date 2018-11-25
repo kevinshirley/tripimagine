@@ -8,6 +8,12 @@ const fs = require('fs');
 const path = require('path');
 const moment = require('moment');
 
+// Load input validations
+const validateFileInput = require('../../validation/file');
+
+// Load File model
+const FileModel = require('../../models/File');
+
 // response headers
 router.use((req, res, next) => {
   res.append('Access-Control-Allow-Origin', ['*']);
@@ -72,7 +78,22 @@ function formatTime(date, time) {
   return dateTimeFormated;
 }
 
+/**
+  * Upload file to cloud
+  * and save details to db
+  * @route /files/upload
+  * @param
+  * @return
+  */
 router.post('/upload', (req, res) => {
+  const { errors, isValid } = validateFileInput(req.body);
+  const fileFields = {};
+
+  // check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
   cloudinary.config({ 
     cloud_name: 'tripimagine', 
     api_key: '729715899949243', 
@@ -82,45 +103,72 @@ router.post('/upload', (req, res) => {
   upload(req, res, (err) => {
     let result;
     if (err instanceof multer.MulterError) {
-      result = res.status(404).json({ multerError: err });
+      result = res.status(400).json({ multerError: err });
     } else if (err) {
-      result = res.status(404).json({ error: err });
+      result = res.status(400).json({ error: err });
     } else {
+      
+      cloudinary.v2.uploader.upload(req.file.destination+'/'+req.file.filename, { resource_type: "raw", public_id: req.body.handle+"/"+req.body.labelValue+"/"+req.file.filename }, function(error, result) {
+        console.log(result, error);
 
-      if (isEmpty(req.file)) {
-        result = res.status(404).json({ error: 'Error: No file Selected.' });
-      } else {
-        cloudinary.v2.uploader.upload(req.file.destination+'/'+req.file.filename, { resource_type: "raw", public_id: req.body.handle+"/"+req.body.labelValue+"/"+req.file.filename }, function(error, result) {
-          console.log(result, error);
+        let when = moment().startOf('hour').fromNow();
 
-          let when = moment().startOf('hour').fromNow();
+        // delete uploaded file from local directory
+        const directory = 'client/public/uploads/';
+        fs.readdir(directory, (err, files) => {
+          if (err) throw err;
 
-          // delete uploaded file from local directory
-          const directory = 'client/public/uploads/';
-          fs.readdir(directory, (err, files) => {
-            if (err) throw err;
+          for (const file of files) {
+            fs.unlink(path.join(directory, file), err => {
+              if (err) throw err;
+            });
+          }
+        });
 
-            for (const file of files) {
-              fs.unlink(path.join(directory, file), err => {
-                if (err) throw err;
-              });
+        // save uploaded file details
+        if (result.url) fileFields.cloudUrl = result.url;
+        if (when) fileFields.dateWhen = when;
+        if (req.file.filename) fileFields.name = req.file.filename;
+        if (req.body.category) fileFields.category = req.body.category;
+        if (req.body.userId) fileFields.user = req.body.userId;
+
+        FileModel.findOne({ cloudUrl: result.url })
+          .then(file => {
+            if(file) {
+              console.log('File exist already');
+            } else {
+              // save file to db
+              new FileModel(fileFields).save()
+                .then(data => console.log('File saved to db'))
+                .catch(err => console.log(err));
             }
           });
 
-          // send data of upload
-          result = res.json({ 
-            cloudUrl: result.url,
-            dateWhen: when,
-            body: req.body
-          });
-
+        // send data of upload
+        result = res.json({ 
+          cloudUrl: result.url,
+          dateWhen: when,
+          fileName: req.file.filename,
+          success: 'Uploaded file with success!',
+          body: req.body
         });
-      }
+
+      });
 
     }
 
     return result;
   });
+
+});
+
+/**
+  * Fetch the files of a user
+  * @route /files/user
+  * @param [userId]
+  * @return [files]
+  */
+router.get('/user', (req, res) => {
 
 });
 

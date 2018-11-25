@@ -21,15 +21,25 @@ class UploadFilesPanel extends Component {
     this.state = {
       document: {},
       category: '0',
-      categoryLabel: ''
+      categoryLabel: '',
+      errors: {}
     };
 
+    // refs
     this.fileRef = React.createRef();
+    this.categoryRef = React.createRef();
 
+    // bind this
     this.onSubmit = this.onSubmit.bind(this);
     this.onUpload = this.onUpload.bind(this);
     this.onInputChange = this.onInputChange.bind(this);
     this.onChange = this.onChange.bind(this);
+  }
+
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.errors) {
+      this.setState({ errors: nextProps.errors });
+    }
   }
 
   onSubmit(e) {
@@ -58,21 +68,24 @@ class UploadFilesPanel extends Component {
     const userHandle = this.props.profile.profile.handle;
     let labelValue = categoryOptions.filter(obj => obj.value === Number(this.state.category));
     labelValue = labelValue[0].label;
+    let userId = this.props.profile.profile.user._id;
 
     formData.append('document', document);
     formData.append('handle', userHandle);
     formData.append('category', category);
     formData.append('labelValue', labelValue);
+    formData.append('userId', userId);
 
-    if (this.state.category === "0") {
-      console.log("Error: You need to select a category");
-    } else {
-      this.props.uploadFIle(formData);
-    }
+    this.props.uploadFIle(formData);
+
+    // reset value
+    this.fileRef.current.value = null;
+    this.categoryRef.current.value = Number(0);
   }
 
   render() {
-    let selectedCategory = categoryOptions.filter(obj => obj.value === Number(this.state.category));
+    const { errors } = this.state;
+    const { file } = this.props.file;
     return (
       <section className="upload-files-panel">
         <div className="overlay">
@@ -81,8 +94,12 @@ class UploadFilesPanel extends Component {
             <small>Upload any file needed for your Trip</small>
             <br/>
             <br/>
-            <br/>
-            <input onChange={this.onInputChange} name="document" type="file" ref={this.fileRef} />
+            <div className="uploading-container">
+              <input onChange={this.onInputChange} id="upload-input" name="document" type="file" ref={this.fileRef} />
+              {errors.name && (
+                <small className="trip-invalid-feedback">{errors.name}</small>
+              )}
+            </div>
             <br/>
             <br/>
             <SelectListGroup 
@@ -90,12 +107,15 @@ class UploadFilesPanel extends Component {
               value={this.state.category}
               options={categoryOptions}
               onChange={this.onChange}
-              error=""
+              error={errors.category}
               id="upload-category"
               htmlFor="upload-category"
-              labelValue={selectedCategory[0].label}
+              ref={this.categoryRef}
             />
             <br/>
+            {file.success && (
+              <small className="trip-success-feedback" style={{color: 'green'}}>{file.success}</small>
+            )}
             <br/>
             <Button name="Upload" icon="cloud_upload" onClick={this.onUpload}  />
           </form>
@@ -113,7 +133,8 @@ UploadFilesPanel.propTypes = {
 
 const mapStateToProps = (state) => ({
   file: state.file,
-  profile: state.profile
+  profile: state.profile,
+  errors: state.errors
 });
 
 export default connect(mapStateToProps, { uploadFIle })(UploadFilesPanel);
