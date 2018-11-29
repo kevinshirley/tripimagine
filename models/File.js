@@ -7,6 +7,9 @@ const FileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
+  tripId: {
+    type: String
+  },
   name: {
     type: String,
     required: true

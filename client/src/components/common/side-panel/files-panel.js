@@ -26,12 +26,19 @@ class FilesPanel extends Component {
     };
   }
 
+  componentWillReceiveProps(nextProps) {
+    if (nextProps.getFiles) {
+      // let userId = this.props.profile.profile.user._id;
+      // this.props.getFiles(userId);
+    }
+  }
+
   displayFiles(files) {
     let mainContent;
     mainContent = (!isEmpty(files) ? files.map((f, i) => {
       let cat;
       cat = categoryOptions.filter(obj => f.category === obj.value);
-      let dateTime = moment(f.dateWhen);
+      let dateTime = moment(f.dateRegistered);
       dateTime = dateTime.startOf('hour').fromNow();
       let content = (
 
@@ -50,12 +57,14 @@ class FilesPanel extends Component {
 
   componentDidMount() {
     let userId = this.props.profile.profile.user._id;
-    this.props.getFiles(userId);
+    let tripId = this.props.tripID;
+    console.log(tripId);
+    this.props.getFiles(userId, tripId);
   }
   
   componentDidUpdate() {
-    let userId = this.props.profile.profile.user._id;
-    this.props.getFiles(userId);
+    // let userId = this.props.profile.profile.user._id;
+    // this.props.getFiles(userId);
   }
 
   render() {

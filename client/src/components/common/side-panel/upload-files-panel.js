@@ -41,10 +41,6 @@ class UploadFilesPanel extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
-    if (nextProps.userFiles) {
-      this.setState({ userFiles: nextProps.files.userFiles });
-      console.log(this.state.userFiles);
-    }
   }
 
   onSubmit(e) {
@@ -74,24 +70,20 @@ class UploadFilesPanel extends Component {
     let labelValue = categoryOptions.filter(obj => obj.value === Number(this.state.category));
     labelValue = labelValue[0].label;
     let userId = this.props.profile.profile.user._id;
+    let tripId = this.props.tripID;
 
     formData.append('document', document);
     formData.append('handle', userHandle);
     formData.append('category', category);
     formData.append('labelValue', labelValue);
     formData.append('userId', userId);
+    formData.append('tripId', tripId);
 
     this.props.uploadFIle(formData);
 
     // reset value
     this.fileRef.current.value = null;
     this.categoryRef.current.value = Number(0);
-
-    // fetch user files
-    this.props.getFiles(userId);
-    if (this.props.userFiles > 0) {
-      console.log(this.props.userFiles);
-    }
   }
 
   componentDidMount() {

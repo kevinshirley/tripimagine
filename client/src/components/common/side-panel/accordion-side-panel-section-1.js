@@ -34,7 +34,7 @@ class AccordionSidePanelSection1 extends Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails className="files-panel-container">
 
-            <FilesPanel />
+            <FilesPanel tripID={this.props.tripID} />
 
           </ExpansionPanelDetails>
         </ExpansionPanel>
@@ -44,7 +44,7 @@ class AccordionSidePanelSection1 extends Component {
           </ExpansionPanelSummary>
           <ExpansionPanelDetails>
 
-            <UploadFilesPanel />
+            <UploadFilesPanel tripID={this.props.tripID} />
 
           </ExpansionPanelDetails>
         </ExpansionPanel>

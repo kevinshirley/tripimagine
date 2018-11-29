@@ -132,6 +132,7 @@ router.post('/upload', (req, res) => {
         if (req.file.filename) fileFields.name = req.file.filename;
         if (req.body.category) fileFields.category = req.body.category;
         if (req.body.userId) fileFields.user = req.body.userId;
+        if (req.body.tripId) fileFields.tripId = req.body.tripId;
 
         FileModel.findOne({ cloudUrl: result.url })
           .then(file => {
@@ -165,14 +166,17 @@ router.post('/upload', (req, res) => {
 
 /**
   * Fetch the files of a user
-  * @route /files/user/:user_id
+  * @route /files/user/:user_id/:trip_id
   * @param [userId]
   * @return [files]
   */
-router.get('/user/:user_id', (req, res) => {
+router.get('/:id', (req, res) => {
+  let trip_id = req.params.id;
+  console.log(trip_id);
+  // console.log(req.params);
   const errors = {};
 
-  FileModel.find({ user: req.params.user_id })
+  FileModel.find({ tripId: trip_id })
     .then(files => {
       if (!files) {
         errors.nofiles = 'There is no files for this user';

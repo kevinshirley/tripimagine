@@ -9,7 +9,7 @@ class AccordionSidePanel extends Component {
       <section className="accordion-side-panel">
         <div className="overlay">
 
-          <AccordionSidePanelSection1/>
+          <AccordionSidePanelSection1 tripID={this.props.tripID}/>
           {/* <AccordionSidePanelSection2/> */}
           
         </div>
