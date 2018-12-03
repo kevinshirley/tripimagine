@@ -22,44 +22,43 @@ class FilesPanel extends Component {
 
     this.state = {
       userFiles: {},
+      userID: '',
       errors: {}
     };
-  }
-
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.getFiles) {
-      // let userId = this.props.profile.profile.user._id;
-      // this.props.getFiles(userId);
-    }
   }
 
   displayFiles(files) {
     let mainContent;
     mainContent = (!isEmpty(files) ? files.map((f, i) => {
+      let content;
       let cat;
       cat = categoryOptions.filter(obj => f.category === obj.value);
       let dateTime = moment(f.dateRegistered);
       dateTime = dateTime.startOf('hour').fromNow();
-      let content = (
-
-        <Row key={i}>
-          <Cell>{f.name}</Cell>
-          <Cell>{cat[0].label}</Cell>
-          <Cell>{dateTime}</Cell>
-          <Cell><Button name="Download" icon="get_app" /></Cell>
-        </Row>
-
-      );
+      if (f.tripId === this.props.tripID) {
+        content = (
+  
+          <Row key={i}>
+            <Cell>{f.name}</Cell>
+            <Cell>{cat[0].label}</Cell>
+            <Cell>{dateTime}</Cell>
+            <Cell><Button name="Download" icon="get_app" /></Cell>
+          </Row>
+  
+        );
+      }
       return content;
     }) : <Row><Cell>There's no files uploaded yet</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell></Row>);
     return mainContent;
   }
 
+  loadFiles() {
+    this.setState({ userID: this.props.profile.profile.user._id });
+    this.props.getFiles(this.props.profile.profile.user._id);
+  }
+
   componentDidMount() {
-    let userId = this.props.profile.profile.user._id;
-    let tripId = this.props.tripID;
-    console.log(tripId);
-    this.props.getFiles(userId, tripId);
+    this.loadFiles();
   }
   
   componentDidUpdate() {
@@ -76,6 +75,8 @@ class FilesPanel extends Component {
     return (
       <section className="files-panel">
         <div className="overlay">
+
+          <Button name="Reload" icon="refresh" onClick={() => this.props.getFiles(this.state.userID)} />
 
           <Table>
             <HeadRow>

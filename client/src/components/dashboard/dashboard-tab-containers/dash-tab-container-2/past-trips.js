@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { Button } from '../../../common/common-button';
+import { ButtonUrl } from '../../../common/common-button';
+// import moment from 'moment';
 
 class PastTrips extends Component {
   constructor() {
@@ -12,37 +13,47 @@ class PastTrips extends Component {
 
   render() {
     let hasProfile = this.props.hasProfile;
-    // let trips = this.props.profile.profile.trip;
+    let trips = this.props.profile.profile.trip;
     return (
       <div className="upcoming-trips">
-        <div className="no-profile" style={{ display: hasProfile ? 'none' : 'block' }}>
-          <h5>You don't have any past trip with us yet</h5>
-          <p>Contact a Trip Imagine Consultant now!</p>
-          <Button name="Plan Your Dream Vacation" icon="card_travel" />
+        <div className="row" style={{ display: hasProfile ? 'none' : 'block' }}>
+          <div className="alert alert-warning" >
+						<p>You have not yet setup your profile, please add some info before you continue.</p>
+						<ButtonUrl name="Manage Profile" url="/dashboard/manage-profile" icon="account_circle" />
+					</div>
         </div>
 
-        <div className="has-profile" style={{ display: !hasProfile ? 'none' : 'block' }}>
-          {/* {trips.map((trip, i) => {
-            let content = (
+        {trips && 
+          <div>
+            <div className="has-profile" style={{ display: !(trips.length > 0) ? 'block' : 'none' }}>
+              <h5>You don't have any completed trips yet</h5>
+              <p>Add a new trip and a Trip Imagine Consultant will contact you soon after!</p>
+              <ButtonUrl name="Plan Your Dream Trip" url="/dashboard/manage-trip" icon="card_travel" />
+            </div>
 
-              <ul key={i} style={{listStyleType: 'none'}}>
-                <li>Active: {trip.status}</li>
-                <li>Destination: {trip.destination}</li>
-                <li>From: {trip.from}</li>
-                <li>To: {trip.to}</li>
-                <li>Message: {trip.message}</li>
-                <li>Budget: {trip.budget}</li>
-                <li>Date Received: {trip.dateReceived}</li>
-                <li><ButtonUrl name="Go" url="/" /></li>
-                <hr />
-              </ul>
+            <div className="has-profile" style={{ display: !(trips.length > 0) ? 'none' : 'block' }}>
+              {/* {trips && trips.map((trip, i) => {
+                let content;
+                let momentObj = moment(trip.dateReceived);
+                content = (
 
-            );
+                  <ul key={i}>
+                    <li><b>Destination:</b> {trip.destination}</li>
+                    <li><b>From:</b> {trip.from}</li>
+                    <li><b>To:</b> {trip.to}</li>
+                    <li><b>Date Received:</b> {momentObj.format('LLLL')}</li>
+                    <li><ButtonUrl name="Trip Details" icon="card_travel" url={'/dashboard/trip/' + trip._id} /></li>
+                    <hr />
+                  </ul>
 
-            return content;
-          })} */}
-          Soon available
-        </div>
+                );
+
+                return content;
+              })} */}
+              No Completed Trips!
+            </div>
+          </div>
+        }
       </div>
     );
   }

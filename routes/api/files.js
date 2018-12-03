@@ -166,17 +166,15 @@ router.post('/upload', (req, res) => {
 
 /**
   * Fetch the files of a user
-  * @route /files/user/:user_id/:trip_id
+  * @route /files/user/:user_id/
   * @param [userId]
   * @return [files]
   */
 router.get('/:id', (req, res) => {
-  let trip_id = req.params.id;
-  console.log(trip_id);
-  // console.log(req.params);
+  let user_id = req.params.id;
   const errors = {};
 
-  FileModel.find({ tripId: trip_id })
+  FileModel.find({ user: user_id })
     .then(files => {
       if (!files) {
         errors.nofiles = 'There is no files for this user';

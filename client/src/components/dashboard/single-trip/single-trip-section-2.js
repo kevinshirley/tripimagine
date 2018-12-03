@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import AccordionSidePanel from '../../common/side-panel/accordion-side-panel';
+import { ButtonUrl } from '../../common/common-button';
 
 class SingleTripSection2 extends Component {
   constructor() {
@@ -33,7 +34,7 @@ class SingleTripSection2 extends Component {
                     <li><b>From:</b> {trip.from}</li>
                     <li><b>To:</b> {trip.to}</li>
                     <li><b>Message:</b> {trip.message}</li>
-                    <li><b>Budget:</b> {trip.budget}</li>
+                    <li><b>Budget:</b> {' $'+trip.budget}</li>
                     <li><b>Date Received:</b> {momentObj.format('LLLL')}</li>
                   </ul>
 
@@ -44,7 +45,9 @@ class SingleTripSection2 extends Component {
 
             return content;
           })}
-          
+          <div className="manage-this-trip">
+            <ButtonUrl name="Edit this trip" url="/dashboard/manage-trip" icon="edit" />
+          </div>
         </div>
       </section>
     );

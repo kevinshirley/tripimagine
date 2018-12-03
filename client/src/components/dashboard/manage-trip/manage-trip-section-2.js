@@ -3,20 +3,19 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import TextFieldGroup from '../../common/textfieldgroup';
-import SelectListGroup from '../../common/select-list-group';
+import TextAreaFieldGroup from '../../common/text-area-field-group';
+// import SelectListGroup from '../../common/select-list-group';
 import { Button } from '../../common/common-button';
-import { createProfile, getCurrentProfile } from '../../../actions/profileActions';
+import { manageTrip, getCurrentProfile } from '../../../actions/profileActions';
 
 const initialState = {
-  displaySocialInputs: false,
-  handle: '',
-  gender: '',
-  notificationViaText: false,
-  timezone: '',
-  facebook: '',
-  instagram: '',
-  twitter: '',
-  linkedin: '',
+  destination: '',
+  from: '',
+  to: '',
+  numberOfPeople: '',
+  budget: '',
+  message: '',
+  manageTrip: {},
   errors: {}
 };
 
@@ -27,7 +26,7 @@ class ManageTripSection2 extends Component {
     this.state = initialState;
 
     this.onChange = this.onChange.bind(this);
-    this.onCreateProfile = this.onCreateProfile.bind(this);
+    this.onManageTrip = this.onManageTrip.bind(this);
     this.onSubmit = this.onSubmit.bind(this);
   }
 
@@ -43,158 +42,118 @@ class ManageTripSection2 extends Component {
     if (nextProps.errors) {
       this.setState({ errors: nextProps.errors });
     }
+    if (nextProps.profile) {
+      this.setState({ manageTrip: nextProps.profile.manageTrip });
+    }
   }
 
   onChange(e) {
     this.setState({[e.target.name]: e.target.value});
   }
 
-  onCreateProfile(e) {
+  onManageTrip(e) {
     e.preventDefault();
 
-    const profileData = {
-      'handle': this.state.handle,
-      'gender': this.state.gender,
-      'timezone': this.state.timezone,
-      'notificationViaText': this.state.notificationViaText,
-      'facebook': this.state.facebook,
-      'instagram': this.state.instagram,
-      'twitter': this.state.twitter,
-      'linkedin': this.state.linkedin,
+    const tripData = {
+      destination: this.state.destination,
+      from: this.state.from,
+      to: this.state.to,
+      numberOfPeople: this.state.numberOfPeople,
+      budget: this.state.budget,
+      message: this.state.message,
     };
 
-    this.props.createProfile(profileData, this.props.history);
+    this.props.manageTrip(tripData);
   }
 
   render() {
-    const { errors } = this.state;
-
-    const genderOptions = [
-      { value: 0, label: 'Select a gender' },
-      { value: 1, label: 'Male' },
-      { value: 2, label: 'Female' },
-      { value: 3, label: 'Other' }
-    ];
-
-    const timezoneOptions = [
-      { value: 0, label: 'Select your timezone' },
-      { value: 1, label: 'Eastern Toronto/New York' },
-      { value: 2, label: 'Western Vancouver/Los Angeles' },
-      { value: 3, label: 'MidWest Chicago/Edmonton' },
-    ];
-
+    const { errors, manageTrip } = this.state;
     return (
       <section className="create-profile-section-2">
         <div className="overlay">
 
           <form onSubmit={this.onSubmit}>
             <div className="desc">
-              <h4>Let's add some info to complete your profile !</h4>
+              <h4>Create or edit your next trip !</h4>
             </div>
 
             <div className="content row">
               <TextFieldGroup 
-                placeholder="Your Profile Handle*"
-                name="handle"
+                placeholder="What is the destination name*"
+                name="destination"
                 type="text"
-                value={this.state.handle}
+                value={this.state.destination}
                 onChange={this.onChange}
-                error={errors.handle}
-                id="create-profile-handle"
-                htmlFor="create-profile-handle"
-                icon="link"
-                info="The URL to access your profile"
+                error={errors.destination}
+                id="manage-destination-name"
+                htmlFor="manage-destination-name"
+                icon="airplanemode_active"
               />
 
-              <SelectListGroup 
-                name="gender"
-                value={this.state.gender}
-                options={genderOptions}
+              <TextFieldGroup 
+                placeholder="Going From*"
+                name="from"
+                type="text"
+                value={this.state.from}
                 onChange={this.onChange}
-                error={errors.gender}
-                id="login-form-gender"
-                htmlFor="login-form-gender"
+                error={errors.from}
+                id="manage-from-date"
+                htmlFor="manage-from-date"
+                icon="date_range"
+                info="Ex: 2019-12-19"
+              />
+
+              <TextFieldGroup 
+                placeholder="Going To*"
+                name="to"
+                type="text"
+                value={this.state.to}
+                onChange={this.onChange}
+                error={errors.to}
+                id="manage-to-date"
+                htmlFor="manage-to-date"
+                icon="date_range"
+                info="Ex: 2020-01-07"
+              />
+
+              <TextFieldGroup 
+                placeholder="Number of people going*"
+                name="numberOfPeople"
+                type="text"
+                value={this.state.numberOfPeople}
+                onChange={this.onChange}
+                error={errors.numberOfPeople}
+                id="manage-numberOfPeople"
+                htmlFor="manage-numberOfPeople"
                 icon="people"
+                info="Just a number. Ex: 4"
               />
 
-              <SelectListGroup 
-                name="timezone"
-                value={this.state.timezone}
-                options={timezoneOptions}
+              <TextFieldGroup 
+                placeholder="Estimated Budget"
+                name="budget"
+                type="text"
+                value={this.state.budget}
                 onChange={this.onChange}
-                error={errors.timezone}
-                id="login-form-timezone"
-                htmlFor="login-form-timezone"
-                icon="place"
+                error={errors.budget}
+                id="manage-budget"
+                htmlFor="manage-budget"
+                icon="attach_money"
+                info="Just the rough estimated number. No text."
               />
 
-              <div className="input-wrapper form-group">
-                <div className="inner-wrap">
-                  <div className="displaySocialInputs">
-                    <button onClick={() => {
-                      this.setState(prevState => ({
-                        displaySocialInputs: !prevState.displaySocialInputs
-                      }))
-                    }}>
-                      Add Social Media Links
-                    </button>&nbsp;&nbsp;
-                    <span>Optional</span>
-                  </div>
-                </div>
-              </div>
-                      
-              <div className="socialInputs" style={{ display: this.state.displaySocialInputs ? 'block' : 'none' }}>
-                <TextFieldGroup 
-                  placeholder="https://www.facebook.com/yourprofile"
-                  name="facebook"
-                  type="text"
-                  value={this.state.facebook}
-                  onChange={this.onChange}
-                  error={errors.facebook}
-                  id="create-profile-facebook"
-                  htmlFor="create-profile-facebook"
-                  iconClass="fab fa-facebook-square"
-                />
+              <TextAreaFieldGroup 
+                placeholder="Give the travel consultant details on your next trip*"
+                name="message"
+                value={this.state.message}
+                onChange={this.onChange}
+                icon="message"
+              />
 
-                <TextFieldGroup 
-                  placeholder="https://www.instagram.com/yourprofile"
-                  name="instagram"
-                  type="text"
-                  value={this.state.instagram}
-                  onChange={this.onChange}
-                  error={errors.instagram}
-                  id="create-profile-instagram"
-                  htmlFor="create-profile-instagram"
-                  iconClass="fab fa-instagram"
-                />
-
-                <TextFieldGroup 
-                  placeholder="https://www.twitter.com/yourprofile"
-                  name="twitter"
-                  type="text"
-                  value={this.state.twitter}
-                  onChange={this.onChange}
-                  error={errors.twitter}
-                  id="create-profile-twitter"
-                  htmlFor="create-profile-twitter"
-                  iconClass="fab fa-twitter-square"
-                />
-
-                <TextFieldGroup 
-                  placeholder="https://www.linkedin.com/in/yourprofile"
-                  name="linkedin"
-                  type="text"
-                  value={this.state.linkedin}
-                  onChange={this.onChange}
-                  error={errors.linkedin}
-                  id="create-profile-linkedin"
-                  htmlFor="create-profile-linkedin"
-                  iconClass="fab fa-linkedin"
-                />
-              </div>
+              {manageTrip && <small className="trip-success-feedback">{manageTrip.success} <span>X</span></small>}
 
               <div className="button-wrapper">
-                <Button name="Save" icon="send" onClick={this.onCreateProfile} />
+                <Button name="Save" icon="send" onClick={this.onManageTrip} />
               </div>
 
             </div>
@@ -210,7 +169,7 @@ ManageTripSection2.proptypes = {
   auth: PropTypes.object.isRequired,
   profile: PropTypes.object.isRequired,
   errors: PropTypes.object.isRequired,
-  createProfile: PropTypes.func.isRequired,
+  manageTrip: PropTypes.func.isRequired,
   getCurrentProfile: PropTypes.func.isRequired
 };
 
@@ -220,4 +179,4 @@ const mapStateToProps = (state) => ({
   errors: state.errors
 });
 
-export default connect(mapStateToProps, { createProfile, getCurrentProfile })(withRouter(ManageTripSection2));
+export default connect(mapStateToProps, { manageTrip, getCurrentProfile })(withRouter(ManageTripSection2));

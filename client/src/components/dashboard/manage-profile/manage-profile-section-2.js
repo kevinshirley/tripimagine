@@ -11,6 +11,7 @@ const initialState = {
   displaySocialInputs: false,
   handle: '',
   gender: '',
+  phoneNumber: '',
   notificationViaText: false,
   timezone: '',
   facebook: '',
@@ -55,6 +56,7 @@ class ManageProfileSection2 extends Component {
     const profileData = {
       'handle': this.state.handle,
       'gender': this.state.gender,
+      'phoneNumber': this.state.phoneNumber,
       'timezone': this.state.timezone,
       'notificationViaText': this.state.notificationViaText,
       'facebook': this.state.facebook,
@@ -104,6 +106,19 @@ class ManageProfileSection2 extends Component {
                 htmlFor="create-profile-handle"
                 icon="link"
                 info="The URL to access your profile"
+              />
+
+              <TextFieldGroup 
+                placeholder="Your Phone Number*"
+                name="phoneNumber"
+                type="text"
+                value={this.state.phoneNumber}
+                onChange={this.onChange}
+                error={errors.phoneNumber}
+                id="manage-phone-number"
+                htmlFor="manage-profile-handle"
+                icon="phone_iphone"
+                info="Mobile phone number prefered"
               />
 
               <SelectListGroup 

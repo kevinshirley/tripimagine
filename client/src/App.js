@@ -55,9 +55,11 @@ import ContinentSection3 from './components/atlas/continent/continent-section-3.
 // manage-profile
 import ManageProfile from './components/dashboard/manage-profile/manage-profile';
 // manage-trip
-// import ManageTrip from './components/dashboard/manage-trip/manage-trip';
+import ManageTrip from './components/dashboard/manage-trip/manage-trip';
 // single-trip
 import SingleTrip from './components/dashboard/single-trip/single-trip';
+// single-profile
+import SingleProfile from './components/dashboard/single-profile/single-profile';
 
 // check for token
 if (localStorage.jwtToken) {
@@ -68,7 +70,7 @@ if (localStorage.jwtToken) {
   // set user and isAuthenticated
   store.dispatch(setCurrentUser(decoded));
   // check for expired token
-  const currentTime = Date.now();
+  const currentTime = Date.now() / 86400;
   if (decoded.exp < currentTime) {
     // logout user
     store.dispatch(logoutUser());
@@ -107,9 +109,17 @@ class App extends Component {
             <Switch>
               <PrivateRoute exact path="/dashboard/manage-profile" component={ ManageProfile } />
             </Switch>
+            {/* /manage-trip */}
+            <Switch>
+              <PrivateRoute exact path="/dashboard/manage-trip" component={ ManageTrip } />
+            </Switch>
             {/* /single-trip */}
             <Switch>
               <PrivateRoute exact path="/dashboard/trip/:id" component={ SingleTrip } />
+            </Switch>
+            {/* /single-profile */}
+            <Switch>
+              <PrivateRoute exact path="/dashboard/profile/:id" component={ SingleProfile } />
             </Switch>
             {/* /blog */}
             <Route exact path="/blog" component={ BlogSection1 } />

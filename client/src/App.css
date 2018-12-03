@@ -240,6 +240,18 @@ a:hover {
   width: 415px;
 }
 
+.content .input-wrapper .inner-wrap .input-container textarea {
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  border-radius: 3px;
+  background: none;
+  outline: none;
+  transition: .1s;
+  width: 415px;
+  height: 140px;
+}
+
 .content .input-wrapper .inner-wrap .input-container select {
   border-top: none;
   border-left: none;
@@ -253,6 +265,10 @@ a:hover {
 
 .content .input-wrapper .inner-wrap .input-container input:focus {
   border-bottom: 1.5px solid rgba(134,174,204,1);
+}
+
+.content .input-wrapper .inner-wrap .input-container textarea:focus {
+  border: 1.5px solid rgba(134,174,204,1);
 }
 
 .content .input-wrapper .inner-wrap .input-container select:focus {
@@ -2591,7 +2607,7 @@ a:hover {
 .single-trip-section-2 .overlay {
   width: 95%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -2624,8 +2640,6 @@ a:hover {
 }
 
 /* file-table */
-  
-
 .file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
 .MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 {
   overflow: auto;
@@ -2647,6 +2661,54 @@ a:hover {
 /* file-panel */
 .files-panel {
   padding-right: 30px;
+}
+
+.files-panel .overlay {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.files-panel .overlay #common-button {
+  margin-bottom: 15px;
+}
+
+/* single-profile-section-2 */
+.single-profile-section-2 {
+  background: #fff;
+  width: 100%;
+}
+
+.single-profile-section-2 .overlay {
+  width: 95%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.single-profile-section-2 .overlay .single-trip .trip-details {
+  list-style-type: none;
+  padding-top: 25px;
+}
+
+.single-profile-section-2 .overlay .single-trip .trip-details li {
+  padding-top: 15px;
+}
+
+.single-profile-section-2 .overlay .single-trip 
+.input-wrapper .inner-wrap .displayUserTrips {
+  width: 100%;
+  margin-top: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.single-profile-section-2 .overlay .single-trip .trips-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 /* Footer */

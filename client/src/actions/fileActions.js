@@ -23,8 +23,8 @@ export const uploadFIle = (file) => dispatch => {
     }));
 }
 
-export const getFiles = (userId, tripId) => dispatch => {
-  let url = 'http://localhost:5000/files/'+tripId;
+export const getFiles = (userId) => dispatch => {
+  let url = 'http://localhost:5000/files/'+userId;
   const options = {
     method: 'GET',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -39,10 +39,9 @@ export const getFiles = (userId, tripId) => dispatch => {
       })
     })
     .catch(err => {
-      console.log(err);
-      // dispatch({
-      //   type: GET_ERRORS,
-      //   payload: err.response.data
-      // })
+      dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
     });
 }

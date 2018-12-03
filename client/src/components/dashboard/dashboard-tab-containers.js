@@ -9,6 +9,7 @@ import DashTabContainer4 from './dashboard-tab-containers/dash-tab-container-4';
 import DashTabContainer5 from './dashboard-tab-containers/dash-tab-container-5';
 import DashTabContainer6 from './dashboard-tab-containers/dash-tab-container-6';
 import DashTabContainer7 from './dashboard-tab-containers/dash-tab-container-7';
+import DashTabContainer8 from './dashboard-tab-containers/dash-tab-container-8';
 
 class DashboardTabContainers extends Component {
   constructor() {
@@ -66,6 +67,7 @@ class DashboardTabContainers extends Component {
   render() {
     let hasProfile = this.props.hasProfile;
     let name = this.props.name;
+    let isAdmin = this.props.isAdmin;
     return (
       <div>
         <div id="dash-container_0" className="dash-container">
@@ -108,6 +110,14 @@ class DashboardTabContainers extends Component {
             <DashTabContainer7 />
           </Fade>
         </div>
+        {isAdmin && 
+          <div id="dash-container_8" className="dash-container">
+            <Fade bottom>
+              <DashTabContainer8 isAdmin={isAdmin} />
+            </Fade>
+          </div>
+        }
+        
       </div>
     );
   }
