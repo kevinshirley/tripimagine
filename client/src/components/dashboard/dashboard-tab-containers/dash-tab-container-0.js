@@ -24,8 +24,8 @@ class DashTabContainer0 extends Component {
 				</div>
 				<div className="row">
 					<div className="alert alert-info">
-						<p>You can manage or build your next trip with any tour activities in a destination of your like. Our travel consultant are here to guide you along the process.</p>
-						<ButtonUrl name="My Trips" url="/dashboard/trips" icon="card_travel" />
+						<p>You can build your next trip with any tour activities in a destination of your like. Our travel consultants are here to guide you along the process.</p>
+						<ButtonUrl name="Add a Trip" url="/dashboard/manage-trip" icon="card_travel" />
 					</div>
 				</div>
       </div>

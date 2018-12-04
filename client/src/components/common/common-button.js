@@ -7,12 +7,13 @@ export const Button = ({
   icon,
   iconClass,
   info,
-  onClick
+  onClick,
+  color
 }) => {
   return (
     <div id="common-button">
-        <button onClick={onClick}>
-            <small><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}
+        <button onClick={onClick} style={{ color: {color} }}>
+            <small style={{ color: {color} }}><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}
         </button>
         {info && <small className="form-text text-muted">{info}</small>}
     </div>
@@ -24,6 +25,7 @@ Button.propTypes = {
   icon: PropTypes.string,
   iconClass: PropTypes.string,
   info: PropTypes.string,
+  color: PropTypes.string,
   onClick: PropTypes.func
 }
 

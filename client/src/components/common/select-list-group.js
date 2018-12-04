@@ -1,36 +1,48 @@
-import React from 'react';
-import classnames from 'classnames';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import classnames from 'classnames';
 
-const SelectListGroup = ({ name, value, error, info, onChange, options, id, label, icon, htmlFor }) => {
-  const selectOptions = options.map(option => (
-    <option key={option.label} value={option.value}>
-      {option.label}
-    </option>
-  ));
-  return (
-    <div className="input-wrapper form-group">
-      <div className="inner-wrap">
-        <label htmlFor={htmlFor} ><i className="material-icons">{icon}</i> {label}</label>
-        <div className="input-container">
-          <select
-            className={classnames('form-control form-control-lg', {
-              'trip-is-invalid': error
-            })}
-            name={name}
-            value={value}
-            onChange={onChange}
-            id={id}
-          >
-            {selectOptions}
-          </select>
-          {info && <small className="form-text text-muted">{info}</small>}
-          {error && <div className="trip-invalid-feedback">{error}</div>}
+class SelectListGroup extends Component {
+  constructor() {
+    super();
+    this.state = {};
+  }
+
+  render() {
+    let { name, value, error, info, onChange, options, id, label, icon, htmlFor, labelValue } = this.props;
+    return (
+      <div className="input-wrapper form-group">
+        <div className="inner-wrap">
+          <label htmlFor={htmlFor} ><i className="material-icons">{icon}</i> {label}</label>
+          <div className="input-container">
+            <select
+              className={classnames('form-control form-control-lg', {
+                'trip-is-invalid': error
+              })}
+              name={name}
+              value={value}
+              onChange={onChange}
+              id={id}
+              label={labelValue}
+            >
+              {options && options.map(option => {
+                let content = (
+                  <option key={option.label} value={option.value}>
+                    {option.label}
+                  </option>
+                );
+                return content;
+              })}
+            </select>
+            {info && <small className="form-text text-muted">{info}</small>}
+            {error && <div className="trip-invalid-feedback">{error}</div>}
+          </div>
         </div>
       </div>
-    </div>
-  );
-};
+    );
+  }
+
+}
 
 SelectListGroup.propTypes = {
   name: PropTypes.string.isRequired,

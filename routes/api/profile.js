@@ -66,7 +66,7 @@ router.get('/users/all', passport.authenticate('jwt', { session: false }), (req,
   const errors = {};
 
   Profile.find()
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'email', 'date', 'avatar'])
     .then(profiles => {
       if (!profiles) {
         errors.noprofiles = 'There are no profiles';
@@ -85,7 +85,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
   const errors = {};
 
   Profile.findOne({ user: req.user.id })
-    .populate('user', ['name', 'avatar'])
+    .populate('user', ['name', 'email', 'avatar'])
     .then(profile => {
       if (!profile) {
         errors.noprofile = 'There is no profile for this user';
@@ -112,6 +112,7 @@ router.post('/', passport.authenticate('jwt', { session: false }), (req, res) =>
   const profileFields = {};
   profileFields.user = req.user.id;
   if (req.body.handle) profileFields.handle = req.body.handle;
+  if (req.body.phoneNumber) profileFields.phoneNumber = req.body.phoneNumber;
   if (req.body.gender) profileFields.gender = req.body.gender;
   if (req.body.timezone) profileFields.timezone = req.body.timezone;
   if (req.body.notificationViaText) profileFields.notificationViaText = req.body.notificationViaText;
@@ -166,7 +167,8 @@ router.post('/trip', passport.authenticate('jwt', { session: false }), (req, res
         destination: req.body.destination,
         from: req.body.from,
         to: req.body.to,
-        message: req.body.message
+        numberOfPeople: req.body.numberOfPeople,
+        message: req.body.message,
       }
 
       if (req.body.budget) newTrip.budget = req.body.budget;
@@ -174,7 +176,7 @@ router.post('/trip', passport.authenticate('jwt', { session: false }), (req, res
       // add new trip to array
       profile.trip.unshift(newTrip);
 
-      profile.save().then(trip => res.json(trip));
+      profile.save().then(trip => res.json({ trip: trip, success: 'Success!' }));
     });
 });
 

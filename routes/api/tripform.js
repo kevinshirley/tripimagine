@@ -12,6 +12,15 @@ const validateTripFormInput = require('../../validation/tripform');
 // const User = require('../../models/User');
 const TripForm = require('../../models/TripForm');
 
+// response headers
+router.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
+  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
+  res.append('Access-Control-Max-Age', 86400);
+  next();
+});
+
 // @route   POST /trip-form
 // @desc    send trip form
 // @access  Public

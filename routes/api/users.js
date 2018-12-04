@@ -112,13 +112,13 @@ router.post('/login', cors(corsOptions), (req, res) => {
           if (isMatch) {
             // user matched
 
-            const payload = { id: user.id, name: user.name, avatar: user.avatar } // create jwt payload
+            const payload = { id: user.id, name: user.name, avatar: user.avatar, isAdmin: user.isAdmin } // create jwt payload
 
             // sign token
             jwt.sign(
               payload, 
               keys.secretOrKey, 
-              { expiresIn: 86400 }, 
+              { expiresIn: 43400 }, 
               (err, token) => {
                 res.json({
                   success: true,

@@ -14,38 +14,43 @@ class DashTabContainer1 extends Component {
     let hasProfile = this.props.hasProfile;
     let name = this.props.name;
     let profile = this.props.profile.profile;
-    console.log(profile);
     return (
       <div className="dash-tab-container-1">
-        <span>Profile</span>
-        <br />
         <div className="user-info" style={{ display: !hasProfile ? 'none' : 'block' }}>
+          <span>Profile</span>
+          <br />
           <h2>{name}</h2>
           <small className="user-info-btns">
             <ButtonUrl name="Edit Profile" url="/dashboard/manage-profile" icon="account_circle" />
-            <ButtonUrl name="My Trips" url="/dashboard/trips" icon="card_travel" />
+            <ButtonUrl name="Add a Trip" url="/dashboard/manage-trip" icon="card_travel" />
           </small>
         </div>
 
+        {profile.trip && 
         <div className="trip-details">
           <small>Trips</small>
-          <p>Number of Trips: { profile.trip.length } planned</p>
+          <br/>
+          <p><b>Number of Trips:</b> { profile.trip.length } planned</p>
         </div>
+        }
 
-        <div className="profile-details">
+        <div className="profile-details" style={{ display: !hasProfile ? 'none' : 'block' }}>
           <small>Profile</small>
-          <p>Gender: { profile.gender }</p>
-          <p>Handle: { profile.handle }</p>
-          <p>Timezone: { profile.timezone }</p>
+          <br/>
+          <p><b>Handle:</b> { profile.handle }</p>
+          <p><b>Phone Number:</b> { profile.phoneNumber }</p>
+          <p><b>Gender:</b> { profile.gender }</p>
+          <p><b>Timezone:</b> { profile.timezone }</p>
         </div>
 
         {profile.social && 
         <div className="social-details">
           <small>Socials</small>
-          {profile.social.facebook && <p>Facebook: { profile.social.facebbook }</p>}
-          {profile.social.instagram && <p>Instagram: { profile.social.instagram }</p>}
-          {profile.social.twitter && <p>Twitter: { profile.social.twitter }</p>}
-          {profile.social.linkedin && <p>LinkedIn: { profile.social.linkedin }</p>}
+          <br/>
+          {profile.social.facebook && <p><b>Facebook:</b> { profile.social.facebook }</p>}
+          {profile.social.instagram && <p><b>Instagram:</b> { profile.social.instagram }</p>}
+          {profile.social.twitter && <p><b>Twitter:</b> { profile.social.twitter }</p>}
+          {profile.social.linkedin && <p><b>LinkedIn:</b> { profile.social.linkedin }</p>}
         </div>
         }
 
