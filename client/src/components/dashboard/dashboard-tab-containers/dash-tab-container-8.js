@@ -23,11 +23,8 @@ class DashTabContainer8 extends Component {
   }
 
   render() {
-    // let hasProfile = this.props.hasProfile;
-    // let name = this.props.name;
-    // let profile = this.props.profile.profile;
     const profiles = this.props.profile.profiles;
-    console.log(profiles);
+    // console.log(profiles);
     return (
       <div className="dash-tab-container-8">
         <span>Profiles</span>

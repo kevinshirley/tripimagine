@@ -7,6 +7,19 @@ import { getAllProfiles } from '../../../actions/profileActions';
 import { getFiles } from '../../../actions/fileActions';
 
 class SingleProfile extends Component {
+  getUserId(profiles, paramId) {
+    if (profiles) {
+      let userId;
+      let userProfile = profiles.filter(profile => profile._id === paramId);
+      userProfile.map(profile => userId = profile.user._id);
+      this.props.getFiles(userId);
+    } 
+  }
+
+  componentWillReceiveProps(nextProps) {
+    this.getUserId(nextProps.profile.profiles, nextProps.match.params.id);
+  }
+
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
       this.props.history.push('/');
@@ -14,20 +27,19 @@ class SingleProfile extends Component {
 
     // in case of reload
     this.props.getAllProfiles();
-    console.log('user id param',this.props.match.params.id);
-    this.props.getFiles(this.props.match.params.id);
-    console.log(this.props.file);
+    // this.getUserId(this.props.profile.profiles, this.props.match.params.id);
   }
-
+  
   render() {
     let profileID = this.props.match.params.id;
     let profiles = this.props.profile.profiles;
+    let userFiles = this.props.file.userFiles;
     return (
       <section className="single-profile">
         <div className="overlay">
 
           <SingleProfileSection1 profileID={profileID} profiles={profiles} />
-          <SingleProfileSection2 profileID={profileID} profiles={profiles} />
+          <SingleProfileSection2 profileID={profileID} profiles={profiles} userFiles={userFiles} />
           
         </div>
       </section>

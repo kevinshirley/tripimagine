@@ -46,16 +46,22 @@ class SingleProfileSection2 extends Component {
     return mainContent;
   }
 
-  displaySingleTrip(trips) {
+  displayTripFiles(files) {
     let mainContent;
-    mainContent = (trips && trips.map(trip => {
+    mainContent = (files && files.map((file,i) => {
       let content;
-      // let momentObj = moment(trip.dateReceived);
-      // let dateReceived = momentObj.format('llll');
+      let dateReceived = moment(file.dateReceived);
+      dateReceived = dateReceived.format('llll');
+      let cat;
+      cat = categoryOptions.filter(obj => file.category === obj.value);
       content = (
-        <ul>
-          <li><b>Status:</b> {trip.status}</li>
-        </ul>
+        <Row key={i}>
+          <Cell>{file.name}</Cell>
+          <Cell>{cat[0].label}</Cell>
+          <Cell>{dateReceived}</Cell>
+          <Cell><Button name="Upload" icon="cloud_upload" /></Cell>
+          <Cell><Button name="Download" icon="get_app" /></Cell>
+        </Row>
       );
       return content;
     }));
@@ -70,18 +76,16 @@ class SingleProfileSection2 extends Component {
       cat = categoryOptions.filter(obj => f.category === obj.value);
       let dateTime = moment(f.dateRegistered);
       dateTime = dateTime.startOf('hour').fromNow();
-      if (f.tripId === this.props.tripID) {
-        content = (
+      content = (
   
-          <Row key={i}>
-            <Cell>{f.name}</Cell>
-            <Cell>{cat[0].label}</Cell>
-            <Cell>{dateTime}</Cell>
-            <Cell><Button name="Download" icon="get_app" /></Cell>
-          </Row>
-  
-        );
-      }
+        <Row key={i}>
+          <Cell>{f.name}</Cell>
+          <Cell>{cat[0].label}</Cell>
+          <Cell>{dateTime}</Cell>
+          <Cell><Button name="Download" icon="get_app" /></Cell>
+        </Row>
+
+      );
       return content;
     }) : <Row><Cell>There's no files uploaded yet</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell></Row>);
     return mainContent;
@@ -90,6 +94,7 @@ class SingleProfileSection2 extends Component {
   render() {
     let profiles = this.props.profiles;
     let profileID = this.props.profileID;
+    let userFiles = this.props.userFiles;
     return (
       <section className="single-profile-section-2">
         <div className="overlay">
@@ -156,6 +161,14 @@ class SingleProfileSection2 extends Component {
                     <div className="user-trips" style={{ display: !this.state.displaySingleTrip ? 'block' : 'none' }}>
                       <Table>
                         <HeadRow>
+                          <HeadCell></HeadCell>
+                          <HeadCell></HeadCell>
+                          <HeadCell></HeadCell>
+                          <HeadCell>{profile.user.name}'s Trips</HeadCell>
+                          <HeadCell></HeadCell>
+                          <HeadCell></HeadCell>
+                        </HeadRow>
+                        <HeadRow>
                           <HeadCell>#</HeadCell>
                           <HeadCell>Status</HeadCell>
                           <HeadCell>Destination</HeadCell>
@@ -167,7 +180,6 @@ class SingleProfileSection2 extends Component {
                           let content;
                           if (profile._id === profileID) {
                             let trips = profile.trip;
-                            // console.log(trips);
                             content = this.displayUserTrips(trips);
                           }
                           return content;
@@ -185,7 +197,6 @@ class SingleProfileSection2 extends Component {
                             let momentObj = moment(trip.dateReceived);
                             let dateReceived = momentObj.format('llll');
                             if (trip._id === this.state.tripSelected) {
-                                console.log(trip);
                                 single = (
                                   <div className="content">
                                     <h3><b>{'Trip to '+trip.destination}</b></h3>
@@ -199,6 +210,33 @@ class SingleProfileSection2 extends Component {
                                       <li><b>Date Received:</b> {dateReceived}</li>
                                       <li><Button name="Back" icon="keyboard_return" onClick={() => this.setState({ displaySingleTrip: false, tripSelected: '' })} /></li>
                                     </ul>
+                                    <Table>
+                                      <HeadRow>
+                                        <HeadCell></HeadCell>
+                                        <HeadCell></HeadCell>
+                                        <HeadCell>Files</HeadCell>
+                                        <HeadCell></HeadCell>
+                                        <HeadCell></HeadCell>
+                                      </HeadRow>
+                                      <HeadRow>
+                                        <HeadCell>Name</HeadCell>
+                                        <HeadCell>Category</HeadCell>
+                                        <HeadCell>Date Received</HeadCell>
+                                        <HeadCell>Option</HeadCell>
+                                        <HeadCell>Option</HeadCell>
+                                      </HeadRow>
+                                      <tbody>
+                                        {userFiles && userFiles.map(file => {
+                                          let files = [];
+                                          let content;
+                                          if (file.tripId === trip._id) {
+                                            files.push(file);
+                                            content = this.displayTripFiles(files);
+                                          }
+                                          return content;
+                                        })}
+                                      </tbody>
+                                    </Table>
                                   </div>
                                 );
                             }
