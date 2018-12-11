@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Button } from '../../common/common-button';
 import {Table, HeadCell, Cell, Row, HeadRow} from '../../common/table';
-import isEmpty from '../../../validation/is-empty';
 
 const categoryOptions = [
   { value: 0, label: 'Select a category' },
@@ -11,6 +11,20 @@ const categoryOptions = [
   { value: 3, label: 'Reservation' },
   { value: 4, label: 'Booking' },
   { value: 5, label: 'Other' }
+];
+
+const genderOptions = [
+  { value: 0, label: 'Select a gender' },
+  { value: 1, label: 'Male' },
+  { value: 2, label: 'Female' },
+  { value: 3, label: 'Other' }
+];
+
+const timezoneOptions = [
+  { value: 0, label: 'Select your timezone' },
+  { value: 1, label: 'Eastern Toronto/New York' },
+  { value: 2, label: 'Western Vancouver/Los Angeles' },
+  { value: 3, label: 'MidWest Chicago/Edmonton' },
 ];
 
 class SingleProfileSection2 extends Component {
@@ -68,27 +82,24 @@ class SingleProfileSection2 extends Component {
     return mainContent;
   }
 
-  displayFiles(files) {
-    let mainContent;
-    mainContent = (!isEmpty(files) ? files.map((f, i) => {
-      let content;
-      let cat;
-      cat = categoryOptions.filter(obj => f.category === obj.value);
-      let dateTime = moment(f.dateRegistered);
-      dateTime = dateTime.startOf('hour').fromNow();
-      content = (
-  
-        <Row key={i}>
-          <Cell>{f.name}</Cell>
-          <Cell>{cat[0].label}</Cell>
-          <Cell>{dateTime}</Cell>
-          <Cell><Button name="Download" icon="get_app" /></Cell>
-        </Row>
-
-      );
-      return content;
-    }) : <Row><Cell>There's no files uploaded yet</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell><Cell>{/*empty*/}</Cell></Row>);
-    return mainContent;
+  displaySingleTrip(trip) {
+    let dateReceived = moment(trip.dateReceived);
+    dateReceived = dateReceived.format('llll');
+    return (
+      <div className="selected-trip">
+        <h3><b>{'Trip to '+trip.destination}</b></h3>
+        <ul style={{ listStyleType: 'none' }}>
+          <li><b>Status:</b> {trip.status}</li>
+          <li><b>Destination:</b> {trip.destination}</li>
+          <li><b>Travel Dates:</b> {trip.from+' - '+trip.to}</li>
+          <li><b>Number of People:</b> {trip.numberOfPeople}</li>
+          <li><b>Budget:</b> {' $'+trip.budget}</li>
+          <li><b>Message:</b> {trip.message}</li>
+          <li><b>Date Received:</b> {dateReceived}</li>
+          <li><Button name="Back" icon="keyboard_return" onClick={() => this.setState({ displaySingleTrip: false, tripSelected: '' })} /></li>
+        </ul>
+      </div>
+    );
   }
 
   render() {
@@ -102,6 +113,10 @@ class SingleProfileSection2 extends Component {
             let profileDate = moment(profile.dateReceived);
             let userDate = moment(profile.user.date);
             let content;
+            let gender = genderOptions.filter(obj => Number(profile.gender) === obj.value);
+            gender = gender[0].label;
+            let timezone = timezoneOptions.filter(obj => Number(profile.timezone) === obj.value);
+            timezone = timezone[0].label;
             if (profile._id === profileID) {
               content = (
 
@@ -111,9 +126,9 @@ class SingleProfileSection2 extends Component {
                     <li><b>Name:</b> {profile.user.name}</li>
                     <li><b>Email:</b> {profile.user.email}</li>
                     <li><b>Handle:</b> {profile.handle}</li>
-                    <li><b>Gender:</b> {profile.gender}</li>
+                    <li><b>Gender:</b> {gender}</li>
                     <li><b>Phone Number:</b> {profile.phoneNumber}</li>
-                    <li><b>Timezone:</b> {profile.timezone}</li>
+                    <li><b>Timezone:</b> {timezone}</li>
                     <li><b>Notifications via text:</b> {profile.notificationViaText ? 'Enabled' : 'Disabled'}</li>
                     <li><b>Profile Created:</b> {profileDate.format('LLLL')}</li>
                     <li><b>Account Created:</b> {userDate.format('LLLL')}</li>
@@ -194,22 +209,10 @@ class SingleProfileSection2 extends Component {
                           let trips = profile.trip;
                           content = (trips && trips.map(trip => {
                             let single;
-                            let momentObj = moment(trip.dateReceived);
-                            let dateReceived = momentObj.format('llll');
                             if (trip._id === this.state.tripSelected) {
                                 single = (
                                   <div className="content">
-                                    <h3><b>{'Trip to '+trip.destination}</b></h3>
-                                    <ul key={i} style={{ listStyleType: 'none' }}>
-                                      <li><b>Status:</b> {trip.status}</li>
-                                      <li><b>Destination:</b> {trip.destination}</li>
-                                      <li><b>Travel Dates:</b> {trip.from+' - '+trip.to}</li>
-                                      <li><b>Number of People:</b> {trip.numberOfPeople}</li>
-                                      <li><b>Budget:</b> {' $'+trip.budget}</li>
-                                      <li><b>Message:</b> {trip.message}</li>
-                                      <li><b>Date Received:</b> {dateReceived}</li>
-                                      <li><Button name="Back" icon="keyboard_return" onClick={() => this.setState({ displaySingleTrip: false, tripSelected: '' })} /></li>
-                                    </ul>
+                                    {this.displaySingleTrip(trip)}
                                     <Table>
                                       <HeadRow>
                                         <HeadCell></HeadCell>
@@ -262,3 +265,7 @@ class SingleProfileSection2 extends Component {
 }
 
 export default SingleProfileSection2;
+
+SingleProfileSection2.proptypes = {
+  
+};

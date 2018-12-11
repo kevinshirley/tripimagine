@@ -66,7 +66,7 @@ router.get('/users/all', passport.authenticate('jwt', { session: false }), (req,
   const errors = {};
 
   Profile.find()
-    .populate('user', ['name', 'email', 'date', 'avatar'])
+    .populate('user', ['name', 'email', 'date', 'avatar', 'isAdmin'])
     .then(profiles => {
       if (!profiles) {
         errors.noprofiles = 'There are no profiles';
@@ -85,7 +85,7 @@ router.get('/', passport.authenticate('jwt', { session: false }), (req, res) => 
   const errors = {};
 
   Profile.findOne({ user: req.user.id })
-    .populate('user', ['name', 'email', 'avatar'])
+    .populate('user', ['name', 'email', 'avatar', 'date', 'isAdmin'])
     .then(profile => {
       if (!profile) {
         errors.noprofile = 'There is no profile for this user';

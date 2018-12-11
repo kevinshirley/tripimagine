@@ -275,6 +275,16 @@ a:hover {
   border-bottom: 1.5px solid rgba(134,174,204,1);
 }
 
+/* typed.js */
+.typed-cursor, 
+.typed-cursor--blink,
+.typed-cursor .typed-cursor--blink {
+  opacity: 0!important;
+  width: 0;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
 /* end general */
 
 /* keyframes */
@@ -1399,6 +1409,7 @@ a:hover {
   font-size: 3.7em;
   font-weight: 700;
   letter-spacing: 5px;
+  height: 215px;
 }
 
 .home-section-1 .overlay .left-container .text h4 {
@@ -2962,6 +2973,7 @@ a:hover {
 
   .home-section-1 .overlay .left-container .text h1 {
     font-size: 3.1em;
+    height: 182px;
   }
   
   .home-section-1 .overlay .left-container .text h4 {
@@ -3540,6 +3552,7 @@ a:hover {
 
   .home-section-1 .overlay .left-container .text h1 {
     font-size: 2.5em;
+    height: 152px;
   }
   
   .home-section-1 .overlay .left-container .text h4 {
