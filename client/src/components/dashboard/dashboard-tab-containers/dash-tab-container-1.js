@@ -29,9 +29,17 @@ class DashTabContainer1 extends Component {
     let name = this.props.name;
     let profile = this.props.profile.profile;
     let gender = genderOptions.filter(obj => Number(profile.gender) === obj.value);
-    gender = gender[0].label;
+    if (gender[0]) {
+      gender = gender[0].label;
+    }
     let timezone = timezoneOptions.filter(obj => Number(profile.timezone) === obj.value);
-    timezone = timezone[0].label;
+    if(timezone[0]) {
+      timezone = timezone[0].label;
+    }
+    let isAdmin;
+    if (profile.user) {
+      isAdmin = profile.user.isAdmin;
+    }
     return (
       <div className="dash-tab-container-1">
         <div className="user-info" style={{ display: !hasProfile ? 'none' : 'block' }}>
@@ -55,7 +63,7 @@ class DashTabContainer1 extends Component {
         <div className="profile-details" style={{ display: !hasProfile ? 'none' : 'block' }}>
           <small>Profile</small>
           <br/>
-          <p><b>Type:</b> { profile.user.isAdmin ? 'Administrator' : 'Traveller' }</p>
+          <p><b>Type:</b> { isAdmin ? 'Administrator' : 'Traveller' }</p>
           <p><b>Handle:</b> { profile.handle }</p>
           <p><b>Phone Number:</b> { profile.phoneNumber }</p>
           <p><b>Gender:</b> { gender }</p>

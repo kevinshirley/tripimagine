@@ -25,10 +25,11 @@ router.get('/', (req, res) => res.json({ msg: 'users works' }));
 // @access  Public
 var corsOptions = {
   origin: true,
+  // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}; /* change origin to 'http://www.tripimagine.com' when prep for production */
+}; /* change origin to 'http://www.tripimagine.com' when prep for production, 'true' (without the quotation) in dev */
 
 app.options('/register', cors(corsOptions));
 
@@ -79,10 +80,11 @@ router.post('/register', cors(corsOptions), (req, res) => {
 // @access  Public
 var corsOptions = {
   origin: true,
+  // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}; /* change origin to 'http://www.tripimagine.com' when prep for production */
+}; /* change origin to 'http://www.tripimagine.com' when prep for production, 'true' (without the quotation) in dev */
 
 app.options('/login', cors(corsOptions));
 

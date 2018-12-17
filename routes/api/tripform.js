@@ -26,10 +26,11 @@ router.use((req, res, next) => {
 // @access  Public
 var corsOptions = {
   origin: true,
+  // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}; /* change origin to 'http://www.tripimagine.com' when prep for production */
+}; /* change origin to 'http://www.tripimagine.com' when prep for production, 'true' (without the quotation) in dev */
 
 app.options('/', cors(corsOptions));
 
@@ -73,7 +74,8 @@ router.post('/', cors(corsOptions), (req, res) => {
       
       var mailOptions = {
         from: '"Trip Imagine Team" <admin@tripimagine.com>',
-        to: 'tripimaginetestacc@gmail.com',
+        to: 'tripimagine@gmail.com',
+        // 'tripimaginetestacc@gmail.com' in dev, 'tripimagine@gmail.com' in production
         subject: 'New Lead from Dream Vacation Form',
         html: html
       };

@@ -44,7 +44,7 @@ export const ButtonUrl = ({
     <div id="common-button-url">
       <Link to={url}>
           <button>
-              <small><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}
+              <span><small><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}</span>
           </button>
           {info && <small className="form-text text-muted">{info}</small>}
       </Link>

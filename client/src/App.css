@@ -83,7 +83,13 @@ a:hover {
   color: #015197;
 }
 
-#common-button-url a button small {
+#common-button-url a button span {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#common-button-url a button span small {
   margin-top: 5px;
 }
 
@@ -2454,6 +2460,11 @@ a:hover {
   width: 75%;
 }
 
+/* dashboard-tab-menu */
+.dashboard-tabs-menu .tab .label {
+  display: inline-block;
+}
+
 /* dash-container_0 */
 #dash-container_0 div div h5 a {
   color: #656667;
@@ -2527,6 +2538,17 @@ a:hover {
 .user-info-btns a button small {
   /* padding: 3% auto; */
   margin-top: 5px;
+}
+
+/* dash-container_2 */
+#dash-container_2 {
+  overflow: auto;
+}
+
+/* dash-tab-container-2 */
+.dash-tab-container-2 {
+  min-width: 500px;
+  overflow: auto;
 }
 
 /* create-profile-section-2 */
@@ -2613,6 +2635,7 @@ a:hover {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 }
 
 .single-trip-section-2 .overlay {
@@ -2650,7 +2673,15 @@ a:hover {
   /* border: 1px solid #000; */
 }
 
+.single-trip-section-2 .overlay .manage-this-trip {
+  margin-bottom: 30px;
+}
+
 /* file-table */
+.file-table {
+  min-width: 357px;
+}
+
 .file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
 .MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 {
   overflow: auto;
@@ -3024,6 +3055,32 @@ a:hover {
   }
 }
 
+@media screen and (max-width: 950px) {
+  .dashboard-tabs-menu .tab .label {
+    display: none;
+  }
+
+  .dashboard-section-2 .overlay .dashboard-main-content .left .list-group button {
+    width: 75px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .single-trip-section-2 .overlay .single-trip {
+    flex-direction: column-reverse;
+    margin: 30px;
+  }
+
+  .single-trip-section-2 .overlay .single-trip .side-panel {
+    margin-right: 0;
+  }
+
+  .single-trip-section-2 .overlay .single-trip .trip-details {
+    width: 100%;
+  }
+}
+
 @media screen and (max-width: 920px) {
   .home-section-4 .box ul li {
     margin-bottom: 12%;
@@ -3037,6 +3094,12 @@ a:hover {
 
 @media screen and (max-width: 897px) {
   .contact-section-1 .overlay .title-container {
+    width: 100%;
+    margin-left: 0;
+    padding-left: 25%;
+  }
+
+  .header-section .overlay .title-container {
     width: 100%;
     margin-left: 0;
     padding-left: 25%;
@@ -3058,6 +3121,10 @@ a:hover {
 
   .home-section-5 .content .you-will .item h4 {
     font-size: 1.4em;
+  }
+
+  .header-section {
+    background: #fff url('./assets/svg/aztec.svg') top left/90px repeat-y;
   }
 
   .contact-section-1 {
@@ -3319,11 +3386,55 @@ a:hover {
     width: 90%;
   }
 
+  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap {
+    width: 90%;
+  }
+
+  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap {
+    width: 90%;
+  }
+
+  .content .input-wrapper .inner-wrap {
+    width: 90%;
+  }
+  
   .trip-form .form-container .content .input-wrapper .inner-wrap .input-container {
     width: 100%;
   }
   
+  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap .input-container {
+    width: 100%;
+  }
+  
+  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container {
+    width: 100%;
+  }
+  
+  .content .input-wrapper .inner-wrap .input-container {
+    width: 100%;
+  }
+
   .trip-form .form-container .content .input-wrapper .inner-wrap .input-container input {
+    width: 100%;
+  }
+
+  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap .input-container input {
+    width: 100%;
+  }
+
+  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container input {
+    width: 100%;
+  }
+  
+  .content .input-wrapper .inner-wrap .input-container input {
+    width: 100%;
+  }
+
+  .content .input-wrapper .inner-wrap .input-container select {
+    width: 100%;
+  }
+
+  .content .input-wrapper .inner-wrap .input-container textarea {
     width: 100%;
   }
   
@@ -3369,6 +3480,15 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
+  .header-section {
+    background: #fff url('./assets/svg/aztec.svg') top left/60px repeat-y;
+  }
+
+  .header-section .overlay .title-container .content h2 {
+    font-size: 2em;
+    padding-left: 7%;
+  }
+
   .contact-section-1 {
     background: #fff url('./assets/svg/aztec.svg') top left/60px repeat-y;
   }
@@ -3455,6 +3575,10 @@ a:hover {
   .nav .menu {
     width: 55%;
   }
+
+  #dash-container_1 div div .user-info .user-info-btns {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 420px) {
@@ -3471,6 +3595,11 @@ a:hover {
 @media screen and (max-width: 416px) {
   .home-section-3 {
     height: 510px;
+  }
+
+  .single-trip-section-2 .overlay .single-trip .side-panel {
+    width: 100%;
+    margin-left: 40%;
   }
 }
 
@@ -3557,6 +3686,11 @@ a:hover {
   
   .home-section-1 .overlay .left-container .text h4 {
     font-size: 1.3em;
+  }
+
+  .header-section .overlay .title-container .content h2 {
+    font-size: 1.7em;
+    padding-left: 5%;
   }
 
   .contact-section-1 .overlay .title-container .content h2 {
