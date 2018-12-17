@@ -8,6 +8,7 @@ export const uploadFIle = (file) => dispatch => {
     headers: { 'Content-Type': 'multipart/form-data' },
     data: file,
     url: 'http://localhost:5000/files/upload'
+    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/files/profile'
 
   axios(options)
@@ -25,6 +26,7 @@ export const uploadFIle = (file) => dispatch => {
 
 export const getFiles = (userId) => dispatch => {
   let url = 'http://localhost:5000/files/'+userId;
+  // #deploymentVariableToChange
   const options = {
     method: 'GET',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

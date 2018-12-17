@@ -11,6 +11,7 @@ export const getAllProfiles = () => dispatch => {
     method: 'GET',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     url: 'http://localhost:5000/profile/users/all'
+    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/profile/users/all'
 
   axios(options)
@@ -37,6 +38,7 @@ export const getCurrentProfile = () => dispatch => {
     method: 'GET',
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     url: 'http://localhost:5000/profile'
+    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/profile'
 
   axios(options)
@@ -59,6 +61,7 @@ export const createProfile = (profileData, history) => dispatch => {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(profileData),
     url: 'http://localhost:5000/profile'
+    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/profile'
 
   axios(options)
@@ -76,6 +79,7 @@ export const manageTrip = (profileData) => dispatch => {
     headers: { 'content-type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(profileData),
     url: 'http://localhost:5000/profile/trip'
+    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/profile/trip'
 
   axios(options)

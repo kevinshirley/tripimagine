@@ -3,6 +3,20 @@ import { ButtonUrl } from '../../common/common-button';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 
+const genderOptions = [
+  { value: 0, label: 'Select a gender' },
+  { value: 1, label: 'Male' },
+  { value: 2, label: 'Female' },
+  { value: 3, label: 'Other' }
+];
+
+const timezoneOptions = [
+  { value: 0, label: 'Select your timezone' },
+  { value: 1, label: 'Eastern Toronto/New York' },
+  { value: 2, label: 'Western Vancouver/Los Angeles' },
+  { value: 3, label: 'MidWest Chicago/Edmonton' },
+];
+
 class DashTabContainer1 extends Component {
   constructor() {
     super();
@@ -14,6 +28,18 @@ class DashTabContainer1 extends Component {
     let hasProfile = this.props.hasProfile;
     let name = this.props.name;
     let profile = this.props.profile.profile;
+    let gender = genderOptions.filter(obj => Number(profile.gender) === obj.value);
+    if (gender[0]) {
+      gender = gender[0].label;
+    }
+    let timezone = timezoneOptions.filter(obj => Number(profile.timezone) === obj.value);
+    if(timezone[0]) {
+      timezone = timezone[0].label;
+    }
+    let isAdmin;
+    if (profile.user) {
+      isAdmin = profile.user.isAdmin;
+    }
     return (
       <div className="dash-tab-container-1">
         <div className="user-info" style={{ display: !hasProfile ? 'none' : 'block' }}>
@@ -37,10 +63,11 @@ class DashTabContainer1 extends Component {
         <div className="profile-details" style={{ display: !hasProfile ? 'none' : 'block' }}>
           <small>Profile</small>
           <br/>
+          <p><b>Type:</b> { isAdmin ? 'Administrator' : 'Traveller' }</p>
           <p><b>Handle:</b> { profile.handle }</p>
           <p><b>Phone Number:</b> { profile.phoneNumber }</p>
-          <p><b>Gender:</b> { profile.gender }</p>
-          <p><b>Timezone:</b> { profile.timezone }</p>
+          <p><b>Gender:</b> { gender }</p>
+          <p><b>Timezone:</b> { timezone }</p>
         </div>
 
         {profile.social && 

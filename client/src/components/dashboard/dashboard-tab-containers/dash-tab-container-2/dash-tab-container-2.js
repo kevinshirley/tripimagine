@@ -52,7 +52,7 @@ class DashTabContainer2 extends Component {
     });
 
     return (
-      <div>
+      <div className="dash-tab-container-2">
         <AppBar position="static" color="default">
           <Tabs
             value={this.state.value}
