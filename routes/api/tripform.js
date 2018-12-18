@@ -12,25 +12,15 @@ const validateTripFormInput = require('../../validation/tripform');
 // const User = require('../../models/User');
 const TripForm = require('../../models/TripForm');
 
-// response headers
-router.use((req, res, next) => {
-  res.append('Access-Control-Allow-Origin', ['*']);
-  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
-  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
-  res.append('Access-Control-Max-Age', 86400);
-  next();
-});
-
 // @route   POST /trip-form
 // @desc    send trip form
 // @access  Public
 var corsOptions = {
   origin: true,
-  // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
   allowedHeaders: ['Content-Type', 'Authorization']
-}; /* change origin to 'http://www.tripimagine.com' when prep for production, 'true' (without the quotation) in dev */
+}; /* change origin to 'http://www.tripimagine.com' when prep for production */
 
 app.options('/', cors(corsOptions));
 
@@ -74,8 +64,7 @@ router.post('/', cors(corsOptions), (req, res) => {
       
       var mailOptions = {
         from: '"Trip Imagine Team" <admin@tripimagine.com>',
-        to: 'tripimagine@gmail.com',
-        // 'tripimaginetestacc@gmail.com' in dev, 'tripimagine@gmail.com' in production
+        to: 'tripimaginetestacc@gmail.com',
         subject: 'New Lead from Dream Vacation Form',
         html: html
       };

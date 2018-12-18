@@ -26,18 +26,14 @@ class DashboardMainContent extends Component {
     return (
       <main className="dashboard-main-content">
         <div className="left">
-          <DashboardTabsMenu 
-            onSelectTab={this.selectedTab}
-            isAdmin={this.props.isAdmin}
-           />
+          <DashboardTabsMenu onSelectTab={this.selectedTab} />
         </div>
 
         <div className="right">
           <DashboardTabContainers 
             onTabChange={this.state.tabSelected} 
             name={name} 
-            hasProfile={this.props.hasProfile}
-            isAdmin={this.props.isAdmin}
+            hasProfile={this.props.hasProfile} 
           />
         </div>
       </main>

@@ -11,8 +11,6 @@ class DashTabContainer3 extends Component {
     return (
       <div>
         Feed
-        <br/>
-        (Will soon be available)
       </div>
     );
   }

@@ -15,10 +15,6 @@ module.exports = function validateProfileInput(data) {
   if (Validator.isEmpty(data.handle)) {
     errors.handle = 'Handle field is required';
   }
-
-  if (Validator.isEmpty(data.phoneNumber)) {
-    errors.phoneNumber = 'Phone number field is required';
-  }
   
   if (Validator.isEmpty(data.gender)) {
     errors.gender = 'Gender field is required';

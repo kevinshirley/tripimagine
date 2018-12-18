@@ -11,7 +11,6 @@ export const registerUser = (userData, history) => dispatch => {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
     url: 'http://localhost:5000/users/register'
-    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/users/register'
 
   axios(options)
@@ -29,7 +28,6 @@ export const loginUser = userData => dispatch => {
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
     url: 'http://localhost:5000/users/login'
-    // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/users/login'
 
   axios(options)

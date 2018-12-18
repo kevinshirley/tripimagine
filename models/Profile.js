@@ -20,10 +20,6 @@ const ProfileSchema = new Schema({
     required: true,
     max: 40
   },
-  phoneNumber: {
-    type: Number,
-    default: true
-  },
   notificationViaText: {
     type: Boolean,
     default: false
@@ -33,6 +29,10 @@ const ProfileSchema = new Schema({
       destination: {
         type: String,
         required: true
+      },
+      dateReceived: {
+        type: Date,
+        default: Date.now
       },
       from: {
         type: String,
@@ -50,13 +50,13 @@ const ProfileSchema = new Schema({
         type: String,
         default: 'Active'
       },
-      budget: {
-        type: Number,
-        default: 0
-      },
       message: {
         type: String,
         required: true
+      },
+      budget: {
+        type: Number,
+        default: 0
       },
       phaseStopped: {
         type: String
@@ -66,11 +66,7 @@ const ProfileSchema = new Schema({
       },
       offerAccepted: {
         type: String
-      },
-      dateReceived: {
-        type: Date,
-        default: Date.now
-      },
+      }
     }
   ],
   social: {

@@ -83,13 +83,7 @@ a:hover {
   color: #015197;
 }
 
-#common-button-url a button span {
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-#common-button-url a button span small {
+#common-button-url a button small {
   margin-top: 5px;
 }
 
@@ -149,67 +143,6 @@ a:hover {
   padding-left: 12%;
 }
 
-/* accordion-side-panel */
-.accordion-side-panel .overlay {
-  display: flex;
-  align-items: center;
-  flex-direction: column;
-}
-
-.file-table {
-  width: 100%;
-}
-
-/* upload-files-panel */
-.upload-files-panel {
-  width: 100%;
-}
-
-.upload-files-panel form .uploading-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-/* table */
-.table {
-  display: table;
-  width: 100%;
-  border-collapse: collapse;
-}
-
-.table-cell {
-  display: table-cell;
-  vertical-align: middle;
-}
-
-.table .table-row .table-head-cell,
-.table .table-row .table-cell {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
-.table .table-row:nth-child(even) {
-  background-color: #f2f2f2;
-}
-
-.table .table-row:nth-child(odd) {
-  background-color: #fff;
-}
-
-/* .table .table-row-container:hover {
-  background-color: #ddd;
-} */
-
-.table .table-head-row {
-  padding-top: 12px;
-  padding-bottom: 12px;
-  text-align: left;
-  background-color: rgb(34, 34, 34);
-  color: white;
-}
-/* end common */
-
 /* forms */
 .content .input-wrapper {
   /* border: 1px solid green; */
@@ -246,18 +179,6 @@ a:hover {
   width: 415px;
 }
 
-.content .input-wrapper .inner-wrap .input-container textarea {
-  border-top: none;
-  border-left: none;
-  border-right: none;
-  border-radius: 3px;
-  background: none;
-  outline: none;
-  transition: .1s;
-  width: 415px;
-  height: 140px;
-}
-
 .content .input-wrapper .inner-wrap .input-container select {
   border-top: none;
   border-left: none;
@@ -273,23 +194,8 @@ a:hover {
   border-bottom: 1.5px solid rgba(134,174,204,1);
 }
 
-.content .input-wrapper .inner-wrap .input-container textarea:focus {
-  border: 1.5px solid rgba(134,174,204,1);
-}
-
 .content .input-wrapper .inner-wrap .input-container select:focus {
   border-bottom: 1.5px solid rgba(134,174,204,1);
-}
-
-/* typed.js */
-.typed-cursor, 
-.typed-cursor--blink,
-.typed-cursor .typed-cursor--blink {
-  opacity: 0!important;
-  width: 0;
-  height: 0;
-  margin: 0;
-  padding: 0;
 }
 /* end general */
 
@@ -994,10 +900,7 @@ a:hover {
 
 .trip-invalid-feedback {
   color: #c73c25;
-}
-
-.trip-success-feedback {
-  color: green;
+  /* transform: scale(0.7); */
 }
 
 /* signin-section-2 */
@@ -1415,7 +1318,6 @@ a:hover {
   font-size: 3.7em;
   font-weight: 700;
   letter-spacing: 5px;
-  height: 215px;
 }
 
 .home-section-1 .overlay .left-container .text h4 {
@@ -2460,11 +2362,6 @@ a:hover {
   width: 75%;
 }
 
-/* dashboard-tab-menu */
-.dashboard-tabs-menu .tab .label {
-  display: inline-block;
-}
-
 /* dash-container_0 */
 #dash-container_0 div div h5 a {
   color: #656667;
@@ -2540,17 +2437,6 @@ a:hover {
   margin-top: 5px;
 }
 
-/* dash-container_2 */
-#dash-container_2 {
-  overflow: auto;
-}
-
-/* dash-tab-container-2 */
-.dash-tab-container-2 {
-  min-width: 500px;
-  overflow: auto;
-}
-
 /* create-profile-section-2 */
 .create-profile-section-2 {
   width: 100%;
@@ -2616,141 +2502,6 @@ a:hover {
   align-items: center;
   margin-bottom: 40px;
   width: 490px;
-}
-
-/* upcoming-trips */
-.upcoming-trips .has-profile ul {
-  list-style-type: none;
-  margin-bottom: 40px;
-}
-
-.upcoming-trips .has-profile ul li {
-  margin-bottom: 15px;
-}
-
-/* single-trip-section-2 */
-.single-trip-section-2 {
-  background: #fff;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: auto;
-}
-
-.single-trip-section-2 .overlay {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.single-trip-section-2 .overlay ul {
-  list-style-type: none;
-  /* width: 90%; */
-  padding-top: 25px;
-}
-
-.single-trip-section-2 .overlay ul li {
-  margin-bottom: 15px;
-}
-
-.single-trip-section-2 .overlay .single-trip {
-  width: 100%;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-}
-
-.single-trip-section-2 .overlay .single-trip .side-panel {
-  width: 40%;
-  margin-right: 5%;
-  /* border: 1px solid #000; */
-}
-
-.single-trip-section-2 .overlay .single-trip .trip-details {
-  width: 60%;
-  /* border: 1px solid #000; */
-}
-
-.single-trip-section-2 .overlay .manage-this-trip {
-  margin-bottom: 30px;
-}
-
-/* file-table */
-.file-table {
-  min-width: 357px;
-}
-
-.file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
-.MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-.file-table .MuiPaper-root-7 .MuiCollapse-wrapper-45 
-.MuiCollapse-wrapperInner-46 .MuiExpansionPanelDetails-root-47 
-.files-panel-container  {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-.file-table .files-panel-container {
-  overflow: auto;
-  white-space: nowrap;
-}
-
-/* file-panel */
-.files-panel {
-  padding-right: 30px;
-}
-
-.files-panel .overlay {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-}
-
-.files-panel .overlay #common-button {
-  margin-bottom: 15px;
-}
-
-/* single-profile-section-2 */
-.single-profile-section-2 {
-  background: #fff;
-  width: 100%;
-}
-
-.single-profile-section-2 .overlay {
-  width: 95%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.single-profile-section-2 .overlay .single-trip .trip-details {
-  list-style-type: none;
-  padding-top: 25px;
-}
-
-.single-profile-section-2 .overlay .single-trip .trip-details li {
-  padding-top: 15px;
-}
-
-.single-profile-section-2 .overlay .single-trip 
-.input-wrapper .inner-wrap .displayUserTrips {
-  width: 100%;
-  margin-top: 35px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.single-profile-section-2 .overlay .single-trip .trips-container {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 /* Footer */
@@ -3004,7 +2755,6 @@ a:hover {
 
   .home-section-1 .overlay .left-container .text h1 {
     font-size: 3.1em;
-    height: 182px;
   }
   
   .home-section-1 .overlay .left-container .text h4 {
@@ -3055,32 +2805,6 @@ a:hover {
   }
 }
 
-@media screen and (max-width: 950px) {
-  .dashboard-tabs-menu .tab .label {
-    display: none;
-  }
-
-  .dashboard-section-2 .overlay .dashboard-main-content .left .list-group button {
-    width: 75px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .single-trip-section-2 .overlay .single-trip {
-    flex-direction: column-reverse;
-    margin: 30px;
-  }
-
-  .single-trip-section-2 .overlay .single-trip .side-panel {
-    margin-right: 0;
-  }
-
-  .single-trip-section-2 .overlay .single-trip .trip-details {
-    width: 100%;
-  }
-}
-
 @media screen and (max-width: 920px) {
   .home-section-4 .box ul li {
     margin-bottom: 12%;
@@ -3094,12 +2818,6 @@ a:hover {
 
 @media screen and (max-width: 897px) {
   .contact-section-1 .overlay .title-container {
-    width: 100%;
-    margin-left: 0;
-    padding-left: 25%;
-  }
-
-  .header-section .overlay .title-container {
     width: 100%;
     margin-left: 0;
     padding-left: 25%;
@@ -3121,10 +2839,6 @@ a:hover {
 
   .home-section-5 .content .you-will .item h4 {
     font-size: 1.4em;
-  }
-
-  .header-section {
-    background: #fff url('./assets/svg/aztec.svg') top left/90px repeat-y;
   }
 
   .contact-section-1 {
@@ -3386,55 +3100,11 @@ a:hover {
     width: 90%;
   }
 
-  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap {
-    width: 90%;
-  }
-
-  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap {
-    width: 90%;
-  }
-
-  .content .input-wrapper .inner-wrap {
-    width: 90%;
-  }
-  
   .trip-form .form-container .content .input-wrapper .inner-wrap .input-container {
     width: 100%;
   }
   
-  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap .input-container {
-    width: 100%;
-  }
-  
-  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container {
-    width: 100%;
-  }
-  
-  .content .input-wrapper .inner-wrap .input-container {
-    width: 100%;
-  }
-
   .trip-form .form-container .content .input-wrapper .inner-wrap .input-container input {
-    width: 100%;
-  }
-
-  .signin-section-2 .login-form .form-container .content .input-wrapper .inner-wrap .input-container input {
-    width: 100%;
-  }
-
-  .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container input {
-    width: 100%;
-  }
-  
-  .content .input-wrapper .inner-wrap .input-container input {
-    width: 100%;
-  }
-
-  .content .input-wrapper .inner-wrap .input-container select {
-    width: 100%;
-  }
-
-  .content .input-wrapper .inner-wrap .input-container textarea {
     width: 100%;
   }
   
@@ -3480,15 +3150,6 @@ a:hover {
 }
 
 @media screen and (max-width: 500px) {
-  .header-section {
-    background: #fff url('./assets/svg/aztec.svg') top left/60px repeat-y;
-  }
-
-  .header-section .overlay .title-container .content h2 {
-    font-size: 2em;
-    padding-left: 7%;
-  }
-
   .contact-section-1 {
     background: #fff url('./assets/svg/aztec.svg') top left/60px repeat-y;
   }
@@ -3575,10 +3236,6 @@ a:hover {
   .nav .menu {
     width: 55%;
   }
-
-  #dash-container_1 div div .user-info .user-info-btns {
-    flex-direction: column;
-  }
 }
 
 @media screen and (max-width: 420px) {
@@ -3595,11 +3252,6 @@ a:hover {
 @media screen and (max-width: 416px) {
   .home-section-3 {
     height: 510px;
-  }
-
-  .single-trip-section-2 .overlay .single-trip .side-panel {
-    width: 100%;
-    margin-left: 40%;
   }
 }
 
@@ -3681,16 +3333,10 @@ a:hover {
 
   .home-section-1 .overlay .left-container .text h1 {
     font-size: 2.5em;
-    height: 152px;
   }
   
   .home-section-1 .overlay .left-container .text h4 {
     font-size: 1.3em;
-  }
-
-  .header-section .overlay .title-container .content h2 {
-    font-size: 1.7em;
-    padding-left: 5%;
   }
 
   .contact-section-1 .overlay .title-container .content h2 {

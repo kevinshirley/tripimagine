@@ -35,7 +35,7 @@ class DashboardSection2 extends Component {
       } else {
         hasProfile = false;
       }
-      dashboardContent = <DashboardMainContent hasProfile={hasProfile} user={user} isAdmin={user.isAdmin} />;
+      dashboardContent = <DashboardMainContent hasProfile={hasProfile} user={user} />;
     }
 
     return (
