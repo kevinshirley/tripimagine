@@ -7,6 +7,12 @@ import { getAllProfiles } from '../../../actions/profileActions';
 import { getFiles } from '../../../actions/fileActions';
 
 class SingleProfile extends Component {
+  constructor() {
+    super();
+
+    this.getUserId = this.getUserId.bind(this);
+  }
+
   getUserId(profiles, paramId) {
     if (profiles) {
       let userId;
@@ -16,8 +22,10 @@ class SingleProfile extends Component {
     } 
   }
 
-  componentWillReceiveProps(nextProps) {
-    this.getUserId(nextProps.profile.profiles, nextProps.match.params.id);
+  componentDidUpdate(prevProps) {
+    if (this.props.profile.profiles !== prevProps.profile.profiles) {
+      this.getUserId(this.props.profile.profiles, this.props.match.params.id);
+    }
   }
 
   componentDidMount() {
@@ -27,7 +35,6 @@ class SingleProfile extends Component {
 
     // in case of reload
     this.props.getAllProfiles();
-    // this.getUserId(this.props.profile.profiles, this.props.match.params.id);
   }
   
   render() {
@@ -39,7 +46,11 @@ class SingleProfile extends Component {
         <div className="overlay">
 
           <SingleProfileSection1 profileID={profileID} profiles={profiles} />
-          <SingleProfileSection2 profileID={profileID} profiles={profiles} userFiles={userFiles} />
+          <SingleProfileSection2 
+            profileID={profileID}
+            profiles={profiles}
+            userFiles={userFiles}
+          />
           
         </div>
       </section>
