@@ -31,23 +31,28 @@ class DashboardTabsMenu extends Component {
   }
 
   render() {
+    let isAdmin = this.props.isAdmin;
     return (
-      <div className="list-group">
-        <button className="tab list-group-item list-group-item-action" id="_0" onClick={this.changeTabs}><i className="material-icons">home</i>&nbsp;&nbsp; Home</button>
+      <div className="list-group dashboard-tabs-menu">
+        <button className="tab list-group-item list-group-item-action" id="_0" onClick={this.changeTabs}><i className="material-icons">home</i>&nbsp;&nbsp; <span className="label">Home</span></button>
 
-        <button className="tab list-group-item list-group-item-action" id="_1" onClick={this.changeTabs}><i className="far fa-user-circle"></i>&nbsp;&nbsp; Profile</button>
+        <button className="tab list-group-item list-group-item-action" id="_1" onClick={this.changeTabs}><i className="far fa-user-circle"></i>&nbsp;&nbsp; <span className="label">Profile</span></button>
 
-        <button className="tab list-group-item list-group-item-action" id="_2" onClick={this.changeTabs}><i className="fas fa-plane"></i>&nbsp;&nbsp; My Trips</button>
+        {isAdmin && 
+          <button className="tab list-group-item list-group-item-action" id="_8" onClick={this.changeTabs}><i className="fas fa-user-circle"></i>&nbsp;&nbsp; <span className="label">All Profiles</span></button>
+        }
 
-        <button className="tab list-group-item list-group-item-action"  id="_3" onClick={this.changeTabs}><i className="far fa-newspaper"></i>&nbsp;&nbsp; Feed</button>
+        <button className="tab list-group-item list-group-item-action" id="_2" onClick={this.changeTabs}><i className="fas fa-plane"></i>&nbsp;&nbsp; <span className="label">My Trips</span></button>
 
-        <button className="tab list-group-item list-group-item-action"  id="_4" onClick={this.changeTabs}><i className="far fa-clock"></i>&nbsp;&nbsp; Search History</button>
+        <button className="tab list-group-item list-group-item-action"  id="_3" onClick={this.changeTabs}><i className="far fa-newspaper"></i>&nbsp;&nbsp; <span className="label">Feed</span></button>
 
-        <button className="tab list-group-item list-group-item-action"  id="_5" onClick={this.changeTabs}><i className="far fa-bell"></i>&nbsp;&nbsp; Alerts &amp; Notifications</button>
+        <button className="tab list-group-item list-group-item-action"  id="_4" onClick={this.changeTabs}><i className="far fa-clock"></i>&nbsp;&nbsp; <span className="label">Search History</span></button>
 
-        <button className="tab list-group-item list-group-item-action"  id="_6" onClick={this.changeTabs}><i className="fas fa-cog"></i>&nbsp;&nbsp; Settings</button>
+        <button className="tab list-group-item list-group-item-action"  id="_5" onClick={this.changeTabs}><i className="far fa-bell"></i>&nbsp;&nbsp; <span className="label">Alerts &amp; Notifications</span></button>
+
+        <button className="tab list-group-item list-group-item-action"  id="_6" onClick={this.changeTabs}><i className="fas fa-cog"></i>&nbsp;&nbsp; <span className="label">Settings</span></button>
         
-        <button className="tab list-group-item list-group-item-action" id="_7" onClick={this.changeTabs}><i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp; Logout</button>
+        <button className="tab list-group-item list-group-item-action" id="_7" onClick={this.changeTabs}><i className="fas fa-sign-out-alt"></i>&nbsp;&nbsp; <span className="label">Logout</span></button>
       </div>
     );
   }
