@@ -11,13 +11,12 @@ const contact = require('./routes/api/contact');
 const about = require('./routes/api/about');
 const tripForm = require('./routes/api/tripform');
 var home = require('./routes/api/home');
-var files = require('./routes/api/files');
 
 const app = express();
 
 // Body parser middleware
-app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
 // db config
 const db = require('./config/keys').mongoURI;
@@ -42,7 +41,6 @@ app.use('/contact', contact);
 app.use('/about', about);
 app.use('/trip-form', tripForm);
 app.use('/', home);
-app.use('/files', files);
 
 // server static assets if in production
 if (process.env.NODE_ENV === 'production') {

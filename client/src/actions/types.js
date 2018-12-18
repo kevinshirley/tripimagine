@@ -8,7 +8,3 @@ export const PROFILE_LOADING = 'PROFILE_LOADING';
 export const PROFILE_NOT_FOUND = 'PROFILE_NOT_FOUND';
 export const CLEAR_CURRENT_PROFILE = 'CLEAR_CURRENT_PROFILE';
 export const GET_PROFILES = 'GET_PROFILES';
-export const MANAGE_TRIP = 'MANAGE_TRIP';
-// files
-export const UPLOAD_FILE = 'UPLOAD_FILE';
-export const GET_FILES = 'GET_FILES';

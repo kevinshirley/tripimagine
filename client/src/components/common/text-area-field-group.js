@@ -8,32 +8,21 @@ const TextAreaFieldGroup = ({
   value,
   error,
   info,
-  onChange,
-  htmlFor,
-  label,
-  iconClass,
-  icon,
-  id
+  onChange
 }) => {
   return (
-    <div className="input-wrapper form-group">
-      <div className="inner-wrap">
-        <label htmlFor={htmlFor} ><i className={iconClass}>{icon}</i> {label}</label>
-        <div className="input-container">
-          <textarea
-            className={classnames('form-control', {
-              'trip-is-invalid': error
-            })}
-            placeholder={placeholder}
-            name={name}
-            value={value}
-            onChange={onChange}
-            id={id}
-          />
-          {info && <small className="form-text text-muted">{info}</small>}
-          {error && <small className="trip-invalid-feedback">{error}</small>}
-        </div>
-      </div>
+    <div className="form-group">
+      <textarea
+        className={classnames('form-control', {
+          'trip-is-invalid': error
+        })}
+        placeholder={placeholder}
+        name={name}
+        value={value}
+        onChange={onChange}
+      />
+      {info && <small className="form-text text-muted">{info}</small>}
+      {error && <div className="trip-invalid-feedback">{error}</div>}
     </div>
   );
 };
@@ -44,16 +33,7 @@ TextAreaFieldGroup.propTypes = {
   value: PropTypes.string.isRequired,
   info: PropTypes.string,
   error: PropTypes.string,
-  onChange: PropTypes.func.isRequired,
-  htmlFor: PropTypes.string,
-  label: PropTypes.string,
-  iconClass: PropTypes.string,
-  icon: PropTypes.string,
-  id: PropTypes.string,
+  onChange: PropTypes.func.isRequired
 };
-
-TextAreaFieldGroup.defaultProps = {
-  iconClass: 'material-icons',
-}
 
 export default TextAreaFieldGroup;

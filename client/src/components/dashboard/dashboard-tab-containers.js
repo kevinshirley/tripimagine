@@ -3,13 +3,12 @@ import Fade from 'react-reveal/Fade';
 import $ from "jquery";
 import DashTabContainer0 from './dashboard-tab-containers/dash-tab-container-0';
 import DashTabContainer1 from './dashboard-tab-containers/dash-tab-container-1';
-import DashTabContainer2 from './dashboard-tab-containers/dash-tab-container-2/dash-tab-container-2';
+import DashTabContainer2 from './dashboard-tab-containers/dash-tab-container-2';
 import DashTabContainer3 from './dashboard-tab-containers/dash-tab-container-3';
 import DashTabContainer4 from './dashboard-tab-containers/dash-tab-container-4';
 import DashTabContainer5 from './dashboard-tab-containers/dash-tab-container-5';
 import DashTabContainer6 from './dashboard-tab-containers/dash-tab-container-6';
 import DashTabContainer7 from './dashboard-tab-containers/dash-tab-container-7';
-import DashTabContainer8 from './dashboard-tab-containers/dash-tab-container-8';
 
 class DashboardTabContainers extends Component {
   constructor() {
@@ -67,7 +66,6 @@ class DashboardTabContainers extends Component {
   render() {
     let hasProfile = this.props.hasProfile;
     let name = this.props.name;
-    let isAdmin = this.props.isAdmin;
     return (
       <div>
         <div id="dash-container_0" className="dash-container">
@@ -82,7 +80,7 @@ class DashboardTabContainers extends Component {
         </div>
         <div id="dash-container_2" className="dash-container">
           <Fade bottom>
-            <DashTabContainer2 hasProfile={this.props.hasProfile} />
+            <DashTabContainer2 />
           </Fade>
         </div>
         <div id="dash-container_3" className="dash-container">
@@ -110,14 +108,6 @@ class DashboardTabContainers extends Component {
             <DashTabContainer7 />
           </Fade>
         </div>
-        {isAdmin && 
-          <div id="dash-container_8" className="dash-container">
-            <Fade bottom>
-              <DashTabContainer8 isAdmin={isAdmin} />
-            </Fade>
-          </div>
-        }
-        
       </div>
     );
   }
