@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { Button } from '../common-button';
 import SelectListGroup from '../select-list-group';
 import { uploadFIle, getFiles } from '../../../actions/fileActions';
@@ -23,6 +25,7 @@ class UploadFilesPanel extends Component {
       category: '0',
       categoryLabel: '',
       userFiles: {},
+      showSuccessMessage: false,
       errors: {}
     };
 
@@ -79,11 +82,23 @@ class UploadFilesPanel extends Component {
     formData.append('userId', userId);
     formData.append('tripId', tripId);
 
-    this.props.uploadFIle(formData);
-
-    // reset value
-    this.fileRef.current.value = null;
-    this.categoryRef.current.value = Number(0);
+    if (Object.keys(document).length === 0 && document.constructor === Object) {
+      toast.warn("File is missing", {
+        position: toast.POSITION.TOP_RIGHT,
+        background: 'red'
+      });
+    } else if (category === "0") {
+      toast.warn("Category is missing", {
+        position: toast.POSITION.TOP_RIGHT
+      });
+    } else {
+      this.setState({ showSuccessMessage: true });
+      this.props.uploadFIle(formData);
+      // reset values
+      this.fileRef.current.value = null;
+      this.setState({ document: {} });
+      this.categoryRef.current.value = Number(0);
+    }
   }
 
   componentDidMount() {
@@ -103,7 +118,13 @@ class UploadFilesPanel extends Component {
             <br/>
             <br/>
             <div className="uploading-container">
-              <input onChange={this.onInputChange} id="upload-input" name="document" type="file" ref={this.fileRef} />
+              <input 
+                onChange={this.onInputChange} 
+                id="upload-input" 
+                name="document" 
+                type="file" 
+                ref={this.fileRef} 
+              />
               {errors.name && (
                 <small className="trip-invalid-feedback">{errors.name}</small>
               )}
@@ -122,8 +143,9 @@ class UploadFilesPanel extends Component {
             />
             <br/>
             {file.success && (
-              <small className="trip-success-feedback" style={{color: 'green'}}>{file.success}</small>
+              <small style={{ display: this.state.showSuccessMessage ? 'block' : 'none', color: 'green' }} className="trip-success-feedback">{file.success} <i class="material-icons" style={{cursor: 'pointer', paddingTop: '5px'}} onClick={() => this.setState({ showSuccessMessage: false })}>close</i></small>
             )}
+            <ToastContainer />
             <br/>
             <Button name="Upload" icon="cloud_upload" onClick={this.onUpload}  />
           </form>
