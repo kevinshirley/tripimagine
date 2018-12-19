@@ -120,7 +120,7 @@ router.post('/login', cors(corsOptions), (req, res) => {
             jwt.sign(
               payload, 
               keys.secretOrKey, 
-              { expiresIn: 43400 }, 
+              { expiresIn: 600000 }, 
               (err, token) => {
                 res.json({
                   success: true,
