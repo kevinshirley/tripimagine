@@ -34,7 +34,7 @@ router.get('/', (req, res) => res.json({ msg: 'users works' }));
 // @desc    Register user
 // @access  Public
 var corsOptions = {
-  origin: true,
+  origin: 'http://www.tripimagine.com',
   // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
@@ -89,7 +89,7 @@ router.post('/register', cors(corsOptions), (req, res) => {
 // @desc    Login User / Returning Token
 // @access  Public
 var corsOptions = {
-  origin: true,
+  origin: 'http://www.tripimagine.com',
   // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
@@ -149,7 +149,7 @@ router.post('/login', cors(corsOptions), (req, res) => {
 // @desc    update user info
 // @access  Public
 var corsOptions = {
-  origin: true,
+  origin: 'http://www.tripimagine.com',
   // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],

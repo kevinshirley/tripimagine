@@ -25,7 +25,7 @@ router.use((req, res, next) => {
 // @desc    send trip form
 // @access  Public
 var corsOptions = {
-  origin: true,
+  origin: 'http://www.tripimagine.com',
   // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
