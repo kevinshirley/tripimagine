@@ -84,8 +84,7 @@ class UploadFilesPanel extends Component {
 
     if (Object.keys(document).length === 0 && document.constructor === Object) {
       toast.warn("File is missing", {
-        position: toast.POSITION.TOP_RIGHT,
-        background: 'red'
+        position: toast.POSITION.TOP_RIGHT
       });
     } else if (category === "0") {
       toast.warn("Category is missing", {

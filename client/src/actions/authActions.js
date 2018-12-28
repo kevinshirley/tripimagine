@@ -3,7 +3,7 @@ import qs from 'qs';
 import setAuthToken from '../utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
 
-import { GET_ERRORS, SET_CURRENT_USER } from './types';
+import { GET_ERRORS, SET_CURRENT_USER, MANAGE_USER, RESET_MANAGE_USER } from './types';
 
 export const registerUser = (userData, history) => dispatch => {
   const options = {
@@ -61,6 +61,34 @@ export const setCurrentUser = (decoded) => {
     type: SET_CURRENT_USER,
     payload: decoded
   }
+}
+
+// update user
+export const manageUser = (userData) => dispatch => {
+  const options = {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    data: qs.stringify(userData),
+    url: 'http://localhost:5000/users'
+    // #deploymentVariableToChange
+  }; // 'http://www.tripimagine.com:5000/users'
+
+  axios(options)
+    .then(res => dispatch({
+      type: MANAGE_USER,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }));
+}
+// reset manage user
+export const resetManageUser = () => dispatch => {
+  dispatch({
+    type: RESET_MANAGE_USER,
+    payload: {}
+  })
 }
 
 export const logoutUser = (history) => dispatch => {

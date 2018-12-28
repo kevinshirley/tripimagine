@@ -58,7 +58,7 @@ router.post('/', cors(corsOptions), (req, res) => {
         port: 465,
         secure: true,
         auth: {
-          user: 'admin@tripimagine.com',
+          user: 'info@tripimagine.com',
           pass: 'Trip3471Trip'
         },
         tls: {
@@ -75,10 +75,10 @@ router.post('/', cors(corsOptions), (req, res) => {
       var mailOptions = {
         from: '"Trip Imagine Team" <admin@tripimagine.com>',
         to: 'tripimagine@gmail.com',
-        // 'tripimaginetestacc@gmail.com' in dev, 'tripimagine@gmail.com' in production
         subject: 'New Lead from Dream Vacation Form',
         html: html
       };
+      // 'tripimaginetestacc@gmail.com' in dev, 'tripimagine@gmail.com' in production
       
       transporter.sendMail(mailOptions, function(error, info){
         if (error) {

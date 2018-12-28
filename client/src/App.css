@@ -3382,6 +3382,10 @@ a:hover {
     transform: scale(0.8);
   }
 
+  .content .socialInputs {
+    width: 100%;
+  }
+
   .trip-form .form-container .content .input-wrapper .inner-wrap {
     width: 90%;
   }
@@ -3395,6 +3399,10 @@ a:hover {
   }
 
   .content .input-wrapper .inner-wrap {
+    width: 90%;
+  }
+
+  .content .socialInputs .input-wrapper .inner-wrap {
     width: 90%;
   }
   
@@ -3414,6 +3422,10 @@ a:hover {
     width: 100%;
   }
 
+  .content .socialInputs .input-wrapper .inner-wrap .input-container {
+    width: 100%;
+  }
+
   .trip-form .form-container .content .input-wrapper .inner-wrap .input-container input {
     width: 100%;
   }
@@ -3427,6 +3439,10 @@ a:hover {
   }
   
   .content .input-wrapper .inner-wrap .input-container input {
+    width: 100%;
+  }
+
+  .content .socialInputs .input-wrapper .inner-wrap .input-container input {
     width: 100%;
   }
 

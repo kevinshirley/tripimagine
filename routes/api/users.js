@@ -11,9 +11,19 @@ const cors = require('cors');
 // Load input validation
 const validationRegisterInput = require('../../validation/register');
 const validationLoginInput = require('../../validation/login');
+const validationUserInput = require('../../validation/user');
 
 // Load User model
 const User = require('../../models/User');
+
+// response headers
+router.use((req, res, next) => {
+  res.append('Access-Control-Allow-Origin', ['*']);
+  res.append('Access-Control-Allow-Methods', ['GET,PUT,POST,DELETE,OPTIONS']);
+  res.append('Access-Control-Allow-Headers', ['Content-Type', 'Authorization']);
+  res.append('Access-Control-Max-Age', 86400);
+  next();
+});
 
 // @route   GET /users
 // @desc    test users route
@@ -132,6 +142,60 @@ router.post('/login', cors(corsOptions), (req, res) => {
             return res.status(400).json(errors);
           }
         });
+    });
+});
+
+// @route   POST /users
+// @desc    update user info
+// @access  Public
+var corsOptions = {
+  origin: true,
+  // #deploymentVariableToChange
+  credentials: false,
+  methods: ['POST'],
+  allowedHeaders: ['Content-Type', 'Authorization']
+}; /* change origin to 'http://www.tripimagine.com' when prep for production, 'true' (without the quotation) in dev */
+
+router.options('/', cors(corsOptions));
+
+router.post('/', cors(corsOptions), (req, res) => {
+  const { errors, isValid } = validationUserInput(req.body);
+
+  // check validation
+  if (!isValid) {
+    return res.status(400).json(errors);
+  }
+
+  // get fields
+  const userFields = {};
+  if (req.body.id) userFields.id = req.body.id;
+  if (req.body.name) userFields.name = req.body.name;
+  if (req.body.email) userFields.email = req.body.email;
+
+  User.findOne({ _id: userFields.id })
+    .then(user => {
+      if (user) {
+        // update
+        User.findOneAndUpdate(
+          { _id: userFields.id },
+          { $set: userFields },
+          { new: true }
+        ).then(user => res.json(user));
+      } else {
+        // create
+
+        // check if email exists
+        User.findOne({ email: userFields.email })
+          .then(user => {
+            if (user) {
+              errors.email = 'That email already exists';
+              return res.status(400).json(errors);
+            }
+
+            // save profile
+            new User(userFields).save().then(user => res.json(user));
+          })
+      }
     });
 });
 

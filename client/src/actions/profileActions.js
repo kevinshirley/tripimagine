@@ -1,7 +1,7 @@
 import axios from 'axios';
 import qs from 'qs';
 
-import { GET_PROFILES, GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE, MANAGE_TRIP, GET_ERRORS } from './types';
+import { GET_PROFILES, GET_PROFILE, PROFILE_LOADING, CLEAR_CURRENT_PROFILE, MANAGE_TRIP, MANAGE_PROFILE, RESET_MANAGE_PROFILE, GET_ERRORS } from './types';
 
 // get current profile
 export const getAllProfiles = () => dispatch => {
@@ -70,6 +70,34 @@ export const createProfile = (profileData, history) => dispatch => {
       type: GET_ERRORS,
       payload: err.response.data
     }));
+}
+
+// manage profile
+export const manageProfile = (profileData) => dispatch => {
+  const options = {
+    method: 'POST',
+    headers: { 'content-type': 'application/x-www-form-urlencoded' },
+    data: qs.stringify(profileData),
+    url: 'http://localhost:5000/profile'
+    // #deploymentVariableToChange
+  }; // 'http://www.tripimagine.com:5000/profile'
+
+  axios(options)
+    .then(res => dispatch({
+      type: MANAGE_PROFILE,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+      type: GET_ERRORS,
+      payload: err.response.data
+    }));
+}
+
+// reset Manage Profile object in redux
+export const resetManageProfile = () => dispatch => {
+  dispatch({
+    type: RESET_MANAGE_PROFILE
+  })
 }
 
 // manage trip

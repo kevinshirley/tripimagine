@@ -54,6 +54,8 @@ import ContinentSection2 from './components/atlas/continent/continent-section-2.
 import ContinentSection3 from './components/atlas/continent/continent-section-3.js';
 // manage-profile
 import ManageProfile from './components/dashboard/manage-profile/manage-profile';
+// dashboard/manage-profile/:id
+import ManageProfileId from './components/dashboard/manage-profile/manage-profile-id';
 // manage-trip
 import ManageTrip from './components/dashboard/manage-trip/manage-trip';
 // single-trip
@@ -108,6 +110,10 @@ class App extends Component {
             {/* /manage-profile */}
             <Switch>
               <PrivateRoute exact path="/dashboard/manage-profile" component={ ManageProfile } />
+            </Switch>
+            {/* /dashboard/manage-profile/:id */}
+            <Switch>
+              <PrivateRoute exact path="/dashboard/manage-profile/:id" component={ ManageProfileId } />
             </Switch>
             {/* /manage-trip */}
             <Switch>
