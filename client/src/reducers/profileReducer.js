@@ -1,9 +1,10 @@
-import { GET_PROFILES, GET_PROFILE, PROFILE_LOADING, MANAGE_TRIP, CLEAR_CURRENT_PROFILE } from '../actions/types';
+import { GET_PROFILES, GET_PROFILE, PROFILE_LOADING, MANAGE_TRIP, CLEAR_CURRENT_PROFILE, MANAGE_PROFILE, RESET_MANAGE_PROFILE } from '../actions/types';
 
 const initialState = {
   profile: null,
   profiles: null,
   manageTrip: null,
+  manageProfile: {},
   loading: false
 }
 
@@ -35,6 +36,18 @@ export default function(state = initialState, action) {
       return {
         ...state,
         manageTrip: action.payload
+      }
+    case MANAGE_PROFILE: 
+      return {
+        ...state,
+        manageProfile: {
+          success: 'Updated profile with success'
+        }
+      }
+    case RESET_MANAGE_PROFILE: 
+      return {
+        ...state,
+        manageProfile: action.payload
       }
     default: 
       return state;

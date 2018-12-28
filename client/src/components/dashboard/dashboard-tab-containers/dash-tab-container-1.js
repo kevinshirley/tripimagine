@@ -40,6 +40,10 @@ class DashTabContainer1 extends Component {
     if (profile.user) {
       isAdmin = profile.user.isAdmin;
     }
+    let userId;
+    if (profile.user) {
+      userId = profile.user._id;
+    }
     return (
       <div className="dash-tab-container-1">
         <div className="user-info" style={{ display: !hasProfile ? 'none' : 'block' }}>
@@ -47,7 +51,10 @@ class DashTabContainer1 extends Component {
           <br />
           <h2>{name}</h2>
           <small className="user-info-btns">
-            <ButtonUrl name="Edit Profile" url="/dashboard/manage-profile" icon="account_circle" />
+            <ButtonUrl 
+              name="Edit Profile" 
+              url={"/dashboard/manage-profile/" + userId} icon="account_circle" 
+            />
             <ButtonUrl name="Add a Trip" url="/dashboard/manage-trip" icon="card_travel" />
           </small>
         </div>

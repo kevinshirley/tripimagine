@@ -73,7 +73,7 @@ class Menu extends Component {
       method: 'POST',
       headers: { 'content-type': 'application/x-www-form-urlencoded' },
       data: qs.stringify(newForm),
-      url: 'http://localhost:5000/trip-form'
+      url: 'http://www.tripimagine.com:5000/trip-form'
       // #deploymentVariableToChange
     }; // 'http://www.tripimagine.com:5000/trip-form'
 

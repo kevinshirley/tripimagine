@@ -9,7 +9,9 @@ class DashboardSection2 extends Component {
   constructor() {
     super();
 
-    this.state = {};
+    this.state = {
+      user: {}
+    };
   }
 
   componentDidMount() {
@@ -18,10 +20,17 @@ class DashboardSection2 extends Component {
     }
 
     this.props.getCurrentProfile();
+    this.setState({ user: this.props.auth.user });
+  }
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.auth !== this.props.auth) {
+      this.setState({ user: this.props.auth.user });
+    }
   }
 
   render() {
-    const { user } = this.props.auth;
+    const user = this.state.user;
     const { profile, loading } = this.props.profile;
 
     let dashboardContent, hasProfile;
