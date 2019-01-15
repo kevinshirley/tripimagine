@@ -16,3 +16,5 @@ export const RESET_MANAGE_PROFILE = 'RESET_MANAGE_PROFILE';
 // files
 export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const GET_FILES = 'GET_FILES';
+// blog
+export const CURRENT_POST = 'CURRENT_POST';

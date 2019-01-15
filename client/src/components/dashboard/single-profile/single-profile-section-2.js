@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+// import PropTypes from 'prop-types';
 import moment from 'moment';
 import { Button } from '../../common/common-button';
 import {Table, HeadCell, Cell, Row, HeadRow} from '../../common/table';

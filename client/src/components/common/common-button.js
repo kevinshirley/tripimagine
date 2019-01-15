@@ -63,3 +63,39 @@ ButtonUrl.propTypes = {
 ButtonUrl.defaultProps = {
   iconClass: 'material-icons'
 }
+
+export const BtnPostUrl = ({
+  name,
+  url,
+  icon,
+  iconClass,
+  info,
+  title,
+  featuredImg,
+  desc,
+  content,
+  slug
+}) => {
+  return (
+    <div id="common-button-url">
+      <Link to={url}>
+        <button>
+          <span><small><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}</span>
+        </button>
+        {info && <small className="form-text text-muted">{info}</small>}
+      </Link>
+    </div>
+  )
+}
+
+BtnPostUrl.propTypes = {
+  name: PropTypes.string.isRequired,
+  url: PropTypes.string,
+  icon: PropTypes.string,
+  iconClass: PropTypes.string,
+  info: PropTypes.string,
+}
+
+BtnPostUrl.defaultProps = {
+  iconClass: 'material-icons'
+}

@@ -29,7 +29,7 @@ class DashboardMainContent extends Component {
           <DashboardTabsMenu 
             onSelectTab={this.selectedTab}
             isAdmin={this.props.isAdmin}
-           />
+          />
         </div>
 
         <div className="right">

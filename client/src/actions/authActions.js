@@ -10,7 +10,7 @@ export const registerUser = (userData, history) => dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
-    url: 'http://www.tripimagine.com:5000/users/register'
+    url: 'http://localhost:5000/users/register'
     // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/users/register'
 
@@ -28,7 +28,7 @@ export const loginUser = userData => dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
-    url: 'http://www.tripimagine.com:5000/users/login'
+    url: 'http://localhost:5000/users/login'
     // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/users/login'
 
@@ -69,7 +69,7 @@ export const manageUser = (userData) => dispatch => {
     method: 'POST',
     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
     data: qs.stringify(userData),
-    url: 'http://www.tripimagine.com:5000/users'
+    url: 'http://localhost:5000/users'
     // #deploymentVariableToChange
   }; // 'http://www.tripimagine.com:5000/users'
 

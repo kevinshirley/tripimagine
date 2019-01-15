@@ -32,8 +32,8 @@ import SignupSection2 from './components/sign-up/signup-section-2.js';
 // dashboard
 import Dashboard from './components/dashboard/dashboard.js';
 // blog
-import BlogSection1 from './components/blog/blog-section-1.js';
-import BlogSection2 from './components/blog/blog-section-2.js';
+import Blog from './components/blog/blog.js';
+import SinglePost from './components/blog/single-post.js';
 // contact
 import ContactSection1 from './components/contact/contact-section-1.js';
 import ContactSection2 from './components/contact/contact-section-2.js';
@@ -128,8 +128,9 @@ class App extends Component {
               <PrivateRoute exact path="/dashboard/profile/:id" component={ SingleProfile } />
             </Switch>
             {/* /blog */}
-            <Route exact path="/blog" component={ BlogSection1 } />
-            <Route exact path="/blog" component={ BlogSection2 } />
+            <Route exact path="/blog" component={ Blog } />
+            {/* /:singlePost */}
+            <Route exact path="/blog/:singlepost" component={ SinglePost } />
             {/* /contact */}
             <Route exact path="/contact" component={ ContactSection1 } />
             <Route exact path="/contact" component={ ContactSection2 } />

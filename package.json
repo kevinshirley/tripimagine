@@ -41,6 +41,7 @@
     "url": "https://github.com/kevinshirley/tripimagine/issues"
   },
   "dependencies": {
+    "axios": "^0.18.0",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "cloudinary": "^1.13.2",
@@ -56,6 +57,7 @@
     "nodemailer": "^4.6.8",
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
+    "react-paginate": "^6.0.0",
     "react-swipeable-views": "^0.13.0",
     "unsplash-js": "^4.8.0",
     "validator": "^10.4.0"

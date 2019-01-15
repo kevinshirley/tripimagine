@@ -2412,7 +2412,7 @@ a:hover {
 .blog-section-2 .overlay {
   width: 100%;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
 }
 
@@ -2423,6 +2423,10 @@ a:hover {
 .blog-section-2 .overlay .content div img {
   width: 400px;
   height: 300px;
+}
+
+.blog-section-2 .overlay .load-more {
+  margin-top: 20px;
 }
 
 /* dashboard-section-2 */
