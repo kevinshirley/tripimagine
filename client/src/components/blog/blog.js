@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import ReactPaginate from 'react-paginate';
-// import { getPosts } from '../../actions/blogActions';
+// import ReactPaginate from 'react-paginate';
+import { currentPost } from '../../actions/blogActions';
 import BlogSection1 from './blog-section-1'
 import BlogSection2 from './blog-section-2'
 
@@ -68,18 +68,25 @@ class Blog extends Component {
 		// DONT delete this api call, all though the app is using the posts called from the api call in BlogSection2 comp. Found in testing that if you delete this one, then the posts called in BlogSection2 don't show up when you first arrive in /blog
   }
 
+  aCurrentPost = (slug, title, img, desc, content) => {
+    this.props.currentPost(slug, title, img, desc, content);
+    this.props.history.push('/blog/'+slug);
+  }
+
   componentDidMount() {
     this.fetchPostsAPI();
 	}
 	
   render() {
-    console.log(this.state.newPosts);
 		return (
 			<section className="blog">
 				<div className="overlay">
 
 					<BlogSection1 />
-					<BlogSection2 posts={this.state.newPosts} />
+          <BlogSection2 
+            posts={this.state.newPosts} 
+            onCurrentPost={this.aCurrentPost}
+          />
 				
 				</div>
 			</section>
@@ -91,4 +98,4 @@ Blog.proptypes = {};
 
 const mapStateToProps = (state) => ({});
 
-export default connect(mapStateToProps, {})(Blog);
+export default connect(mapStateToProps, {currentPost})(Blog);

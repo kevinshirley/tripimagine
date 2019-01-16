@@ -129,7 +129,7 @@ class App extends Component {
             </Switch>
             {/* /blog */}
             <Route exact path="/blog" component={ Blog } />
-            {/* /:singlePost */}
+            {/* /blog/:singlePost */}
             <Route exact path="/blog/:singlepost" component={ SinglePost } />
             {/* /contact */}
             <Route exact path="/contact" component={ ContactSection1 } />

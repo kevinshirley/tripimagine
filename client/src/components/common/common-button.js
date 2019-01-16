@@ -70,16 +70,12 @@ export const BtnPostUrl = ({
   icon,
   iconClass,
   info,
-  title,
-  featuredImg,
-  desc,
-  content,
-  slug
+  onClick
 }) => {
   return (
     <div id="common-button-url">
       <Link to={url}>
-        <button>
+        <button {...onClick}>
           <span><small><i className={iconClass}>{icon}</i></small>&nbsp;&nbsp;{name}</span>
         </button>
         {info && <small className="form-text text-muted">{info}</small>}

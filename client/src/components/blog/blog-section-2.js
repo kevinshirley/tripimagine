@@ -63,12 +63,15 @@ class BlogSection2 extends Component {
     this.setState({ newPosts: thePosts });
   }
 
+  selectPost = (slug, title, img, desc, content) => {
+    this.props.onCurrentPost(slug, title, img, desc, content);
+  }
+
   componentDidMount() {
     this.fetchPostsAPI();
   }
 
   render() {
-    console.log(this.state.newPosts);
     return (
       <section className="blog-section-2">
         <div className="overlay">
@@ -76,7 +79,8 @@ class BlogSection2 extends Component {
           <div className="content">
             
             {this.state.newPosts < 1 ? <Spinner/> : this.state.newPosts.map((post, i) => {
-              return <div style={{marginBottom: '50px'}} key={i}><img src={post.featuredImg} alt={post.title} /><br/><h3>{post.title}</h3><br/><p dangerouslySetInnerHTML={{__html: post.desc}}></p><br/><BtnPostUrl name="Read More" url={"/blog/"+post.slug} icon="add_box" /></div>;
+              let posts = this.state.newPosts;
+              return <div style={{marginBottom: '50px'}} key={i}><img src={post.featuredImg} alt={post.title} /><br/><h3>{post.title}</h3><br/><p dangerouslySetInnerHTML={{__html: post.desc}}></p><br/><Button name="Read More" /*url={"/blog/"+post.slug}*/ icon="add_box" onClick={() => this.selectPost(posts[i].slug, posts[i].title, posts[i].featuredImg, posts[i].desc, posts[i].content)} /></div>;
             })}
 
           </div>
