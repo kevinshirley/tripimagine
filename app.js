@@ -10,8 +10,9 @@ const profile = require('./routes/api/profile');
 const contact = require('./routes/api/contact');
 const about = require('./routes/api/about');
 const tripForm = require('./routes/api/tripform');
-var home = require('./routes/api/home');
-var files = require('./routes/api/files');
+const home = require('./routes/api/home');
+const files = require('./routes/api/files');
+const callback = require('./routes/api/twilio/callback');
 
 const app = express();
 
@@ -43,6 +44,7 @@ app.use('/about', about);
 app.use('/trip-form', tripForm);
 app.use('/', home);
 app.use('/files', files);
+app.use('/callback', callback);
 
 // server static assets if in production
 if (process.env.NODE_ENV === 'production') {

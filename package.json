@@ -13,7 +13,7 @@
     "client-install": "npm install --prefix client",
     "client": "PORT=3005 npm start --prefix client",
     "babel-version": "babel --version",
-    "babel": "babel routes/api/files.js -s -d dist",
+    "babel": "babel routes/api/twilio/callback.js -s -d dist",
     "clean-dist": "rm -rf dist"
   },
   "repository": {
@@ -57,6 +57,7 @@
     "passport": "^0.4.0",
     "passport-jwt": "^4.0.0",
     "react-swipeable-views": "^0.13.0",
+    "twilio": "^3.27.1",
     "unsplash-js": "^4.8.0",
     "validator": "^10.4.0"
   },
