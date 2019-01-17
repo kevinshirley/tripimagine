@@ -208,6 +208,19 @@ a:hover {
   background-color: rgb(34, 34, 34);
   color: white;
 }
+
+/* spinner */
+.spinner {
+  width: 100%;
+  height: auto;
+}
+
+.spinner img {
+  width: 30%;
+  margin: auto;
+  display: block;
+}
+
 /* end common */
 
 /* forms */
@@ -2443,6 +2456,10 @@ a:hover {
 
 .blog-section-3 .overlay {
   width: 90%;
+}
+
+.blog-section-3 .overlay .spinner {
+  width: 100%;
 }
 
 .blog-section-3 .overlay #common-button-url:nth-child(1) {
