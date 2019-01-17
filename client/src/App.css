@@ -2407,6 +2407,7 @@ a:hover {
 .blog-section-2 {
   background: #fff;
   width: 100%;
+  padding-top: 35px;
 }
 
 .blog-section-2 .overlay {
@@ -2427,6 +2428,53 @@ a:hover {
 
 .blog-section-2 .overlay .load-more {
   margin-top: 20px;
+}
+
+/* blog-section-3 */
+.blog-section-3 {
+  background: #fff;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.blog-section-3 .overlay {
+  width: 90%;
+}
+
+.blog-section-3 .overlay #common-button-url:nth-child(1) {
+  margin-bottom: 35px;
+}
+
+.blog-section-3 .overlay #common-button-url:nth-child(5) {
+  padding-top: 40px;
+}
+
+.blog-section-3 .overlay h1 {
+  margin-bottom: 20px;
+  /* font-size: 1.5em; */
+}
+
+.blog-section-3 .overlay img {
+  width: 95%;
+  margin-bottom: 20px;
+}
+
+.blog-section-3 .overlay p {
+  margin-block-start: 0;
+  margin-block-end: 0;
+}
+
+.blog-section-3 .overlay p .wp-video video {
+  width: 95%;
+  height: auto;
+}
+
+.ttd_stays {
+  display: none;
 }
 
 /* dashboard-section-2 */
@@ -3575,6 +3623,13 @@ a:hover {
 
   .contact-section-2 .overlay .contact-box-container .contact-box-wrapper .row .contact-box {
     margin-bottom: 20px;
+  }
+}
+
+@media screen and (max-width: 440px) {
+  .blog-section-2 .overlay .content div img {
+    width: 100%;
+    height: auto;
   }
 }
 

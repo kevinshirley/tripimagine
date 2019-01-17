@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 // import Spinner from '../common/Spinner';
 import { connect } from 'react-redux';
-import { BtnPostUrl, ButtonUrl } from '../common/common-button';
+import { ButtonUrl } from '../common/common-button';
 
 const initialState = {
   posts: [],
@@ -17,21 +17,22 @@ class BlogSection3 extends Component {
   }
 
   componentDidMount() {
-    
+    window.scrollTo(0, 0);
   }
 
   render() {
     const { post } = this.props.blog;
-    console.log(post);
     return (
       <section className="blog-section-3">
         <div className="overlay">
 
-          <BtnPostUrl name="Back to Blog" url="/blog" icon="arrow_back" />
+          <ButtonUrl name="Back to Blog" url="/blog" icon="arrow_back" />
 
-          <h1>{post.title}</h1>
+          <h1 dangerouslySetInnerHTML={{__html: post.title}}></h1>
           <img src={post.img} alt={post.title} />
-          <p>{post.content}</p>
+          <p dangerouslySetInnerHTML={{__html: post.content}}></p>
+
+          <ButtonUrl name="Back to Blog" url="/blog" icon="arrow_back" />
           
         </div>
       </section>

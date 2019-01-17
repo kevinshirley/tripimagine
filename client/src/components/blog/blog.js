@@ -21,8 +21,6 @@ class Blog extends Component {
     this.state = initialState;
 
     this.fetchPostsAPI = this.fetchPostsAPI.bind(this);
-
-    // this.fetchPostsAPI();
   }
 
   fetchPostsAPI() {
