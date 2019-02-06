@@ -48,7 +48,9 @@ class SinglePost extends Component {
                 thePosts.push({
                   featuredImg: post.featuredImg,
                   title: post.title.rendered,
-                  desc: post.desc
+									desc: post.desc,
+									slug: post.slug,
+                  content: post.content.rendered
                 });
               })
               .catch(err => console.log(err));
@@ -66,6 +68,11 @@ class SinglePost extends Component {
 	
   render() {
 		// console.log(this.state.newPosts);
+		let blogPosts;
+		if (this.state.newPosts.length > 1) {
+			blogPosts = this.state.newPosts;
+			// console.log(blogPosts);
+		}
 		return (
 			<section className="single-post">
 				<div className="overlay">

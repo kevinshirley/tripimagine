@@ -25,7 +25,7 @@ router.use((req, res, next) => {
 // @desc    send trip form
 // @access  Public
 var corsOptions = {
-  origin: true,
+  origin: 'http://www.tripimagine.com',
   // #deploymentVariableToChange
   credentials: false,
   methods: ['POST'],
@@ -58,8 +58,8 @@ router.post('/', cors(corsOptions), (req, res) => {
         port: 465,
         secure: true,
         auth: {
-          user: 'info@tripimagine.com',
-          pass: 'Trip3471Trip'
+          user: 'admin@tripimagine.com',
+          pass: 'Trip3471Trip!!'
         },
         tls: {
           // do not fail on invalid certs
@@ -74,7 +74,7 @@ router.post('/', cors(corsOptions), (req, res) => {
       
       var mailOptions = {
         from: '"Trip Imagine Team" <admin@tripimagine.com>',
-        to: 'tripimagine@gmail.com',
+        to: 'info@tripimagine.com',
         subject: 'New Lead from Dream Vacation Form',
         html: html
       };
@@ -95,7 +95,7 @@ router.post('/', cors(corsOptions), (req, res) => {
         secure: true,
         auth: {
           user: 'info@tripimagine.com',
-          pass: 'Trip3471Trip'
+          pass: 'Trip3471Trip!!'
         },
         tls: {
           // do not fail on invalid certs
