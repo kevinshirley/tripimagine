@@ -23,6 +23,7 @@ import HomeSection3 from './components/home/home-section-3.js';
 import HomeSection4 from './components/home/home-section-4.js';
 import HomeSection5 from './components/home/home-section-5.js';
 import HomeSection6 from './components/home/home-section-6.js';
+import HomeSection7 from './components/home/home-section-7.js';
 // signin
 import SigninSection1 from './components/sign-in/signin-section-1.js';
 import SigninSection2 from './components/sign-in/signin-section-2.js';
@@ -185,6 +186,7 @@ class App extends Component {
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+            <Route component={ HomeSection7 } />
             <Footer />
           </div>
         </Router>
