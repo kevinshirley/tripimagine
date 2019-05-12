@@ -186,7 +186,7 @@ class App extends Component {
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
             <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            <Route component={ HomeSection7 } />
+            <Route render={(props) => <HomeSection7 {...props} />} />
             <Footer />
           </div>
         </Router>
