@@ -7,7 +7,7 @@ const HomeSection7 = (props) => {
   const url = props.location.pathname;
   return url.includes('dashboard') ? null : (
     <section className="home-section-7">
-      <a href="https://www.shop.tripimagine.com/" target="_blank">
+      <a href="https://shop.tripimagine.com/" target="_blank">
         <img src={ManWithLuggage} alt="Trip Imagine Shop"/>
         <div className="overlay">
           <div className="text">
