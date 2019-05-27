@@ -2494,6 +2494,64 @@ a:hover {
   display: none;
 }
 
+/* shop-img-link */
+.home-section-7 {
+  width: 100%;
+	position: relative;
+}
+
+.home-section-7 a img {
+	display: block;
+	width: 100%;
+	height: 100%;
+}
+
+.home-section-7 a .overlay {
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	height: 100%;
+	width: 100%;
+	transition: .5s ease;
+	background-color: rgba(31,31,31,0.1);
+	cursor: pointer;
+}
+
+.home-section-7:hover a .overlay {
+	background-color: rgba(31,31,31,0.4);
+}
+
+.home-section-7 a .overlay .text {
+	text-align: center;
+	margin: 5% 10px;
+	width: 45%;
+}
+
+.home-section-7 a .overlay .text h3 {
+	color: #fff;
+	font-size: 2.2em;
+}
+
+.home-section-7 a .overlay .text .shop-btn {
+	/* opacity: 0; */
+	transition: .5s ease;
+	color: #fff;
+	border: 3px solid #fff;
+	font-size: 1.4em;
+	padding-top: 7px;
+	padding-bottom: 7px;
+	border-radius: 2px;
+}
+
+.home-section-7 a 
+.overlay .text .shop-btn:hover {
+	background: #fff;
+	color: rgb(31,31,31);
+}
+/* end shop-img-link */
+
 /* dashboard-section-2 */
 .dashboard-section-2 {
   width: 100%;
@@ -3335,6 +3393,12 @@ a:hover {
   }
 }
 
+@media screen and (max-width: 718px) {
+  .home-section-7 a .overlay .text h3 {
+    font-size: 1.8em;
+  }
+}
+
 @media screen and (max-width: 686px) {
   .home-section-3 .so-you-want .content h3 {
     font-size: 1.8em;
@@ -3417,6 +3481,20 @@ a:hover {
 
   .home-section-2 .overlay .our-expertise {
     width: 100%;
+  }
+}
+
+@media screen and (max-width: 590px) {
+  .home-section-7 a .overlay .text {
+    width: 55%;
+  }
+
+  .home-section-7 a .overlay .text h3 {
+    font-size: 1.4em;
+  }
+
+  .home-section-7 a .overlay .text .shop-btn {
+    font-size: 1.2em;
   }
 }
 
@@ -3670,6 +3748,21 @@ a:hover {
 
   #dash-container_1 div div .user-info .user-info-btns {
     flex-direction: column;
+  }
+}
+
+@media screen and (max-width: 430px) {
+  .home-section-7 a .overlay .text {
+    width: 60%;
+  }
+
+  .home-section-7 a .overlay .text h3 {
+    font-size: 1.2em;
+  }
+
+  .home-section-7 a .overlay .text .shop-btn {
+    font-size: 1em;
+    padding: 0;
   }
 }
 
