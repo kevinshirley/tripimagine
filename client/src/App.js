@@ -52,6 +52,9 @@ import AtlasSection2 from './components/atlas/atlas-section-2.js';
 import AtlasSection3 from './components/atlas/atlas-section-3.js';
 // itinerary
 import Itinerary from './components/itinerary/itinerary';
+import IrelandSection from './components/itinerary/ireland-section';
+import ItaliaSection from './components/itinerary/italia-section';
+import SpainPortugalSection from './components/itinerary/spain-portugal-section';
 // continent
 import ContinentSection1 from './components/atlas/continent/continent-section-1.js';
 import ContinentSection2 from './components/atlas/continent/continent-section-2.js';
@@ -147,6 +150,9 @@ class App extends Component {
             <Route exact path="/about" component={ AboutUsSection4 } />
             {/* /itinerary */}
             <Route exact path="/itinerary" component={ Itinerary } />
+            <Route exact path="/itinerary/ireland" component={ IrelandSection } />
+            <Route exact path="/itinerary/italia" component={ ItaliaSection } />
+            <Route exact path="/itinerary/spain-and-portugal" component={ SpainPortugalSection } />
             {/* /atlas */}
             <Route exact path="/atlas" component={ AtlasSection1 } />
             <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />
