@@ -12,6 +12,7 @@ import glenappCastle from '../../assets/img/ireland/trip-imagine-culzean-castle-
 import dublinCastle from '../../assets/img/ireland/trip-imagine-dublin-castles.jpg';
 import chesterBeattyLibrary from '../../assets/img/ireland/trip-imagine-chester-beatty-library.jpeg';
 import cliffsMoher from '../../assets/img/ireland/trip-imagine-cliffs-moher.jpg';
+import cliffsOfMoher from '../../assets/img/ireland/trip-imagine-cliffs-of-moher.jpg';
 import villageDingle from '../../assets/img/ireland/trip-imagine-village-dingle.jpg';
 import dinglePeninsula from '../../assets/img/ireland/trip-imagine-dingle-peninsula.jpg';
 import kellsBay from '../../assets/img/ireland/trip-imagine-kells-bay.jpg';
@@ -41,8 +42,31 @@ class IrelandSection extends Component {
 							<h2>Luxury Tour Around Beautiful Ireland</h2>
 						</div>
 
+						<div className="itinerary-item-cover-img">
+							<img src={cliffsOfMoher} alt="Cliffs of Moher in Ireland"/>
+						</div>
+
 						<div className="itinerary-item-desc">
 							<div className="content">
+								<h4>Included</h4>
+								<div className="itinerary-included-items">
+									<div className="item">
+										<i className="material-icons">today</i>
+										<span>10 Days</span>
+									</div>
+									<div className="item">
+										<i className="material-icons">local_library</i>
+										<span>Private Tour Guide</span>
+									</div>
+								</div>
+								<div className="itinerary-star-icons">
+									<i className="material-icons">star</i>
+									<i className="material-icons">star</i>
+									<i className="material-icons">star</i>
+									<i className="material-icons">star</i>
+									<i className="material-icons">star</i>
+								</div>
+								<h4>Overview</h4>
 								<Fade bottom><p>Discover everything Ireland has to offer through this unique 12-day Trip Imagine Dream Vacation across the country. See all the historic sites and major attractions in world renowned Dublin, such as the Dublin Castle or the Chester Beatty library, with the help of an experienced guide/driver providing insights and details along the way. Reside in luxurious hotels and highly regarded Bed & Breakfasts, ensuring most memorable stays with various amenities to make it all truly special. 10 days is enough time to fully make the most of the driver available to you, and travel across Ireland to enchanting cities like Kilkee and Bantry, on route to the Cliffs of Moher or the Ring of Kerry. This experience is a ‘’must’’ for anyone looking to revel in Ireland undeniable beauty while being in a care-free environment, tailored for you and your budget.</p></Fade>
 							</div>
 						</div>

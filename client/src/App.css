@@ -1967,6 +1967,17 @@ p {
   font-size: 2.5em;
 }
 
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-cover-img {
+  height: 400px;
+  width: 100%;
+}
+
+.ireland-item-container .itinerary-item-content 
+.overlay .itinerary-item-cover-img img {
+  width: 100%;
+  height: 100%;
+}
+
 .ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc {
   margin-left: 7%;
   margin-bottom: 35px;
@@ -1977,6 +1988,23 @@ p {
   border-left: 10px solid #f4f4f4;
   border-bottom: 10px solid #f4f4f4;
   margin-right: 7%;
+}
+
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc .content h4,
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-included-items,
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-star-icons {
+  padding-left: 7%;
+}
+
+.ireland-item-container .itinerary-item-content .overlay 
+.itinerary-item-desc .content .itinerary-included-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.ireland-item-container .itinerary-item-content .overlay 
+.itinerary-item-desc .content .itinerary-included-items .item {
+  margin-right: 4%;
 }
 
 .ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc .content p {
