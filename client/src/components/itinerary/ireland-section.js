@@ -52,13 +52,18 @@ class IrelandSection extends Component {
 								<div className="itinerary-included-items">
 									<div className="item">
 										<i className="material-icons">today</i>
-										<span>10 Days</span>
+										<span>10 Days*</span>
 									</div>
 									<div className="item">
 										<i className="material-icons">local_library</i>
 										<span>Private Tour Guide</span>
 									</div>
+									<div className="item">
+										<i className="material-icons">verified_user</i>
+										<span>24/7 Travel Support</span>
+									</div>
 								</div>
+								<h4>Reviews</h4>
 								<div className="itinerary-star-icons">
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
@@ -67,7 +72,20 @@ class IrelandSection extends Component {
 									<i className="material-icons">star</i>
 								</div>
 								<h4>Overview</h4>
-								<Fade bottom><p>Discover everything Ireland has to offer through this unique 12-day Trip Imagine Dream Vacation across the country. See all the historic sites and major attractions in world renowned Dublin, such as the Dublin Castle or the Chester Beatty library, with the help of an experienced guide/driver providing insights and details along the way. Reside in luxurious hotels and highly regarded Bed & Breakfasts, ensuring most memorable stays with various amenities to make it all truly special. 10 days is enough time to fully make the most of the driver available to you, and travel across Ireland to enchanting cities like Kilkee and Bantry, on route to the Cliffs of Moher or the Ring of Kerry. This experience is a ‘’must’’ for anyone looking to revel in Ireland undeniable beauty while being in a care-free environment, tailored for you and your budget.</p></Fade>
+								<Fade bottom><p>Discover everything Ireland has to offer through this unique 10-day Trip Imagine Dream Vacation across the country. See all the historic sites and major attractions in world renowned Dublin, such as the Dublin Castle or the Chester Beatty library, with the help of an experienced guide/driver providing insights and details along the way. Reside in luxurious hotels and highly regarded Bed & Breakfasts, ensuring most memorable stays with various amenities to make it all truly special. 10 days is enough time to fully make the most of the driver available to you, and travel across Ireland to enchanting cities like Kilkee and Bantry, on route to the Cliffs of Moher or the Ring of Kerry. This experience is a ‘’must’’ for anyone looking to revel in Ireland undeniable beauty while being in a care-free environment, tailored for you and your budget.</p></Fade>
+							</div>
+						</div>
+
+						<div className="itinerary-item-explore-title">
+							<h4>Explore</h4>
+						</div>
+
+						<div className="itinerary-item-explore row">
+							<div className="itinerary-item-explore-element">
+								<h4>Accomodations</h4>
+							</div>
+							<div className="itinerary-item-explore-element">
+								<h4>Day to Day</h4>
 							</div>
 						</div>
 

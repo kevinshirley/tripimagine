@@ -1969,7 +1969,7 @@ p {
 
 .ireland-item-container .itinerary-item-content .overlay .itinerary-item-cover-img {
   height: 400px;
-  width: 100%;
+  max-width: 1000px;
 }
 
 .ireland-item-container .itinerary-item-content 
@@ -2000,11 +2000,25 @@ p {
 .itinerary-item-desc .content .itinerary-included-items {
   display: flex;
   flex-wrap: wrap;
+  margin-bottom: 7px;
 }
 
 .ireland-item-container .itinerary-item-content .overlay 
 .itinerary-item-desc .content .itinerary-included-items .item {
+  display: flex;
+  align-items: center;
   margin-right: 4%;
+  margin-bottom: 8px;
+}
+
+.ireland-item-container .itinerary-item-content .overlay 
+.itinerary-item-desc .content .itinerary-included-items .item i {
+  margin-right: 5px;
+}
+
+.ireland-item-container .itinerary-item-content .overlay 
+.itinerary-item-desc .content .itinerary-star-icons {
+  margin-bottom: 15px;
 }
 
 .ireland-item-container .itinerary-item-content .overlay .itinerary-item-desc .content p {
@@ -2019,11 +2033,25 @@ p {
   padding-bottom: 5px;
 }
 
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-explore {
+  display: flex;
+  justify-content: space-around;
+}
+
+.ireland-item-container .itinerary-item-content .overlay .itinerary-item-explore 
+.itinerary-item-explore-element {
+  border: 1px solid #b8b8b8;
+  padding: 30px 30px;
+  cursor: pointer;
+  margin-bottom: 30px;
+}
+
 .ireland-item-container .itinerary-item-content .overlay .accomodation-container {
   margin-bottom: 35px;
 }
 
-.ireland-item-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle h4 {
+.ireland-item-container .itinerary-item-content .overlay 
+.accomodation-container .accomodation-subtitle h4 {
   font-size: 2.2em;
   color: #5b5d5d;
 }
@@ -2192,7 +2220,7 @@ p {
 
 .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc {
   margin-left: 7%;
-  margin-bottom: 35px;
+  margin-bottom: 75px;
 }
 
 .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content {
@@ -3490,6 +3518,16 @@ p {
   .itinerary-section-2 .overlay .itinerary-item-container a .overlay {
     width: 100%;
     height: auto;
+  }
+
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-item .img img {
+    width: 100%;
+    height: 250px;
+  }
+
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day .img-container img {
+    width: 100%;
+    height: 250px;
   }
 }
 
