@@ -7,6 +7,7 @@ import jwt_decode from 'jwt-decode';
 import store from './store';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { clearCurrentProfile } from './actions/profileActions';
+import './App.scss';
 import './App.css';
 
 // api
