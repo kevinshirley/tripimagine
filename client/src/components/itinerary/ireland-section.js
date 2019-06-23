@@ -32,7 +32,7 @@ class IrelandSection extends Component {
 
 	render() {
 		return (
-			<section className="ireland-item-container itinerary-destination-container">
+			<section className="itinerary-destination-container">
 				<ItinerarySection1 />
 				<ButtonUrl name="Back" url="/itinerary" icon="arrow_back" />
 				<div className="itinerary-item-content">

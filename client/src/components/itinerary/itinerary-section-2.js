@@ -51,79 +51,9 @@ class ItinerarySection2 extends Component {
 									</div>
 								</Link>
 							</Fade>
-						
-							{/*<div className="itinerary-item">
-								<Link to="/itinerary/ireland">
-									<img src={ireland} alt="Ireland" />
-									<div className="overlay">
-										<div className="text">
-											<h3>Ireland</h3>
-										</div>
-									</div>
-								</Link>
-							</div>
-
-							<div className="itinerary-item">
-								<Link to="/itinerary/spain-and-portugal">
-									<img src={day1Img} alt="Spain and Portugal" />
-									<div className="overlay">
-										<div className="text">
-											<h3>Spain and Portugal</h3>
-										</div>
-									</div>
-								</Link>
-							</div>
-
-							<div className="itinerary-item">
-								<Link to="/itinerary/italia">
-									<img src={day1Img} alt="Italia" />
-									<div className="overlay">
-										<div className="text">
-											<h3>Italia</h3>
-										</div>
-									</div>
-								</Link>
-							</div>*/}
 
 						</div>
 					</div>
-
-					{/*<div className="itinerary-item-container">
-
-						<div className="itinerary-item">
-							<Link to="/itinerary/ireland">
-								<img src={ireland} alt="Ireland" />
-								<div className="overlay">
-									<div className="text">
-										<h3>Ireland</h3>
-									</div>
-								</div>
-							</Link>
-						</div>
-
-						<div className="itinerary-item">
-							<Link to="/itinerary/spain-and-portugal">
-								<img src={day1Img} alt="Spain and Portugal" />
-								<div className="overlay">
-									<div className="text">
-										<h3>Spain and Portugal</h3>
-									</div>
-								</div>
-							</Link>
-						</div>
-
-						<div className="itinerary-item">
-							<Link to="/itinerary/italia">
-								<img src={day1Img} alt="Italia" />
-								<div className="overlay">
-									<div className="text">
-										<h3>Italia</h3>
-									</div>
-								</div>
-							</Link>
-						</div>
-
-					</div>*/}
 				
 				</div>
 			</section>
