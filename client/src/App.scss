@@ -2464,6 +2464,8 @@ a {
 					.content {
 						padding: 25px 0;
 						border-left: 13px solid #f4f4f4;
+						display: flex;
+						align-items: center;
 						h3 {
 							-webkit-margin-before: 0em;
 							-webkit-margin-after: 0em;
@@ -2471,6 +2473,10 @@ a {
 							font-size: 2em;
 							padding-left: 12%;
 							color: $color_4;
+							margin-right: 7px;
+						}
+						i {
+							cursor: pointer;
 						}
 					}
 				}
@@ -2482,33 +2488,36 @@ a {
 						font-size: 1.2em;
 					}
 				}
-				.accomodation-item {
-					margin-bottom: 25px;
-					.title {
-						h4 {
-							font-size: 2.2em;
-							color: $color_15;
-						}
-					}
-					.text {
-						margin-left: 7%;
-						margin-top: 10px;
-						.content {
-							padding: 25px 0;
-							border-left: 13px solid #787a7a;
-							p {
-								font-size: 1em;
-								padding-left: 3%;
-							}
-							ul {
-								list-style-type: square;
+				.accomodation-items {
+					border: 1px solid $color_9;
+					.accomodation-item {
+						margin-bottom: 25px;
+						.title {
+							h4 {
+								font-size: 2.2em;
+								color: $color_15;
 							}
 						}
-					}
-					.img {
-						img {
-							width: 450px;
-							height: 300px;
+						.text {
+							margin-left: 7%;
+							margin-top: 10px;
+							.content {
+								padding: 25px 0;
+								border-left: 13px solid #f4f4f4;
+								p {
+									font-size: 1em;
+									padding-left: 3%;
+								}
+								ul {
+									list-style-type: square;
+								}
+							}
+						}
+						.img {
+							img {
+								width: 450px;
+								height: 300px;
+							}
 						}
 					}
 				}
@@ -2564,176 +2573,7 @@ a {
 						ul {
 							list-style-type: square;
 							padding: 25px 0;
-							border-left: 13px solid #787a7a;
-							padding-inline-start: 40px;
-							li {
-								font-size: 1em;
-							}
-						}
-					}
-				}
-			}
-		}
-	}
-}
-
-/* itinerary-destination-container */
-.itinerary-destination-container {
-	width: 100%;
-	background: $white;
-	>#common-button-url {
-		margin-left: 2.5%;
-	}
-	.itinerary-item-content {
-		width: 100%;
-		background: $white;
-		display: flex;
-		justify-content: center;
-		.overlay {
-			width: 95%;
-			.itinerary-item-title {
-				margin-top: 20px;
-				margin-bottom: 20px;
-				h2 {
-					font-size: 2.5em;
-				}
-			}
-			.itinerary-item-desc {
-				margin-left: 7%;
-				margin-bottom: 75px;
-				.content {
-					padding: 25px 0;
-					border-left: 10px solid #f4f4f4;
-					border-bottom: 10px solid #f4f4f4;
-					margin-right: 7%;
-					p {
-						-webkit-margin-before: 0em;
-						-webkit-margin-after: 0em;
-						text-transform: uppercase;
-						letter-spacing: 2px;
-						font-size: 1em;
-						padding-left: 7%;
-						padding-right: 3%;
-						padding-top: 5px;
-						padding-bottom: 5px;
-					}
-				}
-			}
-			.accomodation-container {
-				margin-bottom: 35px;
-				.accomodation-subtitle {
-					h4 {
-						font-size: 2.2em;
-						color: $color_15;
-					}
-					width: 40%;
-					margin-left: 2%;
-					margin-top: 30px;
-					margin-bottom: 15px;
-					.content {
-						padding: 25px 0;
-						border-left: 13px solid #f4f4f4;
-						h3 {
-							-webkit-margin-before: 0em;
-							-webkit-margin-after: 0em;
-							letter-spacing: 1px;
-							font-size: 2em;
-							padding-left: 12%;
-							color: $color_4;
-						}
-					}
-				}
-				.accomodation-subdesc {
-					margin-left: 7%;
-					margin-bottom: 25px;
-					p {
-						width: 80%;
-						font-size: 1.2em;
-					}
-				}
-				.accomodation-item {
-					margin-bottom: 25px;
-					.title {
-						h4 {
-							font-size: 2.2em;
-							color: $color_15;
-						}
-					}
-					.text {
-						margin-left: 7%;
-						margin-top: 10px;
-						.content {
-							padding: 25px 0;
-							border-left: 13px solid #787a7a;
-							p {
-								font-size: 1em;
-								padding-left: 3%;
-							}
-							ul {
-								list-style-type: square;
-							}
-						}
-					}
-					.img {
-						img {
-							width: 450px;
-							height: 300px;
-						}
-					}
-				}
-			}
-			.day-to-day-container {
-				.title {
-					width: 40%;
-					margin-left: 2%;
-					margin-top: 30px;
-					margin-bottom: 25px;
-					.content {
-						padding: 25px 0;
-						border-left: 13px solid #f4f4f4;
-						h3 {
-							-webkit-margin-before: 0em;
-							-webkit-margin-after: 0em;
-							letter-spacing: 1px;
-							font-size: 2em;
-							padding-left: 12%;
-							color: $color_4;
-						}
-					}
-				}
-				.desc {
-					margin-left: 7%;
-					margin-bottom: 25px;
-					p {
-						width: 80%;
-						font-size: 1.2em;
-					}
-				}
-				.day {
-					margin-bottom: 30px;
-					.day-title {
-						h4 {
-							font-size: 2.2em;
-							margin-block-start: 0;
-							margin-block-end: 20px;
-							color: $color_15;
-						}
-					}
-					.img-container {
-						position: relative;
-						img {
-							width: 450px;
-							height: 300px;
-						}
-					}
-					.text {
-						margin-top: 10px;
-						margin-left: 7%;
-						margin-top: 10px;
-						ul {
-							list-style-type: square;
-							padding: 25px 0;
-							border-left: 13px solid #787a7a;
+							border-left: 13px solid #f4f4f4;
 							padding-inline-start: 40px;
 							li {
 								font-size: 1em;
@@ -4001,11 +3841,14 @@ a {
 		.itinerary-item-content {
 			.overlay {
 				.accomodation-container {
-					.accomodation-item {
-						.img {
-							img {
-								width: 100%;
-								height: 250px;
+					.accomodation-items {
+						border: 1px solid #f4f4f4;
+						.accomodation-item {
+							.img {
+								img {
+									width: 100%;
+									height: 250px;
+								}
 							}
 						}
 					}
