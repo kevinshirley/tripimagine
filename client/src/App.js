@@ -50,6 +50,8 @@ import AboutUsSection4 from './components/about-us/about-us-section-4.js';
 import AtlasSection1 from './components/atlas/atlas-section-1.js';
 import AtlasSection2 from './components/atlas/atlas-section-2.js';
 import AtlasSection3 from './components/atlas/atlas-section-3.js';
+// itinerary
+import Itinerary from './components/itinerary/itinerary';
 // continent
 import ContinentSection1 from './components/atlas/continent/continent-section-1.js';
 import ContinentSection2 from './components/atlas/continent/continent-section-2.js';
@@ -143,6 +145,8 @@ class App extends Component {
             <Route exact path="/about" component={ AboutUsSection2 } />
             <Route exact path="/about" component={ AboutUsSection3 } />
             <Route exact path="/about" component={ AboutUsSection4 } />
+            {/* /itinerary */}
+            <Route exact path="/itinerary" component={ Itinerary } />
             {/* /atlas */}
             <Route exact path="/atlas" component={ AtlasSection1 } />
             <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />

@@ -217,6 +217,7 @@ class Menu extends Component {
                   <div className="list-social">
                     <nav className="list">
                       <ul>
+                        <li onClick={this.hideNavOnClick}><Link to="/itinerary">Itinerary</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/atlas">Atlas</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/contact">Contact</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/blog">Blog</Link></li>
@@ -256,6 +257,7 @@ class Menu extends Component {
               <div className="list-social">
                 <nav className="list">
                   <ul>
+                    <li onClick={this.hideNavOnClick}><Link to="/itinerary">Itinerary</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/atlas">Atlas</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/contact">Contact</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/blog">Blog</Link></li>
