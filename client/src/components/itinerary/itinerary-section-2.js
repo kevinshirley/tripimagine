@@ -30,7 +30,7 @@ class ItinerarySection2 extends Component {
 								</Link>
 							</Fade>
 
-							<Fade bottom>
+							{/*<Fade bottom>
 								<Link to="/itinerary/spain-and-portugal">
 									<div className="itinerary-item">
 										<img src={ireland} alt="Spain and Portugal" />
@@ -50,7 +50,7 @@ class ItinerarySection2 extends Component {
 										</div>
 									</div>
 								</Link>
-							</Fade>
+							</Fade>*/}
 
 						</div>
 					</div>

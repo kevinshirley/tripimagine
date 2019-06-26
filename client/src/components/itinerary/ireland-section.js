@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import ItinerarySection1 from './itinerary-section-1';
 import ItinerarySection3 from './itinerary-section-3';
 import { ButtonUrl } from '../common/common-button';
@@ -22,13 +23,16 @@ import horseRiding from '../../assets/img/ireland/trip-imagine-horse-riding.jpg'
 import waterfordCrystal from '../../assets/img/ireland/trip-imagine-waterford-crystal.jpg';
 import shopDublin from '../../assets/img/ireland/trip-imagine-shopping-dublin.jpg';
 import airportDublin from '../../assets/img/ireland/trip-imagine-dublin-airport.jpeg';
+import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
+import fourSeasons from '../../assets/img/four-seasons-preferred-partner.png';
 
 class IrelandSection extends Component {
 	constructor() {
     super();
 
     this.state = {
-			isOpenAccomodation: false,
+			isAccomodationOpen: false,
+			isDaytodayOpen: false,
 		};
 	}
 	
@@ -39,8 +43,6 @@ class IrelandSection extends Component {
 	}
 	
 	render() {
-		console.log('this.state.isOpenAccomodation');
-		console.log(this.state.isOpenAccomodation);
 		return (
 			<section className="itinerary-destination-container">
 				<ItinerarySection1 />
@@ -86,36 +88,56 @@ class IrelandSection extends Component {
 							</div>
 						</div>
 
-						<div className="itinerary-item-explore-title">
-							<h4>Explore</h4>
-						</div>
-
-						<div className="itinerary-item-explore row">
-							<div className="itinerary-item-explore-element">
-								<h4>Accomodations</h4>
-							</div>
-							<div className="itinerary-item-explore-element">
-								<h4>Day to Day</h4>
+						<div className="partners-container">
+							<div className="images">
+								<img src={virtuoso} alt="Trip Imagine Virtuoso Member"/>
+								<img src={fourSeasons} alt="Trip Imagine Four Seasons Preferred Partner"/>
 							</div>
 						</div>
 
-						<div className="accomodation-container">
+						<ItinerarySection3 />
+
+						<div className="itinerary-item-explore">
+							<div className="title">
+								<div className="content">
+									<h3>Explore</h3>
+								</div>
+							</div>
+							<div className="itinerary-item-explore-elements row">
+								<div className="itinerary-item-explore-element">
+									<a href="#accomodations">Accomodations</a>
+								</div>
+								<div className="itinerary-item-explore-element">
+									<a href="#day-to-day-itinerary">Day to Day Itinerary</a>
+								</div>
+								<div className="itinerary-item-explore-element">
+									<a href="#what-we-do">What We Do</a>
+								</div>
+							</div>
+						</div>
+
+						<div className="accomodation-container" id="accomodations">
 							<div className="accomodation-subtitle">
 								<div className="content">
 									<h3>Accomodations</h3>
 									<i className="material-icons" onClick={() => {
                       this.setState(prevState => ({
-                        isOpenAccomodation: !prevState.isOpenAccomodation
+                        isAccomodationOpen: !prevState.isAccomodationOpen
                       }))
-                    }}>{!this.state.isOpenAccomodation ? 'add_circle_outline' : 'remove_circle_outline'}</i>
+                    }}>{!this.state.isAccomodationOpen ? 'add_circle_outline' : 'remove_circle_outline'}</i>
 								</div>
 							</div>
 
 							<div className="accomodation-subdesc">
-								<p>Here are some examples of the type of accommodations you can indulge in during your Trip Imagine Experience.</p>
+								<p>Here are some examples of the type of accommodations you can indulge in during your experience, for you to choose.</p>
+								<span onClick={() => {
+                      this.setState(prevState => ({
+                        isAccomodationOpen: !prevState.isAccomodationOpen
+                      }))
+                    }} style={{ display: !this.state.isAccomodationOpen ? '' : 'none' }}>See More</span>
 							</div>
 
-							<div className="accomodation-items" style={{ display: !this.state.isOpenAccomodation ? 'none' : 'block' }}>
+							<div className="accomodation-items" style={{ display: !this.state.isAccomodationOpen ? 'none' : 'block' }}>
 								<div className="accomodation-item">
 									<div className="title">
 										<Fade bottom><h4>1. The Westin Dublin</h4></Fade>
@@ -187,216 +209,273 @@ class IrelandSection extends Component {
 										</div>
 									</div>
 								</div>
+								<span onClick={() => {
+                      this.setState(prevState => ({
+                        isAccomodationOpen: !prevState.isAccomodationOpen
+                      }))
+                    }} style={{ display: !this.state.isAccomodationOpen ? 'none' : '' }}>See Less</span>
 							</div>
 						</div>
 
-						<div className="day-to-day-container">
+						<div className="day-to-day-container" id="day-to-day-itinerary">
 							<div className="title">
 								<div className="content">
 									<h3>Day to Day Itinerary</h3>
+									<i className="material-icons" onClick={() => {
+                      this.setState(prevState => ({
+                        isDaytodayOpen: !prevState.isDaytodayOpen
+                      }))
+                    }}>{!this.state.isDaytodayOpen ? 'add_circle_outline' : 'remove_circle_outline'}</i>
 								</div>
 							</div>
 
 							<div className="desc">
 								<p>This is just an example of one of our Trip Imagine day to day itinerary. It can be modified to fit your needs and budget for the trip at anytime.</p>
+								<span onClick={() => {
+                      this.setState(prevState => ({
+                        isDaytodayOpen: !prevState.isDaytodayOpen
+                      }))
+                    }} style={{ display: !this.state.isDaytodayOpen ? '' : 'none' }}>See More</span>
+							</div>
+							
+							<div className="day-to-day-items" style={{ display: !this.state.isDaytodayOpen ? 'none' : 'block' }}>
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 1</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={dublinCastle} alt="Day 1" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Visit the Dublin Castle</li>
+											<li>Visit the St. Patrick’s Cathedral</li>
+											<li>Visit Guinness Brewery</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 2</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={chesterBeattyLibrary} alt="Day 2" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Visit the Chester Beatty Library</li>
+											<li>Visit Trinity College Book of Kells</li>
+											<li>Visit Kilmainham Gaol</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 3</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={cliffsMoher} alt="Day 3" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Travel to Unseco world Heritage Cliffs of Moher</li>
+											<li>Visit Dunguaire Castle</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 4</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={villageDingle} alt="Day 4" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Travel south to the coastal village of Kilkee</li>
+											<li>Visit final resting place of Cranberries star Dolores O'Riordan</li>
+											<li>Travel to the charming village of Dingle</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 5</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={dinglePeninsula} alt="Day 5" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Exploring the amazing Dingle peninsula</li>
+											<li>Visit Gallarus Oratory</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 6</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={kellsBay} alt="Day 6" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Visit Kells Bay House and Gardens</li>
+											<li>Travel to Valentia Island</li>
+											<li>Visit The Skellig Experience Visitor Centre</li>
+											<li>Visit Skellig Chocolate Factory</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 7</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={wildAtlantic} alt="Day 7" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Travel the Wild Atlantic Way on the famous Ring of Kerry</li>
+											<li>Village of Kenmare for the lovely shops and relaxing dinner</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 8</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={blarneyCastle} alt="Day 8" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Travel the Beara Peninsula</li>
+											<li>Travel to the lovely fishing village of Bantry and stop for lunch</li>
+											<li>Visit the Blarney Castle</li>
+											<li>Visit to Kiss the Blarney Stone</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 9</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={horseRiding} alt="Day 9" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Horse riding experience</li>
+											<li>Visit Charles Fort</li>
+											<li>Titanic Experience in Cobh</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 10</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={waterfordCrystal} alt="Day 10" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Visit Waterford Crystal factory</li>
+											<li>Travel back to Dublin to spend the afternoon & evening enjoying your last night in the Capital City</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 11</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={shopDublin} alt="Day 11" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Spend the day relaxing in the City and enjoy some last minute shopping</li>
+										</ul>
+									</div>
+								</div>
+
+								<div className="day">
+									<div className="day-title">
+										<Fade bottom><h4>Day 12</h4></Fade>
+									</div>
+									<div className="img-container">
+										<img src={airportDublin} alt="Day 12" />
+									</div>
+
+									<div className="text">
+										<ul>
+											<li>Transfer to Dublin Airport</li>
+										</ul>
+									</div>
+								</div>
+								<span onClick={() => {
+                      this.setState(prevState => ({
+                        isDaytodayOpen: !prevState.isDaytodayOpen
+                      }))
+                    }} style={{ display: !this.state.isDaytodayOpen ? 'none' : '' }}>See Less</span>
+							</div>
+						</div>
+
+						<div className="itinerary-item-what-we-do" id="what-we-do">
+							<div className="title">
+								<div className="content">
+									<h3>What We Do</h3>
+								</div>
 							</div>
 
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 1</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={dublinCastle} alt="Day 1" />
-								</div>
+							<div className="desc">
+								<p>All the services that we usually add to our tour/travel packages. All those services are offered at preferred rates thanks to our partnerships. Any other assistance needed to satisfy the greatness of your trip will be added at no extra cost.</p>
+							</div>
 
-								<div className="text">
-									<ul>
-										<li>Visit the Dublin Castle</li>
-										<li>Visit the St. Patrick’s Cathedral</li>
-										<li>Visit Guinness Brewery</li>
-									</ul>
+							<div className="what-we-do-list">
+								<ul>
+									<li>Airline ticket reservations</li>
+									<li>Accomodation reservations</li>
+									<li>Rental car reservations</li>
+									<li>Any activities/restaurant reservations needed to be book in advance</li>
+								</ul>
+							</div>
+						</div>
+
+						<ItinerarySection3 />
+
+						<div className="itinerary-item-what-we-do" id="what-we-do">
+							<div className="title">
+								<div className="content">
+									<h3>Terms and Conditions</h3>
 								</div>
 							</div>
 
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 2</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={chesterBeattyLibrary} alt="Day 2" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Visit the Chester Beatty Library</li>
-										<li>Visit Trinity College Book of Kells</li>
-										<li>Visit Kilmainham Gaol</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 3</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={cliffsMoher} alt="Day 3" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Travel to Unseco world Heritage Cliffs of Moher</li>
-										<li>Visit Dunguaire Castle</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 4</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={villageDingle} alt="Day 4" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Travel south to the coastal village of Kilkee</li>
-										<li>Visit final resting place of Cranberries star Dolores O'Riordan</li>
-										<li>Travel to the charming village of Dingle</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 5</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={dinglePeninsula} alt="Day 5" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Exploring the amazing Dingle peninsula</li>
-										<li>Visit Gallarus Oratory</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 6</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={kellsBay} alt="Day 6" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Visit Kells Bay House and Gardens</li>
-										<li>Travel to Valentia Island</li>
-										<li>Visit The Skellig Experience Visitor Centre</li>
-										<li>Visit Skellig Chocolate Factory</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 7</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={wildAtlantic} alt="Day 7" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Travel the Wild Atlantic Way on the famous Ring of Kerry</li>
-										<li>Village of Kenmare for the lovely shops and relaxing dinner</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 8</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={blarneyCastle} alt="Day 8" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Travel the Beara Peninsula</li>
-										<li>Travel to the lovely fishing village of Bantry and stop for lunch</li>
-										<li>Visit the Blarney Castle</li>
-										<li>Visit to Kiss the Blarney Stone</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 9</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={horseRiding} alt="Day 9" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Horse riding experience</li>
-										<li>Visit Charles Fort</li>
-										<li>Titanic Experience in Cobh</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 10</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={waterfordCrystal} alt="Day 10" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Visit Waterford Crystal factory</li>
-										<li>Travel back to Dublin to spend the afternoon & evening enjoying your last night in the Capital City</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 11</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={shopDublin} alt="Day 11" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Spend the day relaxing in the City and enjoy some last minute shopping</li>
-									</ul>
-								</div>
-							</div>
-
-							<div className="day">
-								<div className="day-title">
-									<Fade bottom><h4>Day 12</h4></Fade>
-								</div>
-								<div className="img-container">
-									<img src={airportDublin} alt="Day 12" />
-								</div>
-
-								<div className="text">
-									<ul>
-										<li>Transfer to Dublin Airport</li>
-									</ul>
-								</div>
+							<div className="desc">
+								<p>There is no hidden or extra fees from us to provide you with the services of planning, booking, and supporting you all along this journey from the first day we start planning your trip to the day you come back home.<br></br><br></br> We only receive a fixed travel agency commission directly from the reservations we make for you, through our large pool of partnerships.<br></br><br></br> The price of your trip will only include your airfares, accomodations, any other reservations in advance like car service, tour guide, or any other services/activies you request. At any time, you can discuss this, in more details, with the travel consultant assigned to your trip.</p>
 							</div>
 						</div>
 					
