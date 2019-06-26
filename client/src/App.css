@@ -1957,7 +1957,8 @@ a:hover {
             border: 1px solid #b8b8b8;
             padding: 30px 30px;
             cursor: pointer;
-            margin-bottom: 30px; }
+            margin-bottom: 30px;
+            margin-right: 4%; }
             .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements .itinerary-item-explore-element a {
               color: #292b2c; }
       .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container {

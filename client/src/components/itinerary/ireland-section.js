@@ -478,6 +478,13 @@ class IrelandSection extends Component {
 								<p>There is no hidden or extra fees from us to provide you with the services of planning, booking, and supporting you all along this journey from the first day we start planning your trip to the day you come back home.<br></br><br></br> We only receive a fixed travel agency commission directly from the reservations we make for you, through our large pool of partnerships.<br></br><br></br> The price of your trip will only include your airfares, accomodations, any other reservations in advance like car service, tour guide, or any other services/activies you request. At any time, you can discuss this, in more details, with the travel consultant assigned to your trip.</p>
 							</div>
 						</div>
+
+						<div className="partners-container">
+							<div className="images">
+								<img src={virtuoso} alt="Trip Imagine Virtuoso Member"/>
+								<img src={fourSeasons} alt="Trip Imagine Four Seasons Preferred Partner"/>
+							</div>
+						</div>
 					
 					</div>
 				</div>
