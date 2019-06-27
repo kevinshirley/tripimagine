@@ -1799,6 +1799,326 @@ a:hover {
   .home-section-7:hover a .overlay {
     background-color: rgba(31, 31, 31, 0.4); }
 
+/* itinerary */
+.itinerary {
+  width: 100%;
+  background: #fff; }
+
+/* itinerary-section-2 */
+.itinerary-section-2 {
+  background: #fff;
+  width: 100%; }
+  .itinerary-section-2 .overlay .itinerary-desc {
+    margin-left: 7%;
+    margin-top: 30px;
+    margin-bottom: 35px; }
+    .itinerary-section-2 .overlay .itinerary-desc .content {
+      padding: 25px 0;
+      border-left: 10px solid #f4f4f4;
+      border-bottom: 10px solid #f4f4f4;
+      margin-right: 7%; }
+      .itinerary-section-2 .overlay .itinerary-desc .content p {
+        -webkit-margin-before: 0em;
+        -webkit-margin-after: 0em;
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: 1em;
+        padding-left: 7%;
+        padding-right: 3%;
+        padding-top: 5px;
+        padding-bottom: 5px; }
+  .itinerary-section-2 .overlay .destinations-container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center; }
+    .itinerary-section-2 .overlay .destinations-container .content {
+      width: 85%;
+      display: flex;
+      justify-content: space-around; }
+      .itinerary-section-2 .overlay .destinations-container .content .itinerary-item {
+        width: 300px;
+        height: 250px;
+        background: rgba(17, 17, 17, 0.4);
+        border: 1px solid #9b9b9b;
+        position: relative;
+        margin: 20px;
+        transition: .1s ease-in; }
+        .itinerary-section-2 .overlay .destinations-container .content .itinerary-item:hover {
+          -webkit-box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75);
+          -moz-box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75);
+          box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75); }
+        .itinerary-section-2 .overlay .destinations-container .content .itinerary-item img {
+          width: 100%;
+          height: 100%; }
+        .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text {
+          position: absolute;
+          top: 0;
+          left: 0;
+          background: rgba(25, 25, 26, 0.8);
+          padding: 5px 8px; }
+          .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text h3 {
+            color: #fff; }
+
+/* itinerary-destination-container */
+.itinerary-destination-container {
+  width: 100%;
+  background: #fff; }
+  .itinerary-destination-container > #common-button-url {
+    margin-left: 2.5%;
+    margin-top: 20px; }
+  .itinerary-destination-container .itinerary-item-content {
+    width: 100%;
+    background: #fff;
+    display: flex;
+    justify-content: center; }
+    .itinerary-destination-container .itinerary-item-content .overlay {
+      width: 95%; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-title {
+        margin-top: 20px;
+        margin-bottom: 20px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-title h2 {
+          font-size: 2.5em; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-cover-img {
+        height: 400px;
+        max-width: 1000px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-cover-img img {
+          width: 100%;
+          height: 100%; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc {
+        margin-left: 7%;
+        margin-bottom: 50px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content {
+          padding: 25px 0;
+          border-left: 10px solid #f4f4f4;
+          border-bottom: 10px solid #f4f4f4;
+          margin-right: 7%; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content h4 {
+            padding-left: 7%; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-included-items {
+            padding-left: 7%;
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 7px; }
+            .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-included-items .item {
+              display: flex;
+              align-items: center;
+              margin-right: 4%;
+              margin-bottom: 8px; }
+              .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-included-items .item i {
+                margin-right: 5px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-star-icons {
+            padding-left: 7%;
+            margin-bottom: 15px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content p {
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 1em;
+            padding-left: 7%;
+            padding-right: 3%;
+            padding-top: 5px;
+            padding-bottom: 5px; }
+      .itinerary-destination-container .itinerary-item-content .overlay .partners-container {
+        margin-bottom: 50px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .partners-container .images {
+          background: #f4f4f4;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          padding: 30px 10px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .partners-container .images img {
+            width: 220px;
+            height: 96px; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore {
+        margin-bottom: 50px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .title {
+          width: 40%;
+          margin-left: 2%;
+          margin-top: 30px;
+          margin-bottom: 25px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .title .content {
+            display: flex;
+            align-items: center;
+            padding: 25px 0;
+            border-left: 13px solid #f4f4f4; }
+            .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .title .content h3 {
+              -webkit-margin-before: 0em;
+              -webkit-margin-after: 0em;
+              letter-spacing: 1px;
+              font-size: 2em;
+              padding-left: 12%;
+              color: #292b2c; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements {
+          display: flex;
+          justify-content: space-around; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements .itinerary-item-explore-element {
+            border: 1px solid #b8b8b8;
+            padding: 30px 30px;
+            cursor: pointer;
+            margin-bottom: 30px;
+            margin-right: 4%; }
+            .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements .itinerary-item-explore-element a {
+              color: #292b2c; }
+      .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container {
+        margin-bottom: 50px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle {
+          width: 40%;
+          margin-left: 2%;
+          margin-top: 30px;
+          margin-bottom: 15px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle h4 {
+            font-size: 2.2em;
+            color: #5b5d5d; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content {
+            padding: 25px 0;
+            border-left: 13px solid #f4f4f4;
+            display: flex;
+            align-items: center; }
+            .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content h3 {
+              -webkit-margin-before: 0em;
+              -webkit-margin-after: 0em;
+              letter-spacing: 1px;
+              font-size: 2em;
+              padding-left: 12%;
+              color: #292b2c;
+              margin-right: 7px; }
+            .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content i {
+              cursor: pointer; }
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc {
+          margin-left: 7%;
+          margin-bottom: 25px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc p {
+            width: 80%;
+            font-size: 1.2em; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc span {
+            text-align: center;
+            color: #62a0ec;
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 25%; }
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item {
+          margin-bottom: 25px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .title h4 {
+            font-size: 2.2em;
+            color: #5b5d5d; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .text {
+            margin-left: 7%;
+            margin-top: 10px; }
+            .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .text .content {
+              padding: 25px 0;
+              border-left: 13px solid #f4f4f4; }
+              .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .text .content p {
+                font-size: 1em;
+                padding-left: 3%; }
+              .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .text .content ul {
+                list-style-type: square; }
+          .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .img img {
+            width: 450px;
+            height: 300px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items span {
+          text-align: center;
+          color: #62a0ec;
+          cursor: pointer;
+          display: flex;
+          justify-content: flex-start;
+          padding-left: 30%; }
+      .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container {
+        margin-bottom: 50px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title {
+          width: 40%;
+          margin-left: 2%;
+          margin-top: 30px;
+          margin-bottom: 25px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content {
+            display: flex;
+            align-items: center;
+            padding: 25px 0;
+            border-left: 13px solid #f4f4f4; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content h3 {
+              -webkit-margin-before: 0em;
+              -webkit-margin-after: 0em;
+              letter-spacing: 1px;
+              font-size: 2em;
+              padding-left: 12%;
+              color: #292b2c; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content i {
+              cursor: pointer; }
+        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc {
+          margin-left: 7%;
+          margin-bottom: 25px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc p {
+            width: 80%;
+            font-size: 1.2em; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc span {
+            text-align: center;
+            color: #62a0ec;
+            cursor: pointer;
+            display: flex;
+            justify-content: flex-start;
+            padding-left: 25%; }
+        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day {
+          margin-bottom: 30px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .day-title h4 {
+            font-size: 2.2em;
+            margin-block-start: 0;
+            margin-block-end: 20px;
+            color: #5b5d5d; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .img-container {
+            position: relative; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .img-container img {
+              width: 450px;
+              height: 300px; }
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text {
+            margin-top: 10px;
+            margin-left: 7%;
+            margin-top: 10px; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text ul {
+              list-style-type: square;
+              padding: 25px 0;
+              border-left: 13px solid #f4f4f4;
+              padding-inline-start: 40px; }
+              .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text ul li {
+                font-size: 1em; }
+        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items span {
+          text-align: center;
+          color: #62a0ec;
+          cursor: pointer;
+          display: flex;
+          justify-content: flex-start;
+          padding-left: 30%; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title {
+        width: 40%;
+        margin-left: 2%;
+        margin-top: 30px;
+        margin-bottom: 25px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title .content {
+          display: flex;
+          align-items: center;
+          padding: 25px 0;
+          border-left: 13px solid #f4f4f4; }
+          .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title .content h3 {
+            -webkit-margin-before: 0em;
+            -webkit-margin-after: 0em;
+            letter-spacing: 1px;
+            font-size: 2em;
+            padding-left: 12%;
+            color: #292b2c; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc {
+        margin-left: 7%;
+        margin-bottom: 25px; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc p {
+          width: 80%;
+          font-size: 1.2em; }
+      .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .what-we-do-list {
+        margin-left: 5%;
+        padding-left: 5%; }
+        .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .what-we-do-list ul {
+          padding: 25px 0;
+          list-style-type: square; }
+
 /* dashboard-section-2 */
 .dashboard-section-2 {
   width: 100%;
@@ -2383,6 +2703,10 @@ a:hover {
     .home-section-2 .overlay .our-expertise {
       width: 100%; } }
 
+@media screen and (max-width: 620px) {
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title {
+    width: 100%; } }
+
 @media screen and (max-width: 590px) {
   .home-section-7 a .overlay .text {
     width: 55%; }
@@ -2445,7 +2769,11 @@ a:hover {
     .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container {
       width: 100%; }
       .signup-section-2 .register-form .form-container .content .input-wrapper .inner-wrap .input-container input {
-        width: 100%; } }
+        width: 100%; }
+  .itinerary-destination-container .overlay .partners-container .images {
+    display: flex;
+    flex-direction: column;
+    align-items: center; } }
 
 @media screen and (max-width: 530px) {
   .nav .menu button span {
@@ -2495,6 +2823,14 @@ a:hover {
     .continent-section-1 .overlay .title-container .content h2 {
       font-size: 2em;
       padding-left: 7%; } }
+
+@media screen and (max-width: 480px) {
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .img img {
+    width: 100%;
+    height: 250px; }
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .img-container img {
+    width: 100%;
+    height: 250px; } }
 
 @media screen and (max-width: 460px) {
   .home-section-1 .overlay .left-container .text {

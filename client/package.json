@@ -44,5 +44,8 @@
     "/api": {
       "target": "http://www.tripimagine.com:5000"
     }
+  },
+  "devDependencies": {
+    "dotenv": "^7.0.0"
   }
 }

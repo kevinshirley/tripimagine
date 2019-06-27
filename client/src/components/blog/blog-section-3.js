@@ -17,6 +17,7 @@ class BlogSection3 extends Component {
   }
 
   componentDidMount() {
+    // start react component from the top
     window.scrollTo(0, 0);
   }
 
