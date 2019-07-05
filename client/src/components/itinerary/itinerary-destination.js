@@ -1,36 +1,15 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { connect } from 'react-redux';
 
 import ItinerarySection1 from './itinerary-section-1';
 import ItinerarySection3 from './itinerary-section-3';
 import { ButtonUrl } from '../common/common-button';
 import Fade from 'react-reveal/Fade';
-import day1Img from '../../assets/img/trip-imagine-mexico.jpg';
-import day2Img from '../../assets/img/trip-imagine-luxury-hotel.jpg';
-import day3Img from '../../assets/img/trip-imagine-pool-side.jpg';
-import westinDublin from '../../assets/img/ireland/trip-imagine-westin-dublin.jpg';
-import mountJuliet from '../../assets/img/ireland/ireland-mount-juliet.jpg';
-import glenappCastle from '../../assets/img/ireland/trip-imagine-culzean-castle-view.jpg';
-import dublinCastle from '../../assets/img/ireland/trip-imagine-dublin-castles.jpg';
-import chesterBeattyLibrary from '../../assets/img/ireland/trip-imagine-chester-beatty-library.jpeg';
-import cliffsMoher from '../../assets/img/ireland/trip-imagine-cliffs-moher.jpg';
-import cliffsOfMoher from '../../assets/img/ireland/trip-imagine-cliffs-of-moher.jpg';
-import villageDingle from '../../assets/img/ireland/trip-imagine-village-dingle.jpg';
-import dinglePeninsula from '../../assets/img/ireland/trip-imagine-dingle-peninsula.jpg';
-import kellsBay from '../../assets/img/ireland/trip-imagine-kells-bay.jpg';
-import wildAtlantic from '../../assets/img/ireland/trip-imagine-cliffs-wild-atlantic-way.jpg';
-import blarneyCastle from '../../assets/img/ireland/trip-imagine-blarney-castle.jpg';
-import horseRiding from '../../assets/img/ireland/trip-imagine-horse-riding.jpg';
-import waterfordCrystal from '../../assets/img/ireland/trip-imagine-waterford-crystal.jpg';
-import shopDublin from '../../assets/img/ireland/trip-imagine-shopping-dublin.jpg';
-import airportDublin from '../../assets/img/ireland/trip-imagine-dublin-airport.jpeg';
+
 import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
 import fourSeasons from '../../assets/img/four-seasons-preferred-partner.png';
 
-import { getItineraries } from '../../actions/itineraryActions';
-
-class IrelandSection extends Component {
+class ItineraryDestination extends Component {
 	constructor() {
     super();
 
@@ -43,9 +22,7 @@ class IrelandSection extends Component {
 	componentDidMount() {
 		// start react component from the top
 		window.scrollTo(0, 0);
-		document.title = 'Itinerary to Ireland | Trip Imagine';
-
-		this.props.getItineraries();
+		document.title = 'Itinerary to __ | Trip Imagine';
 	}
 	
 	render() {
@@ -500,11 +477,9 @@ class IrelandSection extends Component {
 	}
 }
 
-// export default IrelandSection;
-IrelandSection.proptypes = {
-  getItineraries: PropTypes.func.isRequired,
+
+ItineraryDestination.proptypes = {
+  // getItineraries: PropTypes.func.isRequired,
 };
 
-const mapStateToProps = (state) => ({});
-
-export default connect(mapStateToProps, { getItineraries })(IrelandSection);
+export default ItineraryDestination;
