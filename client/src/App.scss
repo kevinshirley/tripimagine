@@ -2510,6 +2510,7 @@ a {
 						border-left: 13px solid #f4f4f4;
 						display: flex;
 						align-items: center;
+						justify-content: space-around;
 						h3 {
 							-webkit-margin-before: 0em;
 							-webkit-margin-after: 0em;
@@ -2518,6 +2519,7 @@ a {
 							padding-left: 12%;
 							color: $color_4;
 							margin-right: 7px;
+							padding-right: 5%;
 						}
 						i {
 							cursor: pointer;

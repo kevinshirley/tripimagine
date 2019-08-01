@@ -9,10 +9,6 @@ import { selectedItinerary } from '../../actions/itineraryActions';
 class ItinerarySection2 extends Component {
 	render() {
 		const { itineraries } = this.props;
-		itineraries.map(itinerary => {
-			console.log(itinerary);
-			console.log(itinerary.itineraryLocation);
-		});
 
 		return (
 			<section className="itinerary-section-2">
@@ -30,7 +26,7 @@ class ItinerarySection2 extends Component {
 							{itineraries.map((itinerary, i) => {
 								return (
 									<Fade bottom key={i}>
-										<Link to="/itinerary/ireland" onClick={() => {
+										<Link to={`/itinerary/${itinerary.itineraryPageUrl}`} onClick={() => {
 											this.props.selectedItinerary(itinerary.itineraryPageUrl);
 										}}>
 											<div className="itinerary-item">
@@ -53,7 +49,6 @@ class ItinerarySection2 extends Component {
 	}
 }
 
-// export default ItinerarySection2;
 ItinerarySection2.proptypes = {
   selectedItinerary: PropTypes.func.isRequired,
 };

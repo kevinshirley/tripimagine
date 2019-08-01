@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
-var privateKey  = fs.readFileSync('tripimagine.com.file.key', 'utf8');
-var certificate = fs.readFileSync('www_tripimagine_com.crt', 'utf8');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey  = fs.readFileSync('tripimagine.com.file.key', 'utf8');
+const certificate = fs.readFileSync('www_tripimagine_com.crt', 'utf8');
 // routes
 const atlas = require('./routes/api/atlas');
 const users = require('./routes/api/users');

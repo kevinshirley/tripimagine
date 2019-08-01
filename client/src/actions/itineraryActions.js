@@ -26,8 +26,6 @@ export const getItineraries = () => dispatch => {
 }
 
 export const selectedItinerary = itineraryPageUrl => dispatch => {
-  console.log('itineraryPageUrl');
-  console.log(itineraryPageUrl);
 	dispatch({
     type: SELECTED_ITINERARY,
     payload: itineraryPageUrl

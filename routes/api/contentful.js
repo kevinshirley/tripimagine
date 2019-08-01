@@ -13,7 +13,7 @@ router.use((req, res, next) => {
 
 function mapImage(file) {
   let obj = {};
-  obj.title = file.title;
+  obj.title = file.title ? file.title : null;
   obj.url = file.file.url;
   obj.contentType = file.file.contentType;
   obj.fileName = file.file.fileName;
@@ -35,11 +35,22 @@ router.get('/itineraries', (req, res) => {
   });
   client.getEntries({ content_type: 'itineraryDestination' })
     .then((response) => {
-      let items = response.items.map(item => {
-        let coverImage;
+      const items = response.items.map(item => {
         if (item.fields.coverImage) {
+          let coverImage;
           coverImage = mapImage(item.fields.coverImage.fields);
-          item.fields.coverImage = coverImage;
+          item.fields.coverImage = coverImage ? coverImage : null;
+        }
+        if (item.fields.included) {
+          let includedItinerary = item.fields.included;
+          let newIncluded = [];
+          includedItinerary.map(itinerary => {
+            newIncluded.push({
+              icon: itinerary.fields.icon,
+              text: itinerary.fields.text,
+            });
+          });
+          item.fields.included = newIncluded;
         }
         if (item.fields.accomodations) {
           let accomodations;
@@ -51,8 +62,9 @@ router.get('/itineraries', (req, res) => {
           accomodations = item.fields.accomodations;
           accomodations.map(accomodation => {
             accomodationImages = accomodation.fields.images;
-            accomodationImages.map(img => {
+            accomodationImages.map((img, i) => {
               newSingleAccomodationImage = mapImage(img.fields);
+              newSingleAccomodationImage.index = i;
               newAccomodationImages.push(newSingleAccomodationImage);
             });
             accomodation.fields.images = newAccomodationImages;
@@ -60,7 +72,7 @@ router.get('/itineraries', (req, res) => {
             delete accomodation.sys;
             return newAccomodations.push({
               name: accomodation.fields.name,
-              images: accomodation.fields.images,
+              images: accomodation.fields.images ? accomodation.fields.images : null,
               description: accomodation.fields.description,
             });
           });
@@ -68,12 +80,38 @@ router.get('/itineraries', (req, res) => {
         }
         if (item.fields.dayToDay) {
           let dayToDayItineraries;
-          console.log(item.fields.dayToDay);
+          let dayToDayImages;
+          let newDayToDayImages = [];
+          let newDayToDay = [];
+          let newSingleDayToDayImage;
 
           dayToDayItineraries = item.fields.dayToDay;
           dayToDayItineraries.map(dayToDay => {
-            console.log(dayToDay.fields.name);
+            dayToDayImages = dayToDay.fields.images ? dayToDay.fields.images : null;
+            dayToDayImages.map((img, i) => {
+              newSingleDayToDayImage = img.fields ? mapImage(img.fields) : null;
+              newSingleDayToDayImage ? newSingleDayToDayImage.index = i : null;
+              newSingleDayToDayImage ? newDayToDayImages.push(newSingleDayToDayImage) : null;
+            });
+            dayToDay.fields.images = newDayToDayImages ? newDayToDayImages : null;
+            newDayToDayImages = [];
+            delete dayToDay.sys;
+            return newDayToDay.push({
+              name: dayToDay.fields.name ? dayToDay.fields.name : '',
+              images: dayToDay.fields.images ? dayToDay.fields.images : null,
+              list: dayToDay.fields.list ? dayToDay.fields.list : null,
+            });
           });
+          item.fields.dayToDay = newDayToDay;
+        }
+        if (item.fields.whatWeDo) {
+          let whatWeDoItineraries;
+          let newWhatWeDoItineraries = [];
+          whatWeDoItineraries = item.fields.whatWeDo;
+          whatWeDoItineraries.map(whatWeDo => {
+            newWhatWeDoItineraries.push(whatWeDo.fields);
+          });
+          item.fields.whatWeDo = newWhatWeDoItineraries;
         }
         return item.fields;
       });
