@@ -6,8 +6,8 @@ const path = require('path');
 const fs = require('fs');
 const http = require('http');
 const https = require('https');
-const privateKey  = fs.readFileSync('tripimagine.com.file.key', 'utf8');
-const certificate = fs.readFileSync('www_tripimagine_com.crt', 'utf8');
+const privateKey  = fs.readFileSync('./tripimagine.com.file.key', 'utf8');
+const certificate = fs.readFileSync('./www_tripimagine_com.crt', 'utf8');
 // routes
 const atlas = require('./routes/api/atlas');
 const users = require('./routes/api/users');
