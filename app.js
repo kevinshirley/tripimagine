@@ -3,11 +3,11 @@ const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
 const passport = require('passport');
 const path = require('path');
-var fs = require('fs');
-var http = require('http');
-var https = require('https');
-var privateKey  = fs.readFileSync('tripimagine.com.file.key', 'utf8');
-var certificate = fs.readFileSync('www_tripimagine_com.crt', 'utf8');
+const fs = require('fs');
+const http = require('http');
+const https = require('https');
+const privateKey  = fs.readFileSync('./tripimagine.com.file.key', 'utf8');
+const certificate = fs.readFileSync('./www_tripimagine_com.crt', 'utf8');
 // routes
 const atlas = require('./routes/api/atlas');
 const users = require('./routes/api/users');
@@ -15,8 +15,9 @@ const profile = require('./routes/api/profile');
 const contact = require('./routes/api/contact');
 const about = require('./routes/api/about');
 const tripForm = require('./routes/api/tripform');
-var home = require('./routes/api/home');
-var files = require('./routes/api/files');
+const contentful = require('./routes/api/contentful');
+const home = require('./routes/api/home');
+const files = require('./routes/api/files');
 
 const app = express();
 
@@ -48,6 +49,7 @@ app.use('/about', about);
 app.use('/trip-form', tripForm);
 app.use('/', home);
 app.use('/files', files);
+app.use('/contentful', contentful);
 
 // server static assets if in production
 if (process.env.NODE_ENV === 'production') {

@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 
 import ItinerarySection1 from './itinerary-section-1';
 import ItinerarySection3 from './itinerary-section-3';
@@ -26,6 +28,8 @@ import airportDublin from '../../assets/img/ireland/trip-imagine-dublin-airport.
 import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
 import fourSeasons from '../../assets/img/four-seasons-preferred-partner.png';
 
+import { getItineraries } from '../../actions/itineraryActions';
+
 class IrelandSection extends Component {
 	constructor() {
     super();
@@ -40,6 +44,8 @@ class IrelandSection extends Component {
 		// start react component from the top
 		window.scrollTo(0, 0);
 		document.title = 'Itinerary to Ireland | Trip Imagine';
+
+		this.props.getItineraries();
 	}
 	
 	render() {
@@ -494,4 +500,11 @@ class IrelandSection extends Component {
 	}
 }
 
-export default IrelandSection;
+// export default IrelandSection;
+IrelandSection.proptypes = {
+  getItineraries: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({});
+
+export default connect(mapStateToProps, { getItineraries })(IrelandSection);

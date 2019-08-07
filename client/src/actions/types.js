@@ -18,3 +18,6 @@ export const UPLOAD_FILE = 'UPLOAD_FILE';
 export const GET_FILES = 'GET_FILES';
 // blog
 export const CURRENT_POST = 'CURRENT_POST';
+// itinerary
+export const GET_ITINERARIES = 'GET_ITINERARIES';
+export const SELECTED_ITINERARY = 'SELECTED_ITINERARY';

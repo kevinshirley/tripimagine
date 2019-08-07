@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import Fade from 'react-reveal/Fade';
-import ireland from '../../assets/img/ireland/ireland.jpg';
-import day1Img from '../../assets/img/trip-imagine-mexico.jpg';
+
+import { selectedItinerary } from '../../actions/itineraryActions';
 
 class ItinerarySection2 extends Component {
 	render() {
+		const { itineraries } = this.props;
+
 		return (
 			<section className="itinerary-section-2">
 				<div className="overlay">
@@ -19,38 +23,22 @@ class ItinerarySection2 extends Component {
 					<div className="destinations-container container-fluid">
 						<div className="content row">
 
-							<Fade bottom>
-								<Link to="/itinerary/ireland">
-									<div className="itinerary-item">
-										<img src={ireland} alt="Ireland" />
-										<div className="text">
-											<h3>Ireland</h3>
-										</div>
-									</div>
-								</Link>
-							</Fade>
-
-							{/*<Fade bottom>
-								<Link to="/itinerary/spain-and-portugal">
-									<div className="itinerary-item">
-										<img src={ireland} alt="Spain and Portugal" />
-										<div className="text">
-											<h3>Spain and Portugal</h3>
-										</div>
-									</div>
-								</Link>
-							</Fade>
-
-							<Fade bottom>
-								<Link to="/itinerary/italia">
-									<div className="itinerary-item">
-										<img src={ireland} alt="Italia" />
-										<div className="text">
-											<h3>Italia</h3>
-										</div>
-									</div>
-								</Link>
-							</Fade>*/}
+							{itineraries.map((itinerary, i) => {
+								return (
+									<Fade bottom key={i}>
+										<Link to={`/itinerary/${itinerary.itineraryPageUrl}`} onClick={() => {
+											this.props.selectedItinerary(itinerary.itineraryPageUrl);
+										}}>
+											<div className="itinerary-item">
+												<img src={itinerary.coverImage.url} alt={itinerary.itineraryLocation} />
+												<div className="text">
+													<h3>{itinerary.itineraryLocation}</h3>
+												</div>
+											</div>
+										</Link>
+									</Fade>
+								);
+							})}
 
 						</div>
 					</div>
@@ -61,4 +49,12 @@ class ItinerarySection2 extends Component {
 	}
 }
 
-export default ItinerarySection2;
+ItinerarySection2.proptypes = {
+  selectedItinerary: PropTypes.func.isRequired,
+};
+
+const mapStateToProps = (state) => ({
+	itinerary: state.itinerary,
+});
+
+export default connect(mapStateToProps, { selectedItinerary })(ItinerarySection2);

@@ -55,6 +55,7 @@ import Itinerary from './components/itinerary/itinerary';
 import IrelandSection from './components/itinerary/ireland-section';
 import ItaliaSection from './components/itinerary/italia-section';
 import SpainPortugalSection from './components/itinerary/spain-portugal-section';
+import ItineraryDestination from './components/itinerary/itinerary-destination';
 // continent
 import ContinentSection1 from './components/atlas/continent/continent-section-1.js';
 import ContinentSection2 from './components/atlas/continent/continent-section-2.js';
@@ -69,6 +70,8 @@ import ManageTrip from './components/dashboard/manage-trip/manage-trip';
 import SingleTrip from './components/dashboard/single-trip/single-trip';
 // single-profile
 import SingleProfile from './components/dashboard/single-profile/single-profile';
+
+let itinerariesData;
 
 // check for token
 if (localStorage.jwtToken) {
@@ -92,6 +95,12 @@ if (localStorage.jwtToken) {
 
 class App extends Component {
   render() {
+    store.subscribe(() => {
+      if (store.getState().itinerary.itineraries && store.getState().itinerary.itineraries.length > 1) {
+        const { itineraries } = store.getState().itinerary;
+        itinerariesData = itineraries;
+      }
+    });
     return (
       <Provider store={ store }>
         <Router>
@@ -153,6 +162,7 @@ class App extends Component {
             <Route exact path="/itinerary/ireland" component={ IrelandSection } />
             <Route exact path="/itinerary/italia" component={ ItaliaSection } />
             <Route exact path="/itinerary/spain-and-portugal" component={ SpainPortugalSection } />
+            <Route exact path="/itinerary/:destination" render={(props) => <ItineraryDestination {...props} itinerary={itinerariesData} />} />
             {/* /atlas */}
             <Route exact path="/atlas" component={ AtlasSection1 } />
             <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />
