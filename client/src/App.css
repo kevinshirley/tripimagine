@@ -1958,9 +1958,12 @@ a:hover {
             padding: 30px 30px;
             cursor: pointer;
             margin-bottom: 30px;
-            margin-right: 4%; }
+            margin-right: 4%;
+            width: 200px;
+            text-align: center; }
             .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements .itinerary-item-explore-element a {
-              color: #292b2c; }
+              color: #292b2c;
+              white-space: nowrap; }
       .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container {
         margin-bottom: 50px; }
         .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle {
@@ -1976,7 +1979,7 @@ a:hover {
             border-left: 13px solid #f4f4f4;
             display: flex;
             align-items: center;
-            justify-content: space-around; }
+            justify-content: space-between; }
             .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content h3 {
               -webkit-margin-before: 0em;
               -webkit-margin-after: 0em;
@@ -1984,10 +1987,10 @@ a:hover {
               font-size: 2em;
               padding-left: 12%;
               color: #292b2c;
-              margin-right: 7px;
               padding-right: 5%; }
             .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content i {
-              cursor: pointer; }
+              cursor: pointer;
+              padding-left: 2%; }
         .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc {
           margin-left: 7%;
           margin-bottom: 25px; }
@@ -2038,16 +2041,19 @@ a:hover {
             display: flex;
             align-items: center;
             padding: 25px 0;
-            border-left: 13px solid #f4f4f4; }
+            border-left: 13px solid #f4f4f4;
+            justify-content: space-between; }
             .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content h3 {
               -webkit-margin-before: 0em;
               -webkit-margin-after: 0em;
               letter-spacing: 1px;
               font-size: 2em;
               padding-left: 12%;
-              color: #292b2c; }
+              color: #292b2c;
+              white-space: nowrap; }
             .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content i {
-              cursor: pointer; }
+              cursor: pointer;
+              padding-left: 2%; }
         .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc {
           margin-left: 7%;
           margin-bottom: 25px; }
@@ -2106,8 +2112,9 @@ a:hover {
             -webkit-margin-after: 0em;
             letter-spacing: 1px;
             font-size: 2em;
-            padding-left: 12%;
-            color: #292b2c; }
+            padding-left: 8%;
+            color: #292b2c;
+            white-space: nowrap; }
       .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc {
         margin-left: 7%;
         margin-bottom: 25px; }
@@ -2888,6 +2895,22 @@ a:hover {
   .single-trip-section-2 .overlay .single-trip .side-panel {
     width: 100%;
     margin-left: 40%; } }
+
+@media screen and (max-width: 410px) {
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .title .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc p {
+    font-size: 1em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content h3 {
+    font-size: 1.4em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc p {
+    font-size: 1em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc p {
+    font-size: 1em; } }
 
 @media screen and (max-width: 405px) {
   .home-section-3 .so-you-want .content h3 {

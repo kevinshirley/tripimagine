@@ -132,7 +132,7 @@ class ItineraryDestination extends Component {
 						<div className="accomodation-container" id="accomodations">
 							<div className="accomodation-subtitle">
 								<div className="content">
-									<h3>Accomodations</h3>
+									<h3>Accomodations&nbsp;&nbsp;</h3>
 									<i className="material-icons" onClick={() => {
 										this.setState(prevState => ({
 											isAccomodationOpen: !prevState.isAccomodationOpen
@@ -179,7 +179,7 @@ class ItineraryDestination extends Component {
 						<div className="day-to-day-container" id="day-to-day-itinerary">
 							<div className="title">
 								<div className="content">
-									<h3>Day to Day Itinerary</h3>
+									<h3>Day to Day Itinerary&nbsp;&nbsp;</h3>
 									<i className="material-icons" onClick={() => {
 										this.setState(prevState => ({
 											isDaytodayOpen: !prevState.isDaytodayOpen
