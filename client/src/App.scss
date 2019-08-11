@@ -2241,8 +2241,8 @@ a {
 	display: none;
 }
 
-/* shop-img-link */
-.home-section-7 {
+/* shop-banner-link */
+.shop-banner-link {
 	width: 100%;
 	position: relative;
 	a {
@@ -2713,6 +2713,43 @@ a {
 				}
 			}
 		}
+	}
+}
+
+/* image-slide */
+.image-slide {
+	position: relative;
+	width: 450px;
+	.buttons {
+		position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+		top: 118px;
+		opacity: 0.4;
+		transition: 0.5s;
+		button {
+			color: #fff;
+			background: rgba(10, 10, 10, 0.3);
+			border: none;
+			cursor: pointer;
+			outline: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			i {
+				font-size: 4em;
+			}
+		}
+		button:disabled {
+			color: rgb(196, 196, 196);
+		}
+	}
+}
+.image-slide:hover {
+	.buttons {
+		opacity: 1;
 	}
 }
 
@@ -3578,7 +3615,7 @@ a {
 	}
 }
 @media screen and (max-width: 718px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {
@@ -3698,7 +3735,7 @@ a {
 	}
 }
 @media screen and (max-width: 590px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {
@@ -4021,6 +4058,12 @@ a {
 			}
 		}
 	}
+	.image-slide {
+		width: 100%;
+		.buttons {
+			top: 90px;
+		}
+	}
 }
 @media screen and (max-width: 460px) {
 	.home-section-1 {
@@ -4110,7 +4153,7 @@ a {
 	}
 }
 @media screen and (max-width: 430px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {

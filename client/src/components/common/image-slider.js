@@ -23,13 +23,15 @@ function ImageSlider({images}) {
 
   return (
     <div className="image-slide">
-      <button onClick={() => prevSlide()} disabled={slide.index === 0}>
-        <i className="material-icons">keyboard_arrow_left</i>
-      </button>
       <Slide image={slide} />
-      <button onClick={() => nextSlide()} disabled={slide.index === slides.length-1}>
-        <i className="material-icons">keyboard_arrow_right</i>
-      </button>
+      <div className="buttons">
+        <button onClick={() => prevSlide()} disabled={slide.index === 0}>
+          <i className="material-icons">keyboard_arrow_left</i>
+        </button>
+        <button onClick={() => nextSlide()} disabled={slide.index === slides.length-1}>
+          <i className="material-icons">keyboard_arrow_right</i>
+        </button>
+      </div>
     </div>
   )
 }

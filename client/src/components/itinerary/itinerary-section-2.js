@@ -32,7 +32,7 @@ class ItinerarySection2 extends Component {
 											<div className="itinerary-item">
 												<img src={itinerary.coverImage.url} alt={itinerary.itineraryLocation} />
 												<div className="text">
-													<h3>{itinerary.itineraryLocation}</h3>
+													<h3>{itinerary.title}</h3>
 												</div>
 											</div>
 										</Link>
