@@ -40,6 +40,7 @@ class ItineraryDestination extends Component {
 		let title;
 		let coverImage;
 		let overview;
+		let itineraryLocation;
 		let accomodationOverview;
 		let accomodations;
 		let dayToDayOverview;
@@ -52,6 +53,7 @@ class ItineraryDestination extends Component {
 			title = selectedItineraryData.title;
 			coverImage = selectedItineraryData.coverImage.url;
 			overview = selectedItineraryData.overview;
+			itineraryLocation = selectedItineraryData.itineraryLocation;
 			accomodationOverview = selectedItineraryData.accomodationOverview;
 			accomodations = selectedItineraryData.accomodations;
 			dayToDayOverview = selectedItineraryData.dayToDayOverview;
@@ -79,7 +81,7 @@ class ItineraryDestination extends Component {
 
 						<div className="itinerary-item-desc">
 							<div className="content">
-								<h4>Included</h4>
+								<h4>Highlights</h4>
 								<div className="itinerary-included-items">
 									{included && included.map((item, i) => (
 										<div className="item" key={i}>
@@ -88,13 +90,15 @@ class ItineraryDestination extends Component {
 										</div>
 									))}
 								</div>
+								<h4>Locations</h4>
+								<p className="locations">{itineraryLocation}</p>
 								<h4>Reviews</h4>
 								<div className="itinerary-star-icons">
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
-									<i className="material-icons">star</i>
+									<i className="material-icons">star_half</i>
 								</div>
 								<h4>Overview</h4>
 								<Fade bottom><p>{overview}</p></Fade>
