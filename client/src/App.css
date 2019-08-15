@@ -137,6 +137,31 @@ a:hover {
   align-items: center;
   flex-direction: column; }
 
+.text-with-read-more .read-more {
+  color: #385898;
+  text-transform: lowercase;
+  cursor: pointer; }
+  .text-with-read-more .read-more:hover {
+    text-decoration: underline; }
+
+.short-text-hidden {
+  display: none; }
+
+.medium-text-hidden {
+  display: none; }
+
+.long-text-hidden {
+  display: none; }
+
+.short-text-displayed {
+  display: block; }
+
+.medium-text-displayed {
+  display: block; }
+
+.long-text-displayed {
+  display: block; }
+
 /* file-table */
 .file-table {
   width: 100%;
@@ -2018,7 +2043,7 @@ a:hover {
             font-size: 1.2em; }
           .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc span {
             text-align: center;
-            color: #62a0ec;
+            color: #385898;
             cursor: pointer;
             display: flex;
             justify-content: flex-start;
@@ -2042,9 +2067,9 @@ a:hover {
           .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .img img {
             width: 450px;
             height: 300px; }
-        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items span {
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .see-less {
           text-align: center;
-          color: #62a0ec;
+          color: #385898;
           cursor: pointer;
           display: flex;
           justify-content: flex-start;
@@ -2081,7 +2106,7 @@ a:hover {
             font-size: 1.2em; }
           .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc span {
             text-align: center;
-            color: #62a0ec;
+            color: #385898;
             cursor: pointer;
             display: flex;
             justify-content: flex-start;
@@ -2111,7 +2136,7 @@ a:hover {
                 font-size: 1em; }
         .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items span {
           text-align: center;
-          color: #62a0ec;
+          color: #385898;
           cursor: pointer;
           display: flex;
           justify-content: flex-start;

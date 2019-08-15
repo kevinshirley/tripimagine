@@ -220,6 +220,7 @@ class Menu extends Component {
                         <li onClick={this.hideNavOnClick}><Link to="/itinerary">Itinerary</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/atlas">Atlas</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/contact">Contact</Link></li>
+                        <li onClick={this.hideNavOnClick}><a href="https://shop.tripimagine.com">Shop</a></li>
                         <li onClick={this.hideNavOnClick}><Link to="/blog">Blog</Link></li>
                         <li onClick={this.hideNavOnClick}><Link to="/about">About</Link></li>
                       </ul>
@@ -260,6 +261,7 @@ class Menu extends Component {
                     <li onClick={this.hideNavOnClick}><Link to="/itinerary">Itinerary</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/atlas">Atlas</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/contact">Contact</Link></li>
+                    <li onClick={this.hideNavOnClick}><a href="https://shop.tripimagine.com">Shop</a></li>
                     <li onClick={this.hideNavOnClick}><Link to="/blog">Blog</Link></li>
                     <li onClick={this.hideNavOnClick}><Link to="/about">About</Link></li>
                   </ul>

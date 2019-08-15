@@ -7,6 +7,7 @@ import ItinerarySection3 from './itinerary-section-3';
 import { ButtonUrl } from '../common/common-button';
 import Fade from 'react-reveal/Fade';
 import ImageSlider from '../common/image-slider';
+import ReadMoreText from '../common/read-more-text';
 
 import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
 import fourSeasons from '../../assets/img/four-seasons-preferred-partner.png';
@@ -40,6 +41,8 @@ class ItineraryDestination extends Component {
 		let title;
 		let coverImage;
 		let overview;
+		let shortOverview;
+		let mediumOverview;
 		let itineraryLocation;
 		let accomodationOverview;
 		let accomodations;
@@ -49,6 +52,7 @@ class ItineraryDestination extends Component {
 		let whatWeDo;
 		let included;
 		let termsAndConditions;
+
 		if (selectedItineraryData) {
 			title = selectedItineraryData.title;
 			coverImage = selectedItineraryData.coverImage.url;
@@ -62,6 +66,14 @@ class ItineraryDestination extends Component {
 			whatWeDo = selectedItineraryData.whatWeDo;
 			included = selectedItineraryData.included;
 			termsAndConditions = selectedItineraryData.itineraryTermsAndConditions;
+		}
+
+		if (overview && overview.length > 500) {
+			shortOverview = overview.substr(0, 500) + " ... ";
+		}
+
+		if (overview && overview.length > 1200) {
+			mediumOverview = overview.substr(0, 1200) + " ... ";
 		}
 
 		return (
@@ -101,7 +113,9 @@ class ItineraryDestination extends Component {
 									<i className="material-icons">star_half</i>
 								</div>
 								<h4>Overview</h4>
-								<Fade bottom><p>{overview}</p></Fade>
+								<Fade bottom><p>{shortOverview ? (
+									<ReadMoreText short={shortOverview} medium={mediumOverview} long={overview} />
+								) : overview}</p></Fade>
 							</div>
 						</div>
 
@@ -155,24 +169,44 @@ class ItineraryDestination extends Component {
 							</div>
 
 							<div className="accomodation-items" style={{ display: !this.state.isAccomodationOpen ? 'none' : 'block' }}>
-								{accomodations && accomodations.map((accomodation, i) => (
-									<div className="accomodation-item" key={i}>
-										<div className="title">
-											<Fade bottom><h4>{i+1}. {accomodation.name}</h4></Fade>
-										</div>
+								{accomodations && accomodations.map((accomodation, i) => {
+									let shortAccomodationDescription;
+									let mediumAccomodationDescription;
+									let accomodationDescription = accomodation.description;
 
-										<div className="img">
-											<ImageSlider images={accomodation.images} />
-										</div>
+									if (accomodationDescription && accomodationDescription.length > 500) {
+										shortAccomodationDescription = accomodationDescription.substr(0, 500) + " ... ";
+									}
 
-										<div className="text">
-											<div className="content">
-												<p>{accomodation.description}</p>
+									if (accomodationDescription && accomodationDescription.length > 1200) {
+										mediumAccomodationDescription = accomodationDescription.substr(0, 1200) + " ... ";
+									}
+
+									return (
+										<div className="accomodation-item" key={i}>
+											<div className="title">
+												<Fade bottom><h4>{i+1}. {accomodation.name}</h4></Fade>
+											</div>
+	
+											<div className="img">
+												<ImageSlider images={accomodation.images} />
+											</div>
+	
+											<div className="text">
+												<div className="content">
+													<p>{shortAccomodationDescription ? (
+														<ReadMoreText 
+															short={shortAccomodationDescription}
+															medium={mediumAccomodationDescription}
+															long={accomodationDescription}
+														/>
+													) : accomodationDescription}</p>
+												</div>
 											</div>
 										</div>
-									</div>
-								))}
-								<span onClick={() => {
+									);
+								})}
+								<span className='see-less' onClick={() => {
 									this.setState(prevState => ({
 										isAccomodationOpen: !prevState.isAccomodationOpen
 									}))

@@ -30,6 +30,7 @@ $background_color_7: rgba(73,73,73,0.2);
 $background_color_8: rgba(73,73,73,0.6);
 $background_color_9: #f4f4f4;
 $golden: #e4b950;
+$linkColor: #385898;
 
 /* Font Face */
 @font-face {
@@ -201,6 +202,35 @@ a {
 		align-items: center;
 		flex-direction: column;
 	}
+}
+// read-more-text
+.text-with-read-more {
+	.read-more {
+		color: $linkColor;
+		text-transform: lowercase;
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.short-text-hidden {
+	display: none;
+}
+.medium-text-hidden {
+	display: none;
+}
+.long-text-hidden {
+	display: none;
+}
+.short-text-displayed {
+	display: block;
+}
+.medium-text-displayed {
+	display: block;
+}
+.long-text-displayed {
+	display: block;
 }
 
 /* file-table */
@@ -2572,7 +2602,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2610,9 +2640,9 @@ a {
 							}
 						}
 					}
-					span {
+					.see-less {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2657,7 +2687,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2699,7 +2729,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;

@@ -9,10 +9,7 @@ import { getItineraries } from '../../actions/itineraryActions';
 
 class Itinerary extends Component {
 	componentDidMount() {
-		// start react component from the top
-		window.scrollTo(0, 0);
 		document.title = 'Itinerary | Trip Imagine';
-
 		this.props.getItineraries();
 	}
 
