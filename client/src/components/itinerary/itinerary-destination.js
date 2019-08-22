@@ -7,6 +7,7 @@ import ItinerarySection3 from './itinerary-section-3';
 import { ButtonUrl } from '../common/common-button';
 import Fade from 'react-reveal/Fade';
 import ImageSlider from '../common/image-slider';
+import ReadMoreText from '../common/read-more-text';
 
 import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
 import fourSeasons from '../../assets/img/four-seasons-preferred-partner.png';
@@ -40,6 +41,9 @@ class ItineraryDestination extends Component {
 		let title;
 		let coverImage;
 		let overview;
+		let shortOverview;
+		let mediumOverview;
+		let itineraryLocation;
 		let accomodationOverview;
 		let accomodations;
 		let dayToDayOverview;
@@ -48,10 +52,12 @@ class ItineraryDestination extends Component {
 		let whatWeDo;
 		let included;
 		let termsAndConditions;
+
 		if (selectedItineraryData) {
 			title = selectedItineraryData.title;
 			coverImage = selectedItineraryData.coverImage.url;
 			overview = selectedItineraryData.overview;
+			itineraryLocation = selectedItineraryData.itineraryLocation;
 			accomodationOverview = selectedItineraryData.accomodationOverview;
 			accomodations = selectedItineraryData.accomodations;
 			dayToDayOverview = selectedItineraryData.dayToDayOverview;
@@ -60,6 +66,14 @@ class ItineraryDestination extends Component {
 			whatWeDo = selectedItineraryData.whatWeDo;
 			included = selectedItineraryData.included;
 			termsAndConditions = selectedItineraryData.itineraryTermsAndConditions;
+		}
+
+		if (overview && overview.length > 500) {
+			shortOverview = overview.substr(0, 500) + " ... ";
+		}
+
+		if (overview && overview.length > 1200) {
+			mediumOverview = overview.substr(0, 1200) + " ... ";
 		}
 
 		return (
@@ -79,7 +93,7 @@ class ItineraryDestination extends Component {
 
 						<div className="itinerary-item-desc">
 							<div className="content">
-								<h4>Included</h4>
+								<h4>Highlights</h4>
 								<div className="itinerary-included-items">
 									{included && included.map((item, i) => (
 										<div className="item" key={i}>
@@ -88,16 +102,20 @@ class ItineraryDestination extends Component {
 										</div>
 									))}
 								</div>
+								<h4>Locations</h4>
+								<p className="locations">{itineraryLocation}</p>
 								<h4>Reviews</h4>
 								<div className="itinerary-star-icons">
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
 									<i className="material-icons">star</i>
-									<i className="material-icons">star</i>
+									<i className="material-icons">star_half</i>
 								</div>
 								<h4>Overview</h4>
-								<Fade bottom><p>{overview}</p></Fade>
+								<Fade bottom><p>{shortOverview ? (
+									<ReadMoreText short={shortOverview} medium={mediumOverview} long={overview} />
+								) : overview}</p></Fade>
 							</div>
 						</div>
 
@@ -132,7 +150,7 @@ class ItineraryDestination extends Component {
 						<div className="accomodation-container" id="accomodations">
 							<div className="accomodation-subtitle">
 								<div className="content">
-									<h3>Accomodations</h3>
+									<h3>Accomodations&nbsp;&nbsp;</h3>
 									<i className="material-icons" onClick={() => {
 										this.setState(prevState => ({
 											isAccomodationOpen: !prevState.isAccomodationOpen
@@ -151,24 +169,44 @@ class ItineraryDestination extends Component {
 							</div>
 
 							<div className="accomodation-items" style={{ display: !this.state.isAccomodationOpen ? 'none' : 'block' }}>
-								{accomodations && accomodations.map((accomodation, i) => (
-									<div className="accomodation-item" key={i}>
-										<div className="title">
-											<Fade bottom><h4>{i+1}. {accomodation.name}</h4></Fade>
-										</div>
+								{accomodations && accomodations.map((accomodation, i) => {
+									let shortAccomodationDescription;
+									let mediumAccomodationDescription;
+									let accomodationDescription = accomodation.description;
 
-										<div className="img">
-											<ImageSlider images={accomodation.images} />
-										</div>
+									if (accomodationDescription && accomodationDescription.length > 500) {
+										shortAccomodationDescription = accomodationDescription.substr(0, 500) + " ... ";
+									}
 
-										<div className="text">
-											<div className="content">
-												<p>{accomodation.description}</p>
+									if (accomodationDescription && accomodationDescription.length > 1200) {
+										mediumAccomodationDescription = accomodationDescription.substr(0, 1200) + " ... ";
+									}
+
+									return (
+										<div className="accomodation-item" key={i}>
+											<div className="title">
+												<Fade bottom><h4>{i+1}. {accomodation.name}</h4></Fade>
+											</div>
+	
+											<div className="img">
+												<ImageSlider images={accomodation.images} />
+											</div>
+	
+											<div className="text">
+												<div className="content">
+													<p>{shortAccomodationDescription ? (
+														<ReadMoreText 
+															short={shortAccomodationDescription}
+															medium={mediumAccomodationDescription}
+															long={accomodationDescription}
+														/>
+													) : accomodationDescription}</p>
+												</div>
 											</div>
 										</div>
-									</div>
-								))}
-								<span onClick={() => {
+									);
+								})}
+								<span className='see-less' onClick={() => {
 									this.setState(prevState => ({
 										isAccomodationOpen: !prevState.isAccomodationOpen
 									}))
@@ -179,7 +217,7 @@ class ItineraryDestination extends Component {
 						<div className="day-to-day-container" id="day-to-day-itinerary">
 							<div className="title">
 								<div className="content">
-									<h3>Day to Day Itinerary</h3>
+									<h3>Day to Day Itinerary&nbsp;&nbsp;</h3>
 									<i className="material-icons" onClick={() => {
 										this.setState(prevState => ({
 											isDaytodayOpen: !prevState.isDaytodayOpen

@@ -29,6 +29,8 @@ $background_color_6: rgba(31, 31, 31, 0.4);
 $background_color_7: rgba(73,73,73,0.2);
 $background_color_8: rgba(73,73,73,0.6);
 $background_color_9: #f4f4f4;
+$golden: #e4b950;
+$linkColor: #385898;
 
 /* Font Face */
 @font-face {
@@ -200,6 +202,35 @@ a {
 		align-items: center;
 		flex-direction: column;
 	}
+}
+// read-more-text
+.text-with-read-more {
+	.read-more {
+		color: $linkColor;
+		text-transform: lowercase;
+		cursor: pointer;
+		&:hover {
+			text-decoration: underline;
+		}
+	}
+}
+.short-text-hidden {
+	display: none;
+}
+.medium-text-hidden {
+	display: none;
+}
+.long-text-hidden {
+	display: none;
+}
+.short-text-displayed {
+	display: block;
+}
+.medium-text-displayed {
+	display: block;
+}
+.long-text-displayed {
+	display: block;
 }
 
 /* file-table */
@@ -2241,8 +2272,8 @@ a {
 	display: none;
 }
 
-/* shop-img-link */
-.home-section-7 {
+/* shop-banner-link */
+.shop-banner-link {
 	width: 100%;
 	position: relative;
 	a {
@@ -2340,28 +2371,58 @@ a {
 				.itinerary-item {
 					width: 300px;
 					height: 250px;
-					background: rgba(17,17,17,0.4);
 					border: 1px solid rgb(155, 155, 155);
 					position: relative;
-					margin: 20px;
+					margin-bottom: 300px;
+					margin-right: 4%;
 					transition: .1s ease-in;
-					&:hover {
-						-webkit-box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
-						-moz-box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
-						box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
-					}
+					box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+					// &:hover {
+					// 	// -webkit-box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
+					// 	// -moz-box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
+					// 	// box-shadow: 10px 10px 109px -28px rgba(0,0,0,0.75);
+					// }
 					img {
 						width: 100%;
 						height: 100%;
 					}
 					.text {
-						position: absolute;
-						top: 0;
-						left: 0;
-						background: rgba(25, 25, 26, 0.8);
-						padding: 5px 8px;
+						padding: 12px;
+						background: #fff;
+						border: 1px solid #ddd;
+						-webkit-box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+						-moz-box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
+						box-shadow: 0 2px 10px 0 rgba(0,0,0,0.1);
 						h3 {
-							color: $white;
+							color: $color_6;
+							font-size: 1em;
+							font-weight: 800;
+							padding-top: 15px;
+						}
+						h5 {
+							color: $color_6;
+							font-size: 14px;
+							padding-top: 15px;
+						}
+						.review-icons {
+							padding-top: 15px;
+							i {
+								color: $golden;
+								transition: .1s
+							}
+						}
+						.cta {
+							display: flex;
+							align-items: center;
+							color: $color_6;
+							padding-top: 15px;
+						}
+					}
+				}
+				.itinerary-item:hover {
+					.review-icons {
+						i {
+							color: #000;
 						}
 					}
 				}
@@ -2415,7 +2476,7 @@ a {
 						padding-left: 7%;
 						display: flex;
 						flex-wrap: wrap;
-						margin-bottom: 7px;
+						margin-bottom: 15px;
 						.item {
 							display: flex;
 							align-items: center;
@@ -2433,13 +2494,16 @@ a {
 					p {
 						-webkit-margin-before: 0em;
 						-webkit-margin-after: 0em;
-						text-transform: uppercase;
-						letter-spacing: 2px;
 						font-size: 1em;
 						padding-left: 7%;
 						padding-right: 3%;
 						padding-top: 5px;
 						padding-bottom: 5px;
+						margin-bottom: 15px;
+						&:not(.locations) {
+							text-transform: uppercase;
+							letter-spacing: 2px;
+						}
 					}
 				}
 			}
@@ -2488,8 +2552,11 @@ a {
 						cursor: pointer;
 						margin-bottom: 30px;
 						margin-right: 4%;
+						width: 200px;
+						text-align: center;
 						a {
 							color: $color_4;
+							white-space: nowrap;
 						}
 					}
 				}
@@ -2497,20 +2564,20 @@ a {
 			.accomodation-container {
 				margin-bottom: 50px;
 				.accomodation-subtitle {
-					h4 {
-						font-size: 2.2em;
-						color: $color_15;
-					}
 					width: 40%;
 					margin-left: 2%;
 					margin-top: 30px;
 					margin-bottom: 15px;
+					h4 {
+						font-size: 2.2em;
+						color: $color_15;
+					}
 					.content {
 						padding: 25px 0;
 						border-left: 13px solid #f4f4f4;
 						display: flex;
 						align-items: center;
-						justify-content: space-around;
+						justify-content: space-between;
 						h3 {
 							-webkit-margin-before: 0em;
 							-webkit-margin-after: 0em;
@@ -2518,11 +2585,11 @@ a {
 							font-size: 2em;
 							padding-left: 12%;
 							color: $color_4;
-							margin-right: 7px;
 							padding-right: 5%;
 						}
 						i {
 							cursor: pointer;
+							padding-left: 2%;
 						}
 					}
 				}
@@ -2535,7 +2602,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2573,9 +2640,9 @@ a {
 							}
 						}
 					}
-					span {
+					.see-less {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2595,6 +2662,7 @@ a {
 						align-items: center;
 						padding: 25px 0;
 						border-left: 13px solid #f4f4f4;
+						justify-content: space-between;
 						h3 {
 							-webkit-margin-before: 0em;
 							-webkit-margin-after: 0em;
@@ -2602,9 +2670,11 @@ a {
 							font-size: 2em;
 							padding-left: 12%;
 							color: $color_4;
+							white-space: nowrap;
 						}
 						i {
 							cursor: pointer;
+							padding-left: 2%;
 						}
 					}
 				}
@@ -2617,7 +2687,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2659,7 +2729,7 @@ a {
 					}
 					span {
 						text-align: center;
-						color: #62a0ec;
+						color: $linkColor;
 						cursor: pointer;
 						display: flex;
 						justify-content: flex-start;
@@ -2683,8 +2753,9 @@ a {
 							-webkit-margin-after: 0em;
 							letter-spacing: 1px;
 							font-size: 2em;
-							padding-left: 12%;
+							padding-left: 8%;
 							color: $color_4;
+							white-space: nowrap;
 						}
 					}
 				}
@@ -2706,6 +2777,43 @@ a {
 				}
 			}
 		}
+	}
+}
+
+/* image-slide */
+.image-slide {
+	position: relative;
+	width: 450px;
+	.buttons {
+		position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+		top: 118px;
+		opacity: 0.4;
+		transition: 0.5s;
+		button {
+			color: #fff;
+			background: rgba(10, 10, 10, 0.3);
+			border: none;
+			cursor: pointer;
+			outline: 0;
+			padding: 0;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			i {
+				font-size: 4em;
+			}
+		}
+		button:disabled {
+			color: rgb(196, 196, 196);
+		}
+	}
+}
+.image-slide:hover {
+	.buttons {
+		opacity: 1;
 	}
 }
 
@@ -3571,7 +3679,7 @@ a {
 	}
 }
 @media screen and (max-width: 718px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {
@@ -3691,7 +3799,7 @@ a {
 	}
 }
 @media screen and (max-width: 590px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {
@@ -4014,6 +4122,12 @@ a {
 			}
 		}
 	}
+	.image-slide {
+		width: 100%;
+		.buttons {
+			top: 90px;
+		}
+	}
 }
 @media screen and (max-width: 460px) {
 	.home-section-1 {
@@ -4103,7 +4217,7 @@ a {
 	}
 }
 @media screen and (max-width: 430px) {
-	.home-section-7 {
+	.shop-banner-link {
 		a {
 			.overlay {
 				.text {
@@ -4147,6 +4261,65 @@ a {
 				.side-panel {
 					width: 100%;
 					margin-left: 40%;
+				}
+			}
+		}
+	}
+}
+@media screen and (max-width: 410px) {
+	.itinerary-destination-container {
+		.itinerary-item-content {
+			.overlay {
+				.itinerary-item-explore {
+					.title {
+						.content {
+							h3 {
+								font-size: 1.5em;
+							}
+						}
+					}
+				}
+				.accomodation-container {
+					.accomodation-subtitle {
+						.content {
+							h3 {
+								font-size: 1.5em;
+							}
+						}
+					}
+					.accomodation-subdesc {
+						p {
+							font-size: 1em;
+						}
+					}
+				}
+				.day-to-day-container {
+					.title {
+						.content {
+							h3 {
+								font-size: 1.4em;
+							}
+						}
+					}
+					.desc {
+						p {
+							font-size: 1em;
+						}
+					}
+				}
+				.itinerary-item-what-we-do {
+					.title {
+						.content {
+							h3 {
+								font-size: 1.5em;
+							}
+						}
+					}
+					.desc {
+						p {
+							font-size: 1em;
+						}
+					}
 				}
 			}
 		}
@@ -4333,20 +4506,6 @@ a {
 					h2 {
 						font-size: 1.7em;
 						padding-left: 5%;
-					}
-				}
-			}
-		}
-	}
-}
-@media screen and (max-width: 350px) {
-	.itinerary-section-2 {
-		.overlay {
-			.destinations-container {
-				.content {
-					.itinerary-item {
-						// width: 100%;
-						// height: 200px;
 					}
 				}
 			}

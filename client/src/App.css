@@ -137,6 +137,31 @@ a:hover {
   align-items: center;
   flex-direction: column; }
 
+.text-with-read-more .read-more {
+  color: #385898;
+  text-transform: lowercase;
+  cursor: pointer; }
+  .text-with-read-more .read-more:hover {
+    text-decoration: underline; }
+
+.short-text-hidden {
+  display: none; }
+
+.medium-text-hidden {
+  display: none; }
+
+.long-text-hidden {
+  display: none; }
+
+.short-text-displayed {
+  display: block; }
+
+.medium-text-displayed {
+  display: block; }
+
+.long-text-displayed {
+  display: block; }
+
 /* file-table */
 .file-table {
   width: 100%;
@@ -1759,15 +1784,15 @@ a:hover {
 .ttd_stays {
   display: none; }
 
-/* shop-img-link */
-.home-section-7 {
+/* shop-banner-link */
+.shop-banner-link {
   width: 100%;
   position: relative; }
-  .home-section-7 a img {
+  .shop-banner-link a img {
     display: block;
     width: 100%;
     height: 100%; }
-  .home-section-7 a .overlay {
+  .shop-banner-link a .overlay {
     position: absolute;
     top: 0;
     bottom: 0;
@@ -1778,14 +1803,14 @@ a:hover {
     transition: .5s ease;
     background-color: rgba(31, 31, 31, 0.1);
     cursor: pointer; }
-    .home-section-7 a .overlay .text {
+    .shop-banner-link a .overlay .text {
       text-align: center;
       margin: 5% 10px;
       width: 45%; }
-      .home-section-7 a .overlay .text h3 {
+      .shop-banner-link a .overlay .text h3 {
         color: #fff;
         font-size: 2.2em; }
-      .home-section-7 a .overlay .text .shop-btn {
+      .shop-banner-link a .overlay .text .shop-btn {
         transition: .5s ease;
         color: #fff;
         border: 3px solid #fff;
@@ -1793,10 +1818,10 @@ a:hover {
         padding-top: 7px;
         padding-bottom: 7px;
         border-radius: 2px; }
-        .home-section-7 a .overlay .text .shop-btn:hover {
+        .shop-banner-link a .overlay .text .shop-btn:hover {
           background: #fff;
           color: #1f1f1f; }
-  .home-section-7:hover a .overlay {
+  .shop-banner-link:hover a .overlay {
     background-color: rgba(31, 31, 31, 0.4); }
 
 /* itinerary */
@@ -1839,26 +1864,43 @@ a:hover {
       .itinerary-section-2 .overlay .destinations-container .content .itinerary-item {
         width: 300px;
         height: 250px;
-        background: rgba(17, 17, 17, 0.4);
         border: 1px solid #9b9b9b;
         position: relative;
-        margin: 20px;
-        transition: .1s ease-in; }
-        .itinerary-section-2 .overlay .destinations-container .content .itinerary-item:hover {
-          -webkit-box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75);
-          -moz-box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75);
-          box-shadow: 10px 10px 109px -28px rgba(0, 0, 0, 0.75); }
+        margin-bottom: 300px;
+        margin-right: 4%;
+        transition: .1s ease-in;
+        box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1); }
         .itinerary-section-2 .overlay .destinations-container .content .itinerary-item img {
           width: 100%;
           height: 100%; }
         .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text {
-          position: absolute;
-          top: 0;
-          left: 0;
-          background: rgba(25, 25, 26, 0.8);
-          padding: 5px 8px; }
+          padding: 12px;
+          background: #fff;
+          border: 1px solid #ddd;
+          -webkit-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+          -moz-box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1);
+          box-shadow: 0 2px 10px 0 rgba(0, 0, 0, 0.1); }
           .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text h3 {
-            color: #fff; }
+            color: #242424;
+            font-size: 1em;
+            font-weight: 800;
+            padding-top: 15px; }
+          .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text h5 {
+            color: #242424;
+            font-size: 14px;
+            padding-top: 15px; }
+          .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text .review-icons {
+            padding-top: 15px; }
+            .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text .review-icons i {
+              color: #e4b950;
+              transition: .1s; }
+          .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text .cta {
+            display: flex;
+            align-items: center;
+            color: #242424;
+            padding-top: 15px; }
+      .itinerary-section-2 .overlay .destinations-container .content .itinerary-item:hover .review-icons i {
+        color: #000; }
 
 /* itinerary-destination-container */
 .itinerary-destination-container {
@@ -1899,7 +1941,7 @@ a:hover {
             padding-left: 7%;
             display: flex;
             flex-wrap: wrap;
-            margin-bottom: 7px; }
+            margin-bottom: 15px; }
             .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content .itinerary-included-items .item {
               display: flex;
               align-items: center;
@@ -1913,13 +1955,15 @@ a:hover {
           .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content p {
             -webkit-margin-before: 0em;
             -webkit-margin-after: 0em;
-            text-transform: uppercase;
-            letter-spacing: 2px;
             font-size: 1em;
             padding-left: 7%;
             padding-right: 3%;
             padding-top: 5px;
-            padding-bottom: 5px; }
+            padding-bottom: 5px;
+            margin-bottom: 15px; }
+            .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-desc .content p:not(.locations) {
+              text-transform: uppercase;
+              letter-spacing: 2px; }
       .itinerary-destination-container .itinerary-item-content .overlay .partners-container {
         margin-bottom: 50px; }
         .itinerary-destination-container .itinerary-item-content .overlay .partners-container .images {
@@ -1958,9 +2002,12 @@ a:hover {
             padding: 30px 30px;
             cursor: pointer;
             margin-bottom: 30px;
-            margin-right: 4%; }
+            margin-right: 4%;
+            width: 200px;
+            text-align: center; }
             .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .itinerary-item-explore-elements .itinerary-item-explore-element a {
-              color: #292b2c; }
+              color: #292b2c;
+              white-space: nowrap; }
       .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container {
         margin-bottom: 50px; }
         .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle {
@@ -1976,7 +2023,7 @@ a:hover {
             border-left: 13px solid #f4f4f4;
             display: flex;
             align-items: center;
-            justify-content: space-around; }
+            justify-content: space-between; }
             .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content h3 {
               -webkit-margin-before: 0em;
               -webkit-margin-after: 0em;
@@ -1984,10 +2031,10 @@ a:hover {
               font-size: 2em;
               padding-left: 12%;
               color: #292b2c;
-              margin-right: 7px;
               padding-right: 5%; }
             .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content i {
-              cursor: pointer; }
+              cursor: pointer;
+              padding-left: 2%; }
         .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc {
           margin-left: 7%;
           margin-bottom: 25px; }
@@ -1996,7 +2043,7 @@ a:hover {
             font-size: 1.2em; }
           .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc span {
             text-align: center;
-            color: #62a0ec;
+            color: #385898;
             cursor: pointer;
             display: flex;
             justify-content: flex-start;
@@ -2020,9 +2067,9 @@ a:hover {
           .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .accomodation-item .img img {
             width: 450px;
             height: 300px; }
-        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items span {
+        .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-items .see-less {
           text-align: center;
-          color: #62a0ec;
+          color: #385898;
           cursor: pointer;
           display: flex;
           justify-content: flex-start;
@@ -2038,16 +2085,19 @@ a:hover {
             display: flex;
             align-items: center;
             padding: 25px 0;
-            border-left: 13px solid #f4f4f4; }
+            border-left: 13px solid #f4f4f4;
+            justify-content: space-between; }
             .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content h3 {
               -webkit-margin-before: 0em;
               -webkit-margin-after: 0em;
               letter-spacing: 1px;
               font-size: 2em;
               padding-left: 12%;
-              color: #292b2c; }
+              color: #292b2c;
+              white-space: nowrap; }
             .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content i {
-              cursor: pointer; }
+              cursor: pointer;
+              padding-left: 2%; }
         .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc {
           margin-left: 7%;
           margin-bottom: 25px; }
@@ -2056,7 +2106,7 @@ a:hover {
             font-size: 1.2em; }
           .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc span {
             text-align: center;
-            color: #62a0ec;
+            color: #385898;
             cursor: pointer;
             display: flex;
             justify-content: flex-start;
@@ -2086,7 +2136,7 @@ a:hover {
                 font-size: 1em; }
         .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items span {
           text-align: center;
-          color: #62a0ec;
+          color: #385898;
           cursor: pointer;
           display: flex;
           justify-content: flex-start;
@@ -2106,8 +2156,9 @@ a:hover {
             -webkit-margin-after: 0em;
             letter-spacing: 1px;
             font-size: 2em;
-            padding-left: 12%;
-            color: #292b2c; }
+            padding-left: 8%;
+            color: #292b2c;
+            white-space: nowrap; }
       .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc {
         margin-left: 7%;
         margin-bottom: 25px; }
@@ -2120,6 +2171,36 @@ a:hover {
         .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .what-we-do-list ul {
           padding: 25px 0;
           list-style-type: square; }
+
+/* image-slide */
+.image-slide {
+  position: relative;
+  width: 450px; }
+  .image-slide .buttons {
+    position: absolute;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    top: 118px;
+    opacity: 0.4;
+    transition: 0.5s; }
+    .image-slide .buttons button {
+      color: #fff;
+      background: rgba(10, 10, 10, 0.3);
+      border: none;
+      cursor: pointer;
+      outline: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center; }
+      .image-slide .buttons button i {
+        font-size: 4em; }
+    .image-slide .buttons button:disabled {
+      color: #c4c4c4; }
+
+.image-slide:hover .buttons {
+  opacity: 1; }
 
 /* dashboard-section-2 */
 .dashboard-section-2 {
@@ -2654,7 +2735,7 @@ a:hover {
     height: 250px; } }
 
 @media screen and (max-width: 718px) {
-  .home-section-7 a .overlay .text h3 {
+  .shop-banner-link a .overlay .text h3 {
     font-size: 1.8em; } }
 
 @media screen and (max-width: 686px) {
@@ -2710,11 +2791,11 @@ a:hover {
     width: 100%; } }
 
 @media screen and (max-width: 590px) {
-  .home-section-7 a .overlay .text {
+  .shop-banner-link a .overlay .text {
     width: 55%; }
-    .home-section-7 a .overlay .text h3 {
+    .shop-banner-link a .overlay .text h3 {
       font-size: 1.4em; }
-    .home-section-7 a .overlay .text .shop-btn {
+    .shop-banner-link a .overlay .text .shop-btn {
       font-size: 1.2em; } }
 
 @media screen and (max-width: 586px) {
@@ -2832,7 +2913,11 @@ a:hover {
     height: 250px; }
   .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .img-container img {
     width: 100%;
-    height: 250px; } }
+    height: 250px; }
+  .image-slide {
+    width: 100%; }
+    .image-slide .buttons {
+      top: 90px; } }
 
 @media screen and (max-width: 460px) {
   .home-section-1 .overlay .left-container .text {
@@ -2867,11 +2952,11 @@ a:hover {
     flex-direction: column; } }
 
 @media screen and (max-width: 430px) {
-  .home-section-7 a .overlay .text {
+  .shop-banner-link a .overlay .text {
     width: 60%; }
-    .home-section-7 a .overlay .text h3 {
+    .shop-banner-link a .overlay .text h3 {
       font-size: 1.2em; }
-    .home-section-7 a .overlay .text .shop-btn {
+    .shop-banner-link a .overlay .text .shop-btn {
       font-size: 1em;
       padding: 0; } }
 
@@ -2888,6 +2973,22 @@ a:hover {
   .single-trip-section-2 .overlay .single-trip .side-panel {
     width: 100%;
     margin-left: 40%; } }
+
+@media screen and (max-width: 410px) {
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-explore .title .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subtitle .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .accomodation-container .accomodation-subdesc p {
+    font-size: 1em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .title .content h3 {
+    font-size: 1.4em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .desc p {
+    font-size: 1em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .title .content h3 {
+    font-size: 1.5em; }
+  .itinerary-destination-container .itinerary-item-content .overlay .itinerary-item-what-we-do .desc p {
+    font-size: 1em; } }
 
 @media screen and (max-width: 405px) {
   .home-section-3 .so-you-want .content h3 {
