@@ -33,6 +33,7 @@ import SignupSection1 from './components/sign-up/signup-section-1.js';
 import SignupSection2 from './components/sign-up/signup-section-2.js';
 // dashboard
 import Dashboard from './components/dashboard/dashboard.js';
+import ClientItinerary from './components/dashboard/client-itinerary';
 // blog
 import Blog from './components/blog/blog.js';
 import SinglePost from './components/blog/single-post.js';
@@ -122,6 +123,10 @@ class App extends Component {
             {/* /dashboard */}
             <Switch>
               <PrivateRoute exact path="/dashboard" component={ Dashboard } />
+            </Switch>
+            {/* /dashboard/itinerary/:clientItinerary */}
+            <Switch>
+              <Route exact path="/dashboard/itinerary/:destination" render={(props) => <ClientItinerary {...props} itinerary={itinerariesData} />} />
             </Switch>
             {/* /manage-profile */}
             <Switch>

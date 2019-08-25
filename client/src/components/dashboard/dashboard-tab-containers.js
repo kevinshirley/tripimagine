@@ -10,6 +10,7 @@ import DashTabContainer5 from './dashboard-tab-containers/dash-tab-container-5';
 import DashTabContainer6 from './dashboard-tab-containers/dash-tab-container-6';
 import DashTabContainer7 from './dashboard-tab-containers/dash-tab-container-7';
 import DashTabContainer8 from './dashboard-tab-containers/dash-tab-container-8';
+import DashTabContainer9 from './dashboard-tab-containers/dash-tab-container-9';
 
 class DashboardTabContainers extends Component {
   constructor() {
@@ -114,6 +115,13 @@ class DashboardTabContainers extends Component {
           <div id="dash-container_8" className="dash-container">
             <Fade bottom>
               <DashTabContainer8 isAdmin={isAdmin} />
+            </Fade>
+          </div>
+        }
+        {isAdmin && 
+          <div id="dash-container_9" className="dash-container">
+            <Fade bottom>
+              <DashTabContainer9 isAdmin={isAdmin} />
             </Fade>
           </div>
         }

@@ -23,7 +23,7 @@ class DashTabContainer8 extends Component {
   }
 
   render() {
-    const profiles = this.props.profile.profiles;
+    const profiles = this.props.isAdmin ? this.props.profile.profiles : null;
     // console.log(profiles);
     return (
       <div className="dash-tab-container-8">
