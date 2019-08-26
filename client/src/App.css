@@ -1884,7 +1884,8 @@ a:hover {
             color: #242424;
             font-size: 1em;
             font-weight: 800;
-            padding-top: 15px; }
+            padding-top: 15px;
+            line-height: 25px; }
           .itinerary-section-2 .overlay .destinations-container .content .itinerary-item .text h5 {
             color: #242424;
             font-size: 14px;
@@ -2134,7 +2135,15 @@ a:hover {
               padding-inline-start: 40px; }
               .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text ul li {
                 font-size: 1em; }
-        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items span {
+          .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text .content {
+            padding: 25px 0;
+            border-left: 13px solid #f4f4f4; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text .content p {
+              font-size: 1em;
+              padding-left: 3%; }
+            .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .day .text .content ul {
+              list-style-type: square; }
+        .itinerary-destination-container .itinerary-item-content .overlay .day-to-day-container .day-to-day-items .see-less {
           text-align: center;
           color: #385898;
           cursor: pointer;
@@ -2172,6 +2181,7 @@ a:hover {
           padding: 25px 0;
           list-style-type: square; }
 
+/* client-itineraries */
 /* image-slide */
 .image-slide {
   position: relative;

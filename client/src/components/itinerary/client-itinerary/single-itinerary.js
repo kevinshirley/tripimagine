@@ -6,7 +6,7 @@ import html2pdf from 'html2pdf.js';
 
 import ItinerarySection3 from '../../itinerary/itinerary-section-3';
 import { ButtonUrl } from '../../common/common-button';
-import ClientItinerary1 from './client-itinerary-1';
+import ClientItinerary1 from '../itinerary-section-1';
 import { getClientItineraries } from '../../../actions/itineraryActions';
 import ReadMoreText from '../../common/read-more-text';
 import MediaSlider from '../../common/image-slider';
@@ -14,7 +14,7 @@ import MediaSlider from '../../common/image-slider';
 import virtuoso from '../../../assets/img/virtuoso_bnw_logo.png';
 import fourSeasons from '../../../assets/img/four-seasons-preferred-partner.png';
 
-class ClientItinerary extends Component {
+class SingleItinerary extends Component {
   constructor() {
     super();
 
@@ -44,7 +44,8 @@ class ClientItinerary extends Component {
 
   render() {
     const { clientItineraries } = this.props.itinerary;
-		const url = this.props.location.pathname.substr(21);
+    const url = this.props.location.pathname.substr(18);
+    console.log(url);
 		let selectedItineraryData = clientItineraries.filter(itinerary => itinerary.itineraryPageUrl === url);
 		selectedItineraryData = selectedItineraryData[0];
     console.log(selectedItineraryData); 
@@ -95,7 +96,7 @@ class ClientItinerary extends Component {
     return (
       <section className="itinerary-destination-container">
         <ClientItinerary1 />
-        <ButtonUrl name="Back" url="/dashboard" icon="arrow_back" />
+        <ButtonUrl name="Back" url="/client/itinerary" icon="arrow_back" />
         <div className="itinerary-item-content">
           <div className="overlay">
     
@@ -255,24 +256,50 @@ class ClientItinerary extends Component {
               </div>
               
               <div className="day-to-day-items" style={{ display: !this.state.isDaytodayOpen ? 'none' : 'block' }}>
-                {dayToDay && dayToDay.map((day, i) => (
-                  <div className="day" key={i}>
-                    <div className="day-title">
-                      <Fade bottom><h4>{day.name}</h4></Fade>
-                    </div>
-                    <div className="img-container">
-                      <MediaSlider images={day.images} />
-                    </div>
+                {dayToDay && dayToDay.map((day, i) => {
+                  let shortDayToDayDescription;
+                  let mediumDayToDayDescription;
+                  let dayToDayDescription = day.content;
     
-                    <div className="text">
-                      <ul>
-                      {day.list && day.list.map((content, i) => (
-                        <li key={i}>{content}</li>
-                      ))}
-                      </ul>
+                  if (dayToDayDescription && dayToDayDescription.length > 500) {
+                    shortDayToDayDescription = dayToDayDescription.substr(0, 500) + " ... ";
+                  }
+    
+                  if (dayToDayDescription && dayToDayDescription.length > 1200) {
+                    mediumDayToDayDescription = dayToDayDescription.substr(0, 1200) + " ... ";
+                  }
+
+                  return (
+                    <div className="day" key={i}>
+                      <div className="day-title">
+                        <Fade bottom><h4>{day.name}</h4></Fade>
+                      </div>
+                      <div className="img-container">
+                        <MediaSlider images={day.images} />
+                      </div>
+      
+                      <div className="text">
+                        <ul>
+                        {day.list && day.list.map((content, i) => (
+                          <li key={i}>{content}</li>
+                        ))}
+                        </ul>
+                      </div>
+  
+                      <div className="text">
+                        <div className="content">
+                          <p>{shortDayToDayDescription ? (
+                              <ReadMoreText 
+                                short={shortDayToDayDescription}
+                                medium={mediumDayToDayDescription}
+                                long={dayToDayDescription}
+                              />
+                            ) : dayToDayDescription}</p>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })}
                 <span className='see-less' onClick={() => {
                   this.setState(prevState => ({
                     isDaytodayOpen: !prevState.isDaytodayOpen
@@ -338,7 +365,7 @@ class ClientItinerary extends Component {
   }
 }
 
-ClientItinerary.proptypes = {
+SingleItinerary.proptypes = {
   getClientItineraries: PropTypes.func.isRequired,
 };
 
@@ -346,4 +373,4 @@ const mapStateToProps = (state) => ({
 	itinerary: state.itinerary,
 });
 
-export default connect(mapStateToProps, { getClientItineraries })(ClientItinerary);
+export default connect(mapStateToProps, { getClientItineraries })(SingleItinerary);

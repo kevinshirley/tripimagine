@@ -9,7 +9,7 @@ class ItinerarySection1 extends Component {
 
           <div className="title-container">
             <div className="content">
-              <Fade bottom><h2>Tours Packages</h2></Fade>
+              <Fade bottom><h2>Travel Packages</h2></Fade>
             </div>
           </div>
           

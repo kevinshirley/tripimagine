@@ -287,7 +287,7 @@ class ItineraryDestination extends Component {
 						<div className="itinerary-item-what-we-do" id="what-we-do">
 							<div className="title">
 								<div className="content">
-									<h3>Terms and Conditions</h3>
+									<h3>Terms of service</h3>
 								</div>
 							</div>
 

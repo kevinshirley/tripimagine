@@ -2398,6 +2398,7 @@ a {
 							font-size: 1em;
 							font-weight: 800;
 							padding-top: 15px;
+							line-height: 25px;
 						}
 						h5 {
 							color: $color_6;
@@ -2726,8 +2727,21 @@ a {
 								}
 							}
 						}
+						.text {
+							.content {
+								padding: 25px 0;
+								border-left: 13px solid #f4f4f4;
+								p {
+									font-size: 1em;
+									padding-left: 3%;
+								}
+								ul {
+									list-style-type: square;
+								}
+							}
+						}
 					}
-					span {
+					.see-less {
 						text-align: center;
 						color: $linkColor;
 						cursor: pointer;
@@ -2779,6 +2793,19 @@ a {
 		}
 	}
 }
+
+/* client-itineraries */
+// .client-itineraries {
+// 	.overlay {
+// 		.destinations-container {
+// 			.content {
+// 				.itinerary-item {
+// 					// margin-bottom: 350px;
+// 				}
+// 			}
+// 		}
+// 	}
+// }
 
 /* image-slide */
 .image-slide {

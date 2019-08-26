@@ -33,7 +33,7 @@ function MediaSlider({images}) {
 
   return (
     <div className="image-slide">
-      {slide.contentType.includes('video') ? <VideoSlide video={slide} /> : <ImageSlide image={slide} />}
+      {slide && slide.contentType.includes('video') ? <VideoSlide video={slide} /> : <ImageSlide image={slide} />}
       <div className="buttons">
         <button onClick={() => prevSlide()} disabled={slide.index === 0}>
           <i className="material-icons">keyboard_arrow_left</i>
