@@ -42,6 +42,10 @@ class DashboardTabsMenu extends Component {
           <button className="tab list-group-item list-group-item-action" id="_8" onClick={this.changeTabs}><i className="fas fa-user-circle"></i>&nbsp;&nbsp; <span className="label">All Profiles</span></button>
         }
 
+        {isAdmin && 
+          <button className="tab list-group-item list-group-item-action" id="_9" onClick={this.changeTabs}><i className="fas fa-user-circle"></i>&nbsp;&nbsp; <span className="label">Client Itineraries</span></button>
+        }
+
         <button className="tab list-group-item list-group-item-action" id="_2" onClick={this.changeTabs}><i className="fas fa-plane"></i>&nbsp;&nbsp; <span className="label">My Trips</span></button>
 
         <button className="tab list-group-item list-group-item-action"  id="_3" onClick={this.changeTabs}><i className="far fa-newspaper"></i>&nbsp;&nbsp; <span className="label">Feed</span></button>

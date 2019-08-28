@@ -25,7 +25,7 @@ export const uploadFIle = (file) => dispatch => {
 }
 
 export const getFiles = (userId) => dispatch => {
-  let url = 'http://localhost:5000/files/'+userId;
+  let url = 'http://www.tripimagine.com:5000/files/'+userId;
   // #deploymentVariableToChange
   const options = {
     method: 'GET',

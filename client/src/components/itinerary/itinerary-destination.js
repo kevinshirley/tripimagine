@@ -6,7 +6,7 @@ import ItinerarySection1 from './itinerary-section-1';
 import ItinerarySection3 from './itinerary-section-3';
 import { ButtonUrl } from '../common/common-button';
 import Fade from 'react-reveal/Fade';
-import ImageSlider from '../common/image-slider';
+import MediaSlider from '../common/image-slider';
 import ReadMoreText from '../common/read-more-text';
 
 import virtuoso from '../../assets/img/virtuoso_bnw_logo.png';
@@ -189,7 +189,7 @@ class ItineraryDestination extends Component {
 											</div>
 	
 											<div className="img">
-												<ImageSlider images={accomodation.images} />
+												<MediaSlider images={accomodation.images} />
 											</div>
 	
 											<div className="text">
@@ -242,7 +242,7 @@ class ItineraryDestination extends Component {
 											<Fade bottom><h4>{day.name}</h4></Fade>
 										</div>
 										<div className="img-container">
-											<ImageSlider images={day.images} />
+											<MediaSlider images={day.images} />
 										</div>
 
 										<div className="text">
@@ -287,7 +287,7 @@ class ItineraryDestination extends Component {
 						<div className="itinerary-item-what-we-do" id="what-we-do">
 							<div className="title">
 								<div className="content">
-									<h3>Terms and Conditions</h3>
+									<h3>Terms of service</h3>
 								</div>
 							</div>
 

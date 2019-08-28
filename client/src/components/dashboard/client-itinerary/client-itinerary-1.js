@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Fade from 'react-reveal/Fade';
 
-class ItinerarySection1 extends Component {
+class ClientItinerary1 extends Component {
   render() {
 		return (
 			<section className="header-section">
@@ -9,7 +9,7 @@ class ItinerarySection1 extends Component {
 
           <div className="title-container">
             <div className="content">
-              <Fade bottom><h2>Travel Packages</h2></Fade>
+              <Fade bottom><h2>Client Itinerary</h2></Fade>
             </div>
           </div>
           
@@ -19,4 +19,4 @@ class ItinerarySection1 extends Component {
 	}
 }
 
-export default ItinerarySection1;
+export default ClientItinerary1;
