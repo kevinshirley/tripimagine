@@ -47,7 +47,7 @@ class ClientItinerary extends Component {
 		const url = this.props.location.pathname.substr(21);
 		let selectedItineraryData = clientItineraries.filter(itinerary => itinerary.itineraryPageUrl === url);
 		selectedItineraryData = selectedItineraryData[0];
-    console.log(selectedItineraryData); 
+    // console.log(selectedItineraryData); 
 
     let title;
 		let coverImage;
@@ -83,7 +83,7 @@ class ClientItinerary extends Component {
 			included = selectedItineraryData.included;
 			termsAndConditions = selectedItineraryData.itineraryTermsAndConditions;
     }
-    
+
     if (overview && overview.length > 500) {
 			shortOverview = overview.substr(0, 500) + " ... ";
 		}
@@ -200,7 +200,7 @@ class ClientItinerary extends Component {
                   if (accomodationDescription && accomodationDescription.length > 1200) {
                     mediumAccomodationDescription = accomodationDescription.substr(0, 1200) + " ... ";
                   }
-    
+
                   return (
                     <div className="accomodation-item" key={i}>
                       <div className="title">
@@ -222,6 +222,13 @@ class ClientItinerary extends Component {
                           ) : accomodationDescription}</p>
                         </div>
                       </div>
+                      {accomodation && accomodation.accommodationWebLink && false && (
+                        <div className="text">
+                          <div className="content">
+                            <p>Link: <a href={accomodation.accommodationWebLink} target="_blank">{accomodation.accommodationWebLink}</a></p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}

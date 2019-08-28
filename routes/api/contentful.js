@@ -172,7 +172,7 @@ router.get('/client', (req, res) => {
           let newAccomodationImages = [];
           let newAccomodations = [];
           let newSingleAccomodationImage;
-
+          
           accomodations = item.fields.accomodations;
           accomodations.map(accomodation => {
             accomodationImages = accomodation.fields.images;
@@ -188,6 +188,7 @@ router.get('/client', (req, res) => {
               name: accomodation.fields.name,
               images: accomodation.fields.images ? accomodation.fields.images : null,
               description: accomodation.fields.description,
+              accommodationWebLink: accomodation.fields.accommodationWebLink ? accomodation.fields.accommodationWebLink : '',
             });
           });
           item.fields.accomodations = newAccomodations;

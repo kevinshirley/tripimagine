@@ -45,10 +45,9 @@ class SingleItinerary extends Component {
   render() {
     const { clientItineraries } = this.props.itinerary;
     const url = this.props.location.pathname.substr(18);
-    console.log(url);
 		let selectedItineraryData = clientItineraries.filter(itinerary => itinerary.itineraryPageUrl === url);
 		selectedItineraryData = selectedItineraryData[0];
-    console.log(selectedItineraryData); 
+    // console.log(selectedItineraryData);
 
     let title;
 		let coverImage;
@@ -201,7 +200,7 @@ class SingleItinerary extends Component {
                   if (accomodationDescription && accomodationDescription.length > 1200) {
                     mediumAccomodationDescription = accomodationDescription.substr(0, 1200) + " ... ";
                   }
-    
+
                   return (
                     <div className="accomodation-item" key={i}>
                       <div className="title">
@@ -223,6 +222,13 @@ class SingleItinerary extends Component {
                           ) : accomodationDescription}</p>
                         </div>
                       </div>
+                      {accomodation && accomodation.accommodationWebLink && false && (
+                        <div className="text">
+                          <div className="content">
+                            <p>Link: <a href={accomodation.accommodationWebLink} target="_blank">{accomodation.accommodationWebLink}</a></p>
+                          </div>
+                        </div>
+                      )}
                     </div>
                   );
                 })}
