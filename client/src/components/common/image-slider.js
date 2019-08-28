@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PropTypes from 'prop-types';
+import shuffle from '../common/shuffle-array';
 
 function ImageSlide({image}) {
   return (
@@ -7,9 +8,9 @@ function ImageSlide({image}) {
   );
 }
 
-function VideoSlide({video}) {
+function VideoSlide({video, poster}) {
   return (
-    <video controls loop>
+    <video controls loop poster={poster}>
       <source src={video.url} type={video.contentType} />
       <source src={video.url} type={video.contentType} />
       Your browser does not support HTML5 video.
@@ -19,6 +20,7 @@ function VideoSlide({video}) {
 
 function MediaSlider({images}) {
   const [slides] = useState(images);
+  const [shuffledSlides] = useState(slides);
   const [slide, setSlide] = useState(slides[0]);
 
   const prevSlide = () => {
@@ -31,9 +33,18 @@ function MediaSlider({images}) {
     setSlide(slides[newIndex]);
   }
 
+  const getVideoPoster = slides => {
+    const newSlides = [...slides];
+    const slidesShuffled = shuffle(newSlides);
+    const posterObj = slidesShuffled.find(obj => obj.contentType.includes('image'));
+    return posterObj.url;
+  }
+
+  const videoPoster = getVideoPoster(shuffledSlides);
+
   return (
     <div className="image-slide">
-      {slide && slide.contentType.includes('video') ? <VideoSlide video={slide} /> : <ImageSlide image={slide} />}
+      {slide && slide.contentType.includes('video') ? <VideoSlide video={slide} poster={videoPoster} /> : <ImageSlide image={slide} />}
       <div className="buttons">
         <button onClick={() => prevSlide()} disabled={slide.index === 0}>
           <i className="material-icons">keyboard_arrow_left</i>
