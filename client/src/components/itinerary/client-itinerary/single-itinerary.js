@@ -64,7 +64,7 @@ class SingleItinerary extends Component {
 		let dayToDay;
 		let whatWeDoOverviewText;
 		let whatWeDo;
-		let termsAndConditions;
+		let termsOfService;
 
 		if (selectedItineraryData) {
 			title = selectedItineraryData.title;
@@ -81,9 +81,9 @@ class SingleItinerary extends Component {
 			whatWeDoOverviewText = selectedItineraryData.whatWeDoOverviewText;
 			whatWeDo = selectedItineraryData.whatWeDo;
 			included = selectedItineraryData.included;
-			termsAndConditions = selectedItineraryData.itineraryTermsAndConditions;
+			termsOfService = selectedItineraryData.termsOfService;
     }
-    
+
     if (overview && overview.length > 500) {
 			shortOverview = overview.substr(0, 500) + " ... ";
 		}
@@ -137,16 +137,16 @@ class SingleItinerary extends Component {
                 ) : overview}</p></Fade>
               </div>
             </div>
-    
+
             <div className="partners-container">
               <div className="images">
                 <img src={virtuoso} alt="Trip Imagine Virtuoso Member"/>
                 <img src={fourSeasons} alt="Trip Imagine Four Seasons Preferred Partner"/>
               </div>
             </div>
-    
+
             <ItinerarySection3 />
-    
+
             {/* <div className="itinerary-item-explore">
               <div className="title">
                 <div className="content">
@@ -169,7 +169,7 @@ class SingleItinerary extends Component {
             <div className="accomodation-container" id="accomodations">
               <div className="accomodation-subtitle">
                 <div className="content">
-                  <h3>Accomodations&nbsp;&nbsp;</h3>
+                  <h3>Accommodations&nbsp;&nbsp;</h3>
                   <i className="material-icons" onClick={() => {
                     this.setState(prevState => ({
                       isAccomodationOpen: !prevState.isAccomodationOpen
@@ -251,7 +251,7 @@ class SingleItinerary extends Component {
                   }}>{!this.state.isDaytodayOpen ? 'add_circle_outline' : 'remove_circle_outline'}</i>
                 </div>
               </div>
-    
+
               <div className="desc">
                 <p>{dayToDayOverview}</p>
                 <span onClick={() => {
@@ -266,11 +266,11 @@ class SingleItinerary extends Component {
                   let shortDayToDayDescription;
                   let mediumDayToDayDescription;
                   let dayToDayDescription = day.content;
-    
+
                   if (dayToDayDescription && dayToDayDescription.length > 500) {
                     shortDayToDayDescription = dayToDayDescription.substr(0, 500) + " ... ";
                   }
-    
+
                   if (dayToDayDescription && dayToDayDescription.length > 1200) {
                     mediumDayToDayDescription = dayToDayDescription.substr(0, 1200) + " ... ";
                   }
@@ -283,7 +283,7 @@ class SingleItinerary extends Component {
                       <div className="img-container">
                         <MediaSlider images={day.images} />
                       </div>
-      
+
                       <div className="text">
                         <ul>
                         {day.list && day.list.map((content, i) => (
@@ -291,7 +291,7 @@ class SingleItinerary extends Component {
                         ))}
                         </ul>
                       </div>
-  
+
                       <div className="text">
                         <div className="content">
                           <p>{shortDayToDayDescription ? (
@@ -313,7 +313,7 @@ class SingleItinerary extends Component {
                 }} style={{ display: !this.state.isDaytodayOpen ? 'none' : '' }}>See Less</span>
               </div>
             </div>
-    
+
             {whatWeDo && (
               <div className="itinerary-item-what-we-do" id="what-we-do">
                 <div className="title">
@@ -321,11 +321,11 @@ class SingleItinerary extends Component {
                     {whatWeDo && <h3>What We Do</h3>}
                   </div>
                 </div>
-      
+
                 <div className="desc">
                   <p>{whatWeDoOverviewText}</p>
                 </div>
-      
+
                 <div className="what-we-do-list">
                   <ul>
                     {whatWeDo && whatWeDo.map((option, i) => (
@@ -335,21 +335,21 @@ class SingleItinerary extends Component {
                 </div>
               </div>
             )}
-    
-            {termsAndConditions && whatWeDo && (
+
+            {termsOfService && whatWeDo && (
               <ItinerarySection3 />
             )}
-    
-            {termsAndConditions && (
+
+            {termsOfService && (
               <div className="itinerary-item-what-we-do" id="what-we-do">
                 <div className="title">
                   <div className="content">
-                    {termsAndConditions && <h3>Terms and Conditions</h3>}
+                    {termsOfService && <h3>Terms of service</h3>}
                   </div>
                 </div>
-      
+
                 <div className="desc">
-                  <p>{termsAndConditions && termsAndConditions}</p>
+                  <p>{termsOfService && termsOfService}</p>
                 </div>
               </div>
             )}
@@ -363,9 +363,9 @@ class SingleItinerary extends Component {
           
           </div>
         </div>
+
         <ItinerarySection3 />
-        {/* <br/>
-        <button onClick={() => this.generatePDF()}>Download as PDF</button> */}
+
       </section>
     );
   }
