@@ -9,7 +9,6 @@ import { getItineraries } from '../../actions/itineraryActions';
 
 class Itinerary extends Component {
 	componentDidMount() {
-		document.title = 'Itinerary | Trip Imagine';
 		this.props.getItineraries();
 	}
 

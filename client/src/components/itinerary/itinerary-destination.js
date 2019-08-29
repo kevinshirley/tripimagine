@@ -18,15 +18,14 @@ class ItineraryDestination extends Component {
     super();
 
     this.state = {
-			isAccomodationOpen: false,
-			isDaytodayOpen: false,
+			isAccomodationOpen: true,
+			isDaytodayOpen: true,
 		};
 	}
 	
 	componentDidMount() {
 		// start react component from the top
 		window.scrollTo(0, 0);
-		document.title = 'Itinerary to Ireland | Trip Imagine';
 
 		this.props.getItineraries();
 	}
@@ -40,6 +39,7 @@ class ItineraryDestination extends Component {
 
 		let title;
 		let coverImage;
+		let coverImageAltText;
 		let overview;
 		let shortOverview;
 		let mediumOverview;
@@ -56,6 +56,7 @@ class ItineraryDestination extends Component {
 		if (selectedItineraryData) {
 			title = selectedItineraryData.title;
 			coverImage = selectedItineraryData.coverImage.url;
+			coverImageAltText = selectedItineraryData.coverImage.title;
 			overview = selectedItineraryData.overview;
 			itineraryLocation = selectedItineraryData.itineraryLocation;
 			accomodationOverview = selectedItineraryData.accomodationOverview;
@@ -75,7 +76,6 @@ class ItineraryDestination extends Component {
 		if (overview && overview.length > 1200) {
 			mediumOverview = overview.substr(0, 1200) + " ... ";
 		}
-
 		return (
 			<section className="itinerary-destination-container">
 				<ItinerarySection1 />
@@ -88,7 +88,7 @@ class ItineraryDestination extends Component {
 						</div>
 
 						<div className="itinerary-item-cover-img">
-							<img src={coverImage} alt="Cliffs of Moher in Ireland"/>
+							<img src={coverImage} alt={coverImageAltText}/>
 						</div>
 
 						<div className="itinerary-item-desc">
