@@ -254,7 +254,7 @@ class ItineraryDestination extends Component {
 										</div>
 									</div>
 								))}
-								<span onClick={() => {
+								<span className='see-less' onClick={() => {
 									this.setState(prevState => ({
 										isDaytodayOpen: !prevState.isDaytodayOpen
 									}))
