@@ -4,6 +4,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import setAuthToken from './utils/setAuthToken';
 import jwt_decode from 'jwt-decode';
+import HttpsRedirect from 'react-https-redirect';
+
 import store from './store';
 import { setCurrentUser, logoutUser } from './actions/authActions';
 import { clearCurrentProfile } from './actions/profileActions';
@@ -105,122 +107,124 @@ class App extends Component {
       }
     });
     return (
-      <Provider store={ store }>
-        <Router>
-          <div className="App">
-            <Menu />
-            {/* /home */}
-            <Route exact path="/" component={ HomeSection1 } />
-            <Route exact path="/" component={ HomeSection2 } />
-            <Route exact path="/" component={ HomeSection3 } />
-            <Route exact path="/" component={ HomeSection4 } />
-            <Route exact path="/" component={ HomeSection5 } />
-            <Route exact path="/" component={ HomeSection6 } />
-            {/* /signin */}
-            <Route exact path="/login" component={ SigninSection1 } />
-            <Route exact path="/login" component={ SigninSection2 } />
-            {/* /signup */}
-            <Route exact path="/register" component={ SignupSection1 } />
-            <Route exact path="/register" component={ SignupSection2 } />
-            {/* /dashboard */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard" component={ Dashboard } />
-            </Switch>
-            {/* /dashboard/itinerary/:clientItinerary */}
-            <Switch>
-              <Route exact path="/dashboard/itinerary/:destination" render={(props) => <ClientItinerary {...props} itinerary={itinerariesData} />} />
-            </Switch>
-            {/* /manage-profile */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard/manage-profile" component={ ManageProfile } />
-            </Switch>
-            {/* /dashboard/manage-profile/:id */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard/manage-profile/:id" component={ ManageProfileId } />
-            </Switch>
-            {/* /manage-trip */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard/manage-trip" component={ ManageTrip } />
-            </Switch>
-            {/* /single-trip */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard/trip/:id" component={ SingleTrip } />
-            </Switch>
-            {/* /single-profile */}
-            <Switch>
-              <PrivateRoute exact path="/dashboard/profile/:id" component={ SingleProfile } />
-            </Switch>
-            {/* /blog */}
-            <Route exact path="/blog" component={ Blog } />
-            {/* /blog/:singlePost */}
-            <Route exact path="/blog/:singlepost" component={ SinglePost } />
-            {/* /contact */}
-            <Route exact path="/contact" component={ ContactSection1 } />
-            <Route exact path="/contact" component={ ContactSection2 } />
-            <Route exact path="/contact" component={ ContactSection3 } />
-            <Route exact path="/contact" component={ ContactSection4 } />
-            {/* /about */}
-            <Route exact path="/about" component={ AboutUsSection1 } />
-            <Route exact path="/about" component={ AboutUsSection2 } />
-            <Route exact path="/about" component={ AboutUsSection3 } />
-            <Route exact path="/about" component={ AboutUsSection4 } />
-            {/* /itinerary */}
-            <Route exact path="/itinerary" component={ Itinerary } />
-            <Route exact path="/itinerary/ireland" component={ IrelandSection } />
-            <Route exact path="/itinerary/italia" component={ ItaliaSection } />
-            <Route exact path="/itinerary/spain-and-portugal" component={ SpainPortugalSection } />
-            <Route exact path="/itinerary/:destination" render={(props) => <ItineraryDestination {...props} itinerary={itinerariesData} />} />
-            <Route exact path="/client/itinerary" component={ ClientItineraries } />
-            <Route exact path="/client/itinerary/:destination" render={(props) => <SingleItinerary {...props} itinerary={itinerariesData} />} />
-            {/* /atlas */}
-            <Route exact path="/atlas" component={ AtlasSection1 } />
-            <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas" component={ AtlasSection3 } />
-            {/* /atlas/africa */}
-            <Route exact path="/atlas/africa" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/africa" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/africa" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/antarctica */}
-            <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/asia */}
-            <Route exact path="/atlas/asia" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/asia" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/asia" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/carribean */}
-            <Route exact path="/atlas/carribean" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/carribean" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/carribean" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/central-america */}
-            <Route exact path="/atlas/central-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/central-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/central-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/europe */}
-            <Route exact path="/atlas/europe" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/europe" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/europe" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/middle-east */}
-            <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/north-america */}
-            <Route exact path="/atlas/north-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/north-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/north-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/south-america */}
-            <Route exact path="/atlas/south-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/south-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/south-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            {/* /atlas/south-pacific */}
-            <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
-            <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
-            <Route render={(props) => <HomeSection7 {...props} />} />
-            <Footer />
-          </div>
-        </Router>
-      </Provider>
+      <HttpsRedirect>
+        <Provider store={ store }>
+          <Router>
+            <div className="App">
+              <Menu />
+              {/* /home */}
+              <Route exact path="/" component={ HomeSection1 } />
+              <Route exact path="/" component={ HomeSection2 } />
+              <Route exact path="/" component={ HomeSection3 } />
+              <Route exact path="/" component={ HomeSection4 } />
+              <Route exact path="/" component={ HomeSection5 } />
+              <Route exact path="/" component={ HomeSection6 } />
+              {/* /signin */}
+              <Route exact path="/login" component={ SigninSection1 } />
+              <Route exact path="/login" component={ SigninSection2 } />
+              {/* /signup */}
+              <Route exact path="/register" component={ SignupSection1 } />
+              <Route exact path="/register" component={ SignupSection2 } />
+              {/* /dashboard */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard" component={ Dashboard } />
+              </Switch>
+              {/* /dashboard/itinerary/:clientItinerary */}
+              <Switch>
+                <Route exact path="/dashboard/itinerary/:destination" render={(props) => <ClientItinerary {...props} itinerary={itinerariesData} />} />
+              </Switch>
+              {/* /manage-profile */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard/manage-profile" component={ ManageProfile } />
+              </Switch>
+              {/* /dashboard/manage-profile/:id */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard/manage-profile/:id" component={ ManageProfileId } />
+              </Switch>
+              {/* /manage-trip */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard/manage-trip" component={ ManageTrip } />
+              </Switch>
+              {/* /single-trip */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard/trip/:id" component={ SingleTrip } />
+              </Switch>
+              {/* /single-profile */}
+              <Switch>
+                <PrivateRoute exact path="/dashboard/profile/:id" component={ SingleProfile } />
+              </Switch>
+              {/* /blog */}
+              <Route exact path="/blog" component={ Blog } />
+              {/* /blog/:singlePost */}
+              <Route exact path="/blog/:singlepost" component={ SinglePost } />
+              {/* /contact */}
+              <Route exact path="/contact" component={ ContactSection1 } />
+              <Route exact path="/contact" component={ ContactSection2 } />
+              <Route exact path="/contact" component={ ContactSection3 } />
+              <Route exact path="/contact" component={ ContactSection4 } />
+              {/* /about */}
+              <Route exact path="/about" component={ AboutUsSection1 } />
+              <Route exact path="/about" component={ AboutUsSection2 } />
+              <Route exact path="/about" component={ AboutUsSection3 } />
+              <Route exact path="/about" component={ AboutUsSection4 } />
+              {/* /itinerary */}
+              <Route exact path="/itinerary" component={ Itinerary } />
+              <Route exact path="/itinerary/ireland" component={ IrelandSection } />
+              <Route exact path="/itinerary/italia" component={ ItaliaSection } />
+              <Route exact path="/itinerary/spain-and-portugal" component={ SpainPortugalSection } />
+              <Route exact path="/itinerary/:destination" render={(props) => <ItineraryDestination {...props} itinerary={itinerariesData} />} />
+              <Route exact path="/client/itinerary" component={ ClientItineraries } />
+              <Route exact path="/client/itinerary/:destination" render={(props) => <SingleItinerary {...props} itinerary={itinerariesData} />} />
+              {/* /atlas */}
+              <Route exact path="/atlas" component={ AtlasSection1 } />
+              <Route exact path="/atlas" render={(props) => <AtlasSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas" component={ AtlasSection3 } />
+              {/* /atlas/africa */}
+              <Route exact path="/atlas/africa" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/africa" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/africa" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/antarctica */}
+              <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/antarctica" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/asia */}
+              <Route exact path="/atlas/asia" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/asia" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/asia" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/carribean */}
+              <Route exact path="/atlas/carribean" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/carribean" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/carribean" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/central-america */}
+              <Route exact path="/atlas/central-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/central-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/central-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/europe */}
+              <Route exact path="/atlas/europe" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/europe" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/europe" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/middle-east */}
+              <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/middle-east" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/north-america */}
+              <Route exact path="/atlas/north-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/north-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/north-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/south-america */}
+              <Route exact path="/atlas/south-america" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/south-america" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/south-america" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              {/* /atlas/south-pacific */}
+              <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection1 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection2 {...props} destinations={destinations} />} />
+              <Route exact path="/atlas/south-pacific" render={(props) => <ContinentSection3 {...props} destinations={destinations} />} />
+              <Route render={(props) => <HomeSection7 {...props} />} />
+              <Footer />
+            </div>
+          </Router>
+        </Provider>
+      </HttpsRedirect>
     );
   }
 }

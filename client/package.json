@@ -21,6 +21,7 @@
     "ramda": "^0.26.1",
     "react": "^16.4.1",
     "react-dom": "^16.4.1",
+    "react-https-redirect": "^1.1.0",
     "react-paginate": "^6.0.0",
     "react-redux": "^5.0.7",
     "react-reveal": "^1.2.2",
