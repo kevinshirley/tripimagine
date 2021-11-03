@@ -51,7 +51,7 @@
     "passport-jwt": "^4.0.0",
     "react-swipeable-views": "^0.13.0",
     "unsplash-js": "^4.8.0",
-    "validator": "^10.4.0"
+    "validator": "^13.7.0"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
