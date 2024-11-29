@@ -38,10 +38,7 @@ import ClientItinerary from './components/dashboard/client-itinerary';
 import Blog from './components/blog/blog.js';
 import SinglePost from './components/blog/single-post.js';
 // contact
-import ContactSection1 from './components/contact/contact-section-1.js';
-import ContactSection2 from './components/contact/contact-section-2.js';
-import ContactSection3 from './components/contact/contact-section-3.js';
-import ContactSection4 from './components/contact/contact-section-4.js';
+import Contact from './components/contact/contact.js';
 // about-us
 import AboutUsSection1 from './components/about-us/about-us-section-1.js';
 import AboutUsSection2 from './components/about-us/about-us-section-2.js';
@@ -155,10 +152,7 @@ class App extends Component {
             {/* /blog/:singlePost */}
             <Route exact path="/blog/:singlepost" component={ SinglePost } />
             {/* /contact */}
-            <Route exact path="/contact" component={ ContactSection1 } />
-            <Route exact path="/contact" component={ ContactSection2 } />
-            <Route exact path="/contact" component={ ContactSection3 } />
-            <Route exact path="/contact" component={ ContactSection4 } />
+            <Route exact path="/contact" component={ Contact } />
             {/* /about */}
             <Route exact path="/about" component={ AboutUsSection1 } />
             <Route exact path="/about" component={ AboutUsSection2 } />
